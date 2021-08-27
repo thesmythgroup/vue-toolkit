@@ -1,0 +1,21 @@
+//
+// Display
+// ========================================
+
+@each $key, $value in $display {
+  .#{$key} {
+    display: $value;
+  }
+}
+
+//
+// Float
+// ========================================
+
+.float {
+  @each $key, $value in $float {
+    &-#{$key} {
+      float: $value;
+    }
+  }
+}

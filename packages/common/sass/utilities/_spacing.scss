@@ -1,0 +1,55 @@
+//
+// Margin
+// ========================================
+
+.m {
+  @each $key, $value in $spacing {
+    &-#{$key} {
+      margin: $value;
+    }
+
+    &t-#{$key} {
+      margin-top: $value;
+    }
+
+    &r-#{$key} {
+      margin-right: $value;
+    }
+
+    &b-#{$key} {
+      margin-bottom: $value;
+    }
+
+    &l-#{$key} {
+      margin-left: $value;
+    }
+  }
+}
+
+//
+// Padding
+// ========================================
+
+.p {
+  @each $key, $value in $spacing {
+    &-#{$key} {
+      padding: $value;
+    }
+
+    &t-#{$key} {
+      padding-top: $value;
+    }
+
+    &r-#{$key} {
+      padding-right: $value;
+    }
+
+    &b-#{$key} {
+      padding-bottom: $value;
+    }
+
+    &l-#{$key} {
+      padding-left: $value;
+    }
+  }
+}

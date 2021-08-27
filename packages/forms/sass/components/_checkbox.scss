@@ -1,0 +1,11 @@
+@import './_variables';
+
+.checkbox {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+
+  &__input {
+    margin-right: 0.5rem;
+  }
+}

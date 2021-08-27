@@ -1,0 +1,16 @@
+{
+  "name": "vue-toolkit",
+  "private": true,
+  "scripts": {
+    "lerna": "lerna",
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "lint": "lerna exec npm run lint",
+    "test:unit": "lerna exec npm run test:unit",
+    "build": "lerna exec npm run build",
+    "format": "lerna exec npm run format"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

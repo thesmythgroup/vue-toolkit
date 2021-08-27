@@ -1,0 +1,19 @@
+@import './_variables';
+
+.card {
+  border: 1px solid $gray;
+
+  &__header {
+    padding: 1rem;
+    border-bottom: 1px solid $gray;
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+
+  &__footer {
+    padding: 1rem;
+    border-top: 1px solid $gray;
+  }
+}

@@ -1,0 +1,11 @@
+//
+// Opacity
+// ========================================
+
+.opacity {
+  @each $key, $value in $opacity {
+    &-#{$key} {
+      opacity: $value;
+    }
+  }
+}

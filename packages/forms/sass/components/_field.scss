@@ -1,0 +1,19 @@
+@import './_variables';
+
+.field {
+  margin-bottom: 1rem;
+
+  &__label {
+    font-weight: bold;
+  }
+}
+
+.hint {
+  margin: 0;
+  color: $hint-color;
+}
+
+.error {
+  margin: 0;
+  color: $error-color;
+}

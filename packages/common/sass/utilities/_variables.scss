@@ -1,0 +1,167 @@
+//
+// Layout
+// ========================================
+
+$display: (
+  'block': block,
+  'flex': flex,
+  'grid': grid,
+  'inline': inline,
+  'inline-block': inline-block,
+) !default;
+
+$float: (
+  'left': left,
+  'right': right,
+  'none': none,
+) !default;
+
+//
+// Flex
+// ========================================
+
+$flex: (
+  '1': 1 1 0%,
+  'auto': 1 1 auto,
+  'initial': 0 1 auto,
+  'none': none,
+) !default;
+
+$flex-direction: (
+  'column': column,
+  'column-reverse': column-reverse,
+  'row': row,
+  'row-reverse': row-reverse,
+) !default;
+
+$flex-wrap: (
+  'wrap': wrap,
+  'wrap-reverse': wrap-reverse,
+  'nowrap': nowrap,
+) !default;
+
+$justify-content: (
+  'around': space-around,
+  'between': space-between,
+  'center': center,
+  'end': flex-end,
+  'evenly': space-evenly,
+  'start': flex-start,
+) !default;
+
+$align-items: (
+  'around': space-around,
+  'between': space-between,
+  'center': center,
+  'end': flex-end,
+  'evenly': space-evenly,
+  'start': flex-start,
+) !default;
+
+//
+// Effects
+// ========================================
+
+$opacity: (
+  '0': 0,
+  '25': 0.25,
+  '50': 0.5,
+  '75': 0.75,
+  '100': 1,
+) !default;
+
+//
+// Sizing
+// ========================================
+
+$min-height: (
+  '0': 0px,
+  'full': 100%,
+  'screen': 100vh,
+) !default;
+
+$min-width: (
+  '0': 0px,
+  'full': 100%,
+  'min': min-content,
+  'max': max-content,
+) !default;
+
+$height: (
+  'auto': auto,
+  'full': 100%,
+  'screen': 100vw,
+) !default;
+
+$width: (
+  'auto': auto,
+  'full': 100%,
+  'screen': 100vw,
+  'min': min-content,
+  'max': max-content,
+) !default;
+
+//
+// Spacing
+// ========================================
+
+$spacing: (
+  '0': 0,
+  '1': 0.25rem,
+  '2': 0.5rem,
+  '3': 0.75rem,
+  '4': 1rem,
+  '6': 1.5rem,
+  '8': 2rem,
+  '12': 3rem,
+  '16': 4rem,
+  '20': 5rem,
+  '24': 6rem,
+  '28': 7rem,
+  '32': 8rem,
+) !default;
+
+//
+// Table
+// ========================================
+
+$border-collapse: (
+  'collapse': collapse,
+  'separate': separate,
+) !default;
+
+$table-layout: (
+  'none': none,
+  'fixed': fixed,
+) !default;
+
+//
+// Typography
+// ========================================
+
+$font-size: (
+  '1': 2.5rem,
+  '2': 2rem,
+  '3': 1.75rem,
+  '4': 1.5rem,
+  '5': 1.25rem,
+  '6': 1rem,
+) !default;
+
+$font-weight: (
+  'light': 300,
+  'normal': 400,
+  'bold': 700,
+) !default;
+
+$text-alignment: (
+  'start': start,
+  'center': center,
+  'end': end,
+) !default;
+
+$text-transform: (
+  'lowercase': lowercase,
+  'uppercase': uppercase,
+  'capitalize': capitalize,
+) !default;

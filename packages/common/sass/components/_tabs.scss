@@ -1,0 +1,27 @@
+@import './_variables';
+
+.tabs {
+  &__header {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__button {
+    background: none;
+    border: 1px solid $gray;
+    cursor: pointer;
+    outline: 0;
+    padding: 0.5rem 1rem;
+
+    &--active {
+      border-bottom-color: transparent;
+      font-weight: 600;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+  }
+}

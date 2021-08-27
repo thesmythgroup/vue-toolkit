@@ -1,0 +1,47 @@
+//
+// Font size
+// ========================================
+
+.font {
+  @each $key, $value in $font-size {
+    &-#{$key} {
+      font-size: $value;
+    }
+  }
+}
+
+//
+// Font weight
+// ========================================
+
+.font {
+  @each $key, $value in $font-weight {
+    &-#{$key} {
+      font-weight: $value;
+    }
+  }
+}
+
+//
+// Text align
+// ========================================
+
+.text {
+  @each $key, $value in $text-alignment {
+    &-#{$key} {
+      text-align: $value;
+    }
+  }
+}
+
+//
+// Text transform
+// ========================================
+
+.text {
+  @each $key, $value in $text-transform {
+    &-#{$key} {
+      text-transform: $value;
+    }
+  }
+}

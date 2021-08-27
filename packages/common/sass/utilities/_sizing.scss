@@ -1,0 +1,47 @@
+//
+// Min height
+// ========================================
+
+.min-h {
+  @each $key, $value in $min-height {
+    &-#{$key} {
+      min-height: $value;
+    }
+  }
+}
+
+//
+// Min width
+// ========================================
+
+.min-w {
+  @each $key, $value in $min-width {
+    &-#{$key} {
+      min-width: $value;
+    }
+  }
+}
+
+//
+// Height
+// ========================================
+
+.h {
+  @each $key, $value in $height {
+    &-#{$key} {
+      height: $value;
+    }
+  }
+}
+
+//
+// Width
+// ========================================
+
+.w {
+  @each $key, $value in $width {
+    &-#{$key} {
+      width: $value;
+    }
+  }
+}

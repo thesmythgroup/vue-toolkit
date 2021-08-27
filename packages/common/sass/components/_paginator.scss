@@ -1,0 +1,15 @@
+@import './_variables';
+
+.paginator {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &__page-size {
+    margin-right: 1rem;
+  }
+
+  &__range {
+    margin-right: 1rem;
+  }
+}

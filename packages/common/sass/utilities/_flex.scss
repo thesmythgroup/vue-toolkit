@@ -1,0 +1,59 @@
+//
+// Flex
+// ========================================
+
+.flex {
+  @each $key, $value in $flex {
+    &-#{$key} {
+      flex: $value;
+    }
+  }
+}
+
+//
+// Flex direction
+// ========================================
+
+.flex {
+  @each $key, $value in $flex-direction {
+    &-#{$key} {
+      flex-direction: $value;
+    }
+  }
+}
+
+//
+// Flex wrap
+// ========================================
+
+.flex {
+  @each $key, $value in $flex-wrap {
+    &-#{$key} {
+      flex-wrap: $value;
+    }
+  }
+}
+
+//
+// Justify content
+// ========================================
+
+.justify {
+  @each $key, $value in $justify-content {
+    &-#{$key} {
+      justify-content: $value;
+    }
+  }
+}
+
+//
+// Align items
+// ========================================
+
+.items {
+  @each $key, $value in $align-items {
+    &-#{$key} {
+      align-items: $value;
+    }
+  }
+}

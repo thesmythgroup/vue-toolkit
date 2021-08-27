@@ -1,0 +1,13 @@
+@import './_variables';
+
+.popover {
+  position: relative;
+
+  &__content {
+    background-color: $popover-bg;
+    border: 1px solid $gray;
+    left: 0;
+    position: absolute;
+    top: 100%;
+  }
+}

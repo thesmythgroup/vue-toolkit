@@ -1,0 +1,23 @@
+//
+// Border collapse
+// ========================================
+
+.border {
+  @each $key, $value in $border-collapse {
+    &-#{$key} {
+      border-collapse: $value;
+    }
+  }
+}
+
+//
+// Table layout
+// ========================================
+
+.table {
+  @each $key, $value in $table-layout {
+    &-#{$key} {
+      table-layout: $value;
+    }
+  }
+}
