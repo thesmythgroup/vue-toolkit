@@ -1,5 +1,5 @@
 <template>
-  <p class="hint">
+  <p class="field-hint">
     <slot></slot>
   </p>
 </template>
@@ -8,6 +8,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'v-hint',
+  name: 'v-field-hint',
 });
 </script>

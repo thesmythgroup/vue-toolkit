@@ -8,12 +8,12 @@
 
     <v-field label="Example with hint">
       <v-input name="example2"></v-input>
-      <v-hint>Enter something awesome</v-hint>
+      <v-field-hint>Enter something awesome</v-field-hint>
     </v-field>
 
     <v-field label="Example with error">
       <v-input name="example3"></v-input>
-      <v-error>This field is required</v-error>
+      <v-field-error>This field is required</v-field-error>
     </v-field>
   </section>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <p class="error">
+  <p class="field-error">
     <slot></slot>
   </p>
 </template>
@@ -8,6 +8,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'v-error',
+  name: 'v-field-error',
 });
 </script>

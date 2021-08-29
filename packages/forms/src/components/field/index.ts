@@ -1,5 +1,5 @@
-import Error from './Error.vue';
 import Field from './Field.vue';
-import Hint from './Hint.vue';
+import FieldError from './FieldError.vue';
+import FieldHint from './FieldHint.vue';
 
-export { Error, Field, Hint };
+export { Field, FieldError, FieldHint };
