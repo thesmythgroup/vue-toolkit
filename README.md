@@ -15,4 +15,4 @@ Completely style-able, fully accessible UI components, built with Vue.
 ## Credits
 
 `Vue Toolkit` is a project by [TSG](https://thesmythgroup.com/), a full-service digital agency taking software from concept to launch.
-Our powerhouse team of designers and engineers build iOS, Android, and Web apps across many industries.
+Our powerhouse team of designers and engineers build iOS, Android, and web apps across many industries.
