@@ -3,7 +3,7 @@ name: Bug report
 about: Tell us about a bug you may have identified
 ---
 
-## Describe the Issue
+## Describe of the Issue
 
 <!-- describe how the issue manifests -->
 

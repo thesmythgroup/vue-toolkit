@@ -5,8 +5,8 @@ What kind of issue is this?
 <!-- please check the one that applies using an "x" -->
 
 ```
-[ ] Bug report.
-[ ] Feature request.
+[ ] Bug report
+[ ] Feature request
 ```
 
 ## Description the Issue
