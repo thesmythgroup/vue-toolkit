@@ -9,10 +9,10 @@ describe('ForgotPasswordSubmit.vue', () => {
       mocks: {
         $route: {
           query: {
-            username: 'test@example.org'
-          }
-        }
-      }
+            username: 'test@example.org',
+          },
+        },
+      },
     });
     expect(wrapper).toBeDefined();
   });

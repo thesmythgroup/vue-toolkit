@@ -4,7 +4,7 @@
       type="checkbox"
       class="checkbox__input"
       v-bind="$attrs"
-      :checked="value"
+      :checked="innerValue"
       @change="onChange($event)"
     />
     <slot></slot>
@@ -14,16 +14,32 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { formControl } from '../../mixins';
+
 export default Vue.extend({
   name: 'v-checkbox',
   inheritAttrs: false,
+  mixins: [formControl],
   props: {
+    name: String,
     value: Boolean,
+  },
+  data() {
+    return {
+      innerValue: this.value,
+    };
   },
   methods: {
     onChange(event: Event) {
       const input = event.target as HTMLInputElement;
+
+      this.innerValue = input.checked;
       this.$emit('input', input.checked);
+    },
+  },
+  watch: {
+    value(value: boolean) {
+      this.innerValue = value;
     },
   },
 });

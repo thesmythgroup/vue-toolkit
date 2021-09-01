@@ -4,7 +4,14 @@ import { Input } from '.';
 
 describe('Input', () => {
   it('renders', () => {
-    const wrapper = shallowMount(Input);
+    const wrapper = shallowMount(Input, {
+      provide: {
+        form: {
+          addControl: jest.fn(),
+          removeControl: jest.fn(),
+        },
+      },
+    });
     expect(wrapper).toBeDefined();
   });
 });

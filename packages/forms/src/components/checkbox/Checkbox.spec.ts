@@ -4,7 +4,14 @@ import { Checkbox } from '.';
 
 describe('Checkbox', () => {
   it('renders', () => {
-    const wrapper = shallowMount(Checkbox);
+    const wrapper = shallowMount(Checkbox, {
+      provide: {
+        form: {
+          addControl: jest.fn(),
+          removeControl: jest.fn(),
+        },
+      },
+    });
     expect(wrapper).toBeDefined();
   });
 });

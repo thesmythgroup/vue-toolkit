@@ -11,7 +11,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { getUniqueId } from './unique-id';
+
+import { getUniqueId } from '../../utils';
 
 export default Vue.extend({
   name: 'v-field',
@@ -19,7 +20,7 @@ export default Vue.extend({
     label: String,
   },
   data: () => ({
-    id: getUniqueId(),
+    id: getUniqueId('control-'),
   }),
   mounted() {
     // todo: improve
