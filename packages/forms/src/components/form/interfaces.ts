@@ -1,2 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface FormSubmitEvent {}
+export interface FormSubmitEvent {
+  value: Record<string, unknown>;
+}

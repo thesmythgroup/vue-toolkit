@@ -6,6 +6,7 @@
       v-bind="$attrs"
       :name="innerName"
       :value="value"
+      :checked="isSelected"
       @change="onChange($event)"
     />
     <slot></slot>
@@ -17,6 +18,7 @@ import Vue from 'vue';
 
 interface ParentComponent extends Vue {
   name: string;
+  innerValue: string | number;
   onChange(value: string | number): void;
 }
 
@@ -41,6 +43,12 @@ export default Vue.extend({
     onChange() {
       const parent = this.$parent as ParentComponent;
       parent.onChange(this.value);
+    },
+  },
+  computed: {
+    isSelected(): boolean {
+      const parent = this.$parent as ParentComponent;
+      return this.value === parent.innerValue;
     },
   },
 });

@@ -20,6 +20,11 @@ export default Vue.extend({
       },
     };
   },
+  props: {
+    value: {
+      type: Object,
+    },
+  },
   data: () => ({
     controls: {} as Record<string, any>,
   }),
@@ -38,23 +43,40 @@ export default Vue.extend({
 
       delete this.controls[name];
     },
-    getValues() {
-      const keys = Object.keys(this.controls);
-
-      return keys.reduce(
-        (value, key) => ({ ...value, [key]: this.controls[key].innerValue }),
+    getValue() {
+      return Object.entries(this.controls).reduce(
+        (value, [name, control]) => ({
+          ...value,
+          [name]: (control as any).innerValue,
+        }),
         {}
       );
+    },
+    setValue(value: Record<string, unknown>) {
+      Object.entries(this.controls).forEach(([name, control]) => {
+        if (name in value) {
+          (control as any).innerValue = value[name];
+        }
+      });
     },
     onSubmit(event: Event) {
       event.preventDefault();
 
-      // todo: validation
+      // todo: validation, dirty, touched, etc
       const payload: FormSubmitEvent = {
-        values: (this as any).getValues(),
+        value: (this as any).getValue(),
       };
 
       this.$emit('submit', payload);
+    },
+  },
+  watch: {
+    value(value: Record<string, unknown>) {
+      if (!value) {
+        return;
+      }
+
+      this.setValue(value);
     },
   },
 });

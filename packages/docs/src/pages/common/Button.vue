@@ -11,7 +11,7 @@
       </v-field>
     </app-options>
 
-    <v-button class="mr-2" @click="onClick()" :disabled="disabled" :busy="busy">
+    <v-button @click="onClick()" :disabled="disabled" :busy="busy">
       Button
     </v-button>
   </section>
