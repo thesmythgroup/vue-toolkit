@@ -41,12 +41,14 @@ import { AuthError } from '../../interfaces';
 
 export default Vue.extend({
   name: 'v-forgot-password-submit',
-  data: () => ({
-    username: '',
-    code: '',
-    password: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      username: '',
+      code: '',
+      password: '',
+      error: null as AuthError | null,
+    };
+  },
   mounted() {
     this.username = this.$route.query.username as string;
   },

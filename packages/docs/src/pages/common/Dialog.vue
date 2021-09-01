@@ -42,13 +42,15 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    isOpen: false,
-    showBackdrop: true,
-    showClose: true,
-    backdropDismiss: true,
-    keyboardDismiss: true,
-  }),
+  data() {
+    return {
+      isOpen: false,
+      showBackdrop: true,
+      showClose: true,
+      backdropDismiss: true,
+      keyboardDismiss: true,
+    };
+  },
   methods: {
     onOpen() {
       this.isOpen = true;

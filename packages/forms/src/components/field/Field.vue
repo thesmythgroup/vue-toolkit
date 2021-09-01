@@ -19,9 +19,11 @@ export default Vue.extend({
   props: {
     label: String,
   },
-  data: () => ({
-    id: getUniqueId('control-'),
-  }),
+  data() {
+    return {
+      id: getUniqueId('control-'),
+    };
+  },
   mounted() {
     // todo: improve
     const control = this.$children.find((x) => x.$attrs.name != null);

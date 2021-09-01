@@ -33,11 +33,13 @@ import { AuthError } from '../../interfaces';
 
 export default Vue.extend({
   name: 'v-sign-in',
-  data: () => ({
-    username: '',
-    password: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      username: '',
+      password: '',
+      error: null as AuthError | null,
+    };
+  },
   methods: {
     async onSubmit(event: Event) {
       event.preventDefault();

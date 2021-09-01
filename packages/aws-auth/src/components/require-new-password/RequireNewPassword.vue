@@ -33,10 +33,12 @@ export default Vue.extend({
   props: {
     user: Object as () => CognitoUser,
   },
-  data: () => ({
-    password: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      password: '',
+      error: null as AuthError | null,
+    };
+  },
   methods: {
     async onSubmit(event: Event) {
       event.preventDefault();

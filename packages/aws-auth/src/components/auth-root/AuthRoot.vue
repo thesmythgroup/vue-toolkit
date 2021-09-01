@@ -9,9 +9,11 @@ import { CognitoUser } from '@aws-amplify/auth';
 
 export default Vue.extend({
   name: 'v-auth-root',
-  data: () => ({
-    user: null as CognitoUser | null,
-  }),
+  data() {
+    return {
+      user: null as CognitoUser | null,
+    };
+  },
   methods: {
     onSetUser(user: CognitoUser) {
       this.user = user;

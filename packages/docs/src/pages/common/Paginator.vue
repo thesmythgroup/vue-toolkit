@@ -23,11 +23,13 @@ import Vue from 'vue';
 import { PageEvent } from '@vue-toolkit/common';
 
 export default Vue.extend({
-  data: () => ({
-    length: 500,
-    pageSize: 50,
-    output: null as PageEvent | null,
-  }),
+  data() {
+    return {
+      length: 500,
+      pageSize: 50,
+      output: null as PageEvent | null,
+    };
+  },
   methods: {
     onPage(event: PageEvent) {
       this.output = event;

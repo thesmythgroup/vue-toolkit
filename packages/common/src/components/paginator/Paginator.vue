@@ -53,10 +53,12 @@ export default Vue.extend({
       default: () => [25, 50, 100],
     },
   },
-  data: () => ({
-    currentIndex: 0,
-    currentSize: 0,
-  }),
+  data() {
+    return {
+      currentIndex: 0,
+      currentSize: 0,
+    };
+  },
   created() {
     this.currentIndex = this.pageIndex;
     this.currentSize = this.pageSize;

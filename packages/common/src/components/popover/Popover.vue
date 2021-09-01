@@ -13,9 +13,11 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'v-popover',
-  data: () => ({
-    isOpen: false,
-  }),
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
   methods: {
     toggle() {
       this.isOpen = !this.isOpen;

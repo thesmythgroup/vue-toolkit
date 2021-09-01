@@ -32,9 +32,11 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    allowMultiple: false,
-    disabled: false,
-  }),
+  data() {
+    return {
+      allowMultiple: false,
+      disabled: false,
+    };
+  },
 });
 </script>

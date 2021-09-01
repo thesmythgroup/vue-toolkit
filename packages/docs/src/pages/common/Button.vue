@@ -21,10 +21,12 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    disabled: false,
-    busy: false,
-  }),
+  data() {
+    return {
+      disabled: false,
+      busy: false,
+    };
+  },
   methods: {
     onClick() {
       alert('Button clicked!');

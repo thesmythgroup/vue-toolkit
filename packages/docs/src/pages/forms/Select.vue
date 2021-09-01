@@ -16,8 +16,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    value: null,
-  }),
+  data() {
+    return {
+      value: null,
+    };
+  },
 });
 </script>

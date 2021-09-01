@@ -38,13 +38,15 @@ import {
 
 export default Vue.extend({
   name: 'v-sign-up',
-  data: () => ({
-    username: '',
-    password: '',
-    phone: '',
-    error: null as AuthError | null,
-    msg: null as string | null,
-  }),
+  data() {
+    return {
+      username: '',
+      password: '',
+      phone: '',
+      error: null as AuthError | null,
+      msg: null as string | null,
+    };
+  },
   methods: {
     async onSubmit(event: Event) {
       event.preventDefault();

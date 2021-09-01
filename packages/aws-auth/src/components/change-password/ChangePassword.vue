@@ -34,11 +34,13 @@ import { AuthError } from '../../interfaces';
 
 export default Vue.extend({
   name: 'v-change-password',
-  data: () => ({
-    oldPassword: '',
-    newPassword: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      oldPassword: '',
+      newPassword: '',
+      error: null as AuthError | null,
+    };
+  },
   methods: {
     async onSubmit(event: Event) {
       event.preventDefault();

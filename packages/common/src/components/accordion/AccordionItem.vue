@@ -45,9 +45,11 @@ export default Vue.extend({
       default: false,
     },
   },
-  data: () => ({
-    isOpen: false,
-  }),
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
   created() {
     const parent = this.$parent as ParentComponent;
     parent.items.push(this);

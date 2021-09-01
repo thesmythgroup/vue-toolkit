@@ -20,8 +20,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    disabled: false,
-  }),
+  data() {
+    return {
+      disabled: false,
+    };
+  },
 });
 </script>

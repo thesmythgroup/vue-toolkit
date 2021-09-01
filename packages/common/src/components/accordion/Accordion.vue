@@ -19,9 +19,11 @@ export default Vue.extend({
       default: false,
     },
   },
-  data: () => ({
-    items: [] as ChildComponent[],
-  }),
+  data() {
+    return {
+      items: [] as ChildComponent[],
+    };
+  },
   methods: {
     setOpen(item: ChildComponent) {
       if (this.allowMultiple) {

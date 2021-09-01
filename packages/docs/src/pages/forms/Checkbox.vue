@@ -12,8 +12,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    value: false,
-  }),
+  data() {
+    return {
+      value: false,
+    };
+  },
 });
 </script>

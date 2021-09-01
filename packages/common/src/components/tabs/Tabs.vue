@@ -26,9 +26,11 @@ interface ChildComponent {
 
 export default Vue.extend({
   name: 'v-tabs',
-  data: () => ({
-    tabs: [] as ChildComponent[],
-  }),
+  data() {
+    return {
+      tabs: [] as ChildComponent[],
+    };
+  },
   methods: {
     setActive(tab: ChildComponent) {
       this.tabs.forEach((x) => {

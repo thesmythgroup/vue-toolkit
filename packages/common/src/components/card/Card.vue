@@ -16,10 +16,12 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'v-card',
-  data: () => ({
-    showHeader: false,
-    showFooter: false,
-  }),
+  data() {
+    return {
+      showHeader: false,
+      showFooter: false,
+    };
+  },
   mounted() {
     this.showHeader = !!this.$slots.header;
     this.showFooter = !!this.$slots.footer;

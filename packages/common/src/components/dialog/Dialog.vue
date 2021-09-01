@@ -55,11 +55,13 @@ export default Vue.extend({
       default: true,
     },
   },
-  data: () => ({
-    showHeader: false,
-    showFooter: false,
-    trap: null as focusTrap.FocusTrap | null,
-  }),
+  data() {
+    return {
+      showHeader: false,
+      showFooter: false,
+      trap: null as focusTrap.FocusTrap | null,
+    };
+  },
   created() {
     window.addEventListener('keyup', this.onKeyup);
   },

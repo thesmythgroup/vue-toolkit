@@ -30,10 +30,12 @@ type MFAType = 'TOTP' | 'SMS' | 'NOMFA';
 
 export default Vue.extend({
   name: 'v-change-mfa',
-  data: () => ({
-    type: 'NOMFA' as MFAType,
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      type: 'NOMFA' as MFAType,
+      error: null as AuthError | null,
+    };
+  },
   async mounted() {
     const user = await Auth.currentAuthenticatedUser();
     const type = await Auth.getPreferredMFA(user);

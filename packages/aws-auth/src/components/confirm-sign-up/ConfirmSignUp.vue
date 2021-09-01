@@ -29,11 +29,13 @@ import { AuthError } from '../../interfaces';
 
 export default Vue.extend({
   name: 'v-confirm-sign-up',
-  data: () => ({
-    username: '',
-    code: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      username: '',
+      code: '',
+      error: null as AuthError | null,
+    };
+  },
   mounted() {
     this.username = this.$route.query.username as string;
   },

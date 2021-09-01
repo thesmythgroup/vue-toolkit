@@ -25,10 +25,12 @@ import { AuthError } from '../../interfaces';
 
 export default Vue.extend({
   name: 'v-forgot-password',
-  data: () => ({
-    username: '',
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      username: '',
+      error: null as AuthError | null,
+    };
+  },
   methods: {
     async onSubmit(event: Event) {
       event.preventDefault();

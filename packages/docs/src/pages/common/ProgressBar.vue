@@ -16,8 +16,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    value: 83,
-  }),
+  data() {
+    return {
+      value: 83,
+    };
+  },
 });
 </script>

@@ -13,9 +13,11 @@ import Vue from 'vue';
 import { Auth } from '@aws-amplify/auth';
 
 export default Vue.extend({
-  data: () => ({
-    isSignedIn: false,
-  }),
+  data() {
+    return {
+      isSignedIn: false,
+    };
+  },
   mounted() {
     this.setStatus();
   },

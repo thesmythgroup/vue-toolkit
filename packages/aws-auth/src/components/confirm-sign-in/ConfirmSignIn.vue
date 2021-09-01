@@ -37,11 +37,13 @@ export default Vue.extend({
   props: {
     user: Object as () => CognitoUser,
   },
-  data: () => ({
-    code: '',
-    remember: false,
-    error: null as AuthError | null,
-  }),
+  data() {
+    return {
+      code: '',
+      remember: false,
+      error: null as AuthError | null,
+    };
+  },
   mounted() {
     if (!this.user) {
       // todo: back to sign in with an error message

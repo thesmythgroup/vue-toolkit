@@ -40,9 +40,11 @@ export default Vue.extend({
       required: true,
     },
   },
-  data: () => ({
-    columns: [] as VNode[],
-  }),
+  data() {
+    return {
+      columns: [] as VNode[],
+    };
+  },
   mounted() {
     if (this.$slots.default) {
       this.columns = this.$slots.default;

@@ -16,9 +16,11 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    showRemove: false,
-  }),
+  data() {
+    return {
+      showRemove: false,
+    };
+  },
   methods: {
     onRemove() {
       alert('Chip removed!');

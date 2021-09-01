@@ -23,14 +23,16 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => ({
-    items: [
-      { id: 1, name: 'Luke Skywalker', homeworld: 'Tatooine' },
-      { id: 2, name: 'Han Solo', homeworld: 'Corellia' },
-      { id: 3, name: 'Darth Vadar', homeworld: 'Tatooine' },
-      { id: 4, name: 'Yoda', homeworld: 'unknown' },
-      { id: 5, name: 'Obi-Wan', homeworld: 'Stewjon' },
-    ],
-  }),
+  data() {
+    return {
+      items: [
+        { id: 1, name: 'Luke Skywalker', homeworld: 'Tatooine' },
+        { id: 2, name: 'Han Solo', homeworld: 'Corellia' },
+        { id: 3, name: 'Darth Vadar', homeworld: 'Tatooine' },
+        { id: 4, name: 'Yoda', homeworld: 'unknown' },
+        { id: 5, name: 'Obi-Wan', homeworld: 'Stewjon' },
+      ],
+    };
+  },
 });
 </script>

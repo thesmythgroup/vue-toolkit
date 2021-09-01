@@ -20,9 +20,11 @@ export default Vue.extend({
       default: false,
     },
   },
-  data: () => ({
-    isActive: false,
-  }),
+  data() {
+    return {
+      isActive: false,
+    };
+  },
   created() {
     const parent = this.$parent as ParentComponent;
     parent.tabs.push(this);

@@ -43,9 +43,11 @@ import Vue from 'vue';
 import { FormSubmitEvent } from '@vue-toolkit/forms';
 
 export default Vue.extend({
-  data: () => ({
-    submitted: null as FormSubmitEvent | null,
-  }),
+  data() {
+    return {
+      submitted: null as FormSubmitEvent | null,
+    };
+  },
   methods: {
     onSubmit(event: FormSubmitEvent) {
       this.submitted = event;
