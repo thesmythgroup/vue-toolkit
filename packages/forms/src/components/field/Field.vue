@@ -1,5 +1,6 @@
 <template>
   <div class="field">
+    <slot v-if="required" name="required-indicator">*</slot>
     <label v-if="label" class="field__label" :for="id">
       {{ label }}
     </label>
@@ -18,6 +19,7 @@ export default defineComponent({
   name: 'v-field',
   props: {
     label: String,
+    required: Boolean,
   },
   setup() {
     const id = ref(getUniqueId('control-'));

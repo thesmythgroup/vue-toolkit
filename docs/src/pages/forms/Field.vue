@@ -15,5 +15,17 @@
       <v-input name="example3"></v-input>
       <v-field-error>This field is required</v-field-error>
     </v-field>
+
+    <v-field label="Example required field" :required="true">
+      <v-input name="example4"></v-input>
+    </v-field>
+
+    <v-field
+      label="Example required field (with custom indicator)"
+      :required="true"
+    >
+      <template v-slot:required-indicator>(required) </template>
+      <v-input name="example4"></v-input>
+    </v-field>
   </section>
 </template>

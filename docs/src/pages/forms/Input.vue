@@ -19,5 +19,8 @@ export default defineComponent({
       value,
     };
   },
+  mounted() {
+    this.$emit('is-required', this.required);
+  },
 });
 </script>
