@@ -1,6 +1,6 @@
 {
   "name": "@vue-toolkit/aws-auth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Completely style-able components for Amazon Cognito workflows.",
   "keywords": [
     "vue",
@@ -50,11 +50,11 @@
   },
   "devDependencies": {
     "@aws-amplify/auth": "^4.1.2",
-    "@vue-toolkit/common": "0.1.0",
-    "@vue-toolkit/forms": "0.1.0",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
+    "@vue-toolkit/common": "^0.2.0",
+    "@vue-toolkit/forms": "^0.2.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",

@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "start": "npm run serve -- --open",
@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@aws-amplify/auth": "^4.1.2",
-    "@vue-toolkit/aws-auth": "^0.1.0",
-    "@vue-toolkit/common": "^0.1.0",
-    "@vue-toolkit/forms": "^0.1.0",
+    "@vue-toolkit/aws-auth": "^0.2.0",
+    "@vue-toolkit/common": "^0.2.0",
+    "@vue-toolkit/forms": "^0.2.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
