@@ -25,7 +25,6 @@ npm run build
 Run the docs site:
 
 ```
-cd ./packages/docs
 npm start
 ```
 

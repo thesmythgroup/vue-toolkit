@@ -6,11 +6,15 @@ Completely style-able, fully accessible UI components, built with Vue.
 
 ## Packages
 
-| Package                                   | Version                                                                                                   |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Package                                       | Version                                                                                                           |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | [`@vue-toolkit/common`](/packages/common)     | [![npm](https://img.shields.io/npm/v/@vue-toolkit/common)](https://www.npmjs.com/package/@vue-toolkit/common)     |
 | [`@vue-toolkit/forms`](/packages/forms)       | [![npm](https://img.shields.io/npm/v/@vue-toolkit/forms)](https://www.npmjs.com/package/@vue-toolkit/forms)       |
 | [`@vue-toolkit/aws-auth`](/packages/aws-auth) | [![npm](https://img.shields.io/npm/v/@vue-toolkit/aws-auth)](https://www.npmjs.com/package/@vue-toolkit/aws-auth) |
+
+## Getting Started
+
+Start by reviewing the documentation for our [docs site](docs/README.md).
 
 ## Credits
 
