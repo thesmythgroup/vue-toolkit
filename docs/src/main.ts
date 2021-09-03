@@ -2,9 +2,9 @@
 import AppOptions from '@/components/AppOptions.vue';
 import AppSnippet from '@/components/AppSnippet.vue';
 import { Auth } from '@aws-amplify/auth';
-import AwsAuth from '@vue-toolkit/aws-auth';
-import Common from '@vue-toolkit/common';
-import Forms from '@vue-toolkit/forms';
+import AwsAuth from '../../packages/aws-auth/src/';
+import Common from '../../packages/common/src/';
+import Forms from '../../packages/forms/src/';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 

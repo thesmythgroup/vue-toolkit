@@ -18,11 +18,12 @@
   "scripts": {
     "lerna": "lerna",
     "clean": "lerna clean",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap && npm --prefix ./docs install",
     "lint": "lerna exec npm run lint",
     "test:unit": "lerna exec npm run test:unit",
-    "build": "lerna exec npm run build",
-    "format": "lerna exec npm run format"
+    "build": "lerna exec npm run build && npm --prefix ./docs run build",
+    "format": "lerna exec npm run format",
+    "start": "npm --prefix ./docs run start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
