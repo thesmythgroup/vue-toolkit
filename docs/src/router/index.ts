@@ -1,4 +1,4 @@
-import { createAuthRoutes } from '../../../packages/aws-auth/src';
+import { createAuthRoutes } from '@vue-toolkit/aws-auth';
 import VueRouter, { RouteConfig } from 'vue-router';
 
 import { publicPath } from '../../vue.config';

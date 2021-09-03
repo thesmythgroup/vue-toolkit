@@ -1,12 +1,12 @@
 {
   "name": "docs",
-  "version": "0.2.0",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "npm run serve -- --open",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit --passWithNoTests",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
@@ -14,9 +14,6 @@
   },
   "dependencies": {
     "@aws-amplify/auth": "^4.1.2",
-    "@vue-toolkit/aws-auth": "^0.2.0",
-    "@vue-toolkit/common": "^0.2.0",
-    "@vue-toolkit/forms": "^0.2.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
@@ -34,13 +31,16 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.3",
+    "console": "^0.7.2",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^3.2.3",
+    "module": "^1.2.5",
     "prettier": "^2.2.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "~4.1.5",
     "vue-template-compiler": "^2.6.11"
   }

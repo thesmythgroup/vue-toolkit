@@ -79,9 +79,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import '@vue-toolkit/common/sass/components';
-@import '@vue-toolkit/common/sass/utilities';
-@import '@vue-toolkit/forms/sass/components';
+@import '../../packages/common/sass/components';
+@import '../../packages/common/sass/utilities';
+@import '../../packages/forms/sass/components';
 
 body {
   font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

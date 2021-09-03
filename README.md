@@ -14,7 +14,12 @@ Completely style-able, fully accessible UI components, built with Vue.
 
 ## Getting Started
 
-Start by reviewing the documentation for our [docs site](docs/README.md).
+```
+npm ci
+npm run bootstrap
+```
+
+Run the [docs site](docs/README.md).
 
 ## Credits
 
