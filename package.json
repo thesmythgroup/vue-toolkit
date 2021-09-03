@@ -1,6 +1,20 @@
 {
   "name": "vue-toolkit",
   "private": true,
+  "author": {
+    "name": "The Smyth Group",
+    "email": "info@thesmythgroup.com",
+    "url": "http://www.thesmythgroup.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/thesmythgroup/vue-toolkit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thesmythgroup/vue-toolkit"
+  },
+  "bugs": {
+    "url": "https://github.com/thesmythgroup/vue-toolkit/issues"
+  },
   "scripts": {
     "lerna": "lerna",
     "clean": "lerna clean",

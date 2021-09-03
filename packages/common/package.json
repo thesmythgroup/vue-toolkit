@@ -13,7 +13,11 @@
   ],
   "main": "./dist/common.umd.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/index.ts",
     "test:unit": "vue-cli-service test:unit",

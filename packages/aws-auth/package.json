@@ -10,13 +10,31 @@
     "auth",
     "authentication"
   ],
+  "author": {
+    "name": "The Smyth Group",
+    "email": "info@thesmythgroup.com",
+    "url": "http://www.thesmythgroup.com/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/thesmythgroup/vue-toolkit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thesmythgroup/vue-toolkit"
+  },
+  "bugs": {
+    "url": "https://github.com/thesmythgroup/vue-toolkit/issues"
+  },
   "files": [
     "dist/*",
     "sass/*"
   ],
   "main": "./dist/aws-auth.umd.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib src/index.ts",
     "test:unit": "vue-cli-service test:unit",
@@ -25,8 +43,8 @@
   },
   "peerDependencies": {
     "@aws-amplify/auth": "^4.1.2",
-    "@vue-toolkit/common": "0.1.0",
-    "@vue-toolkit/forms": "0.1.0",
+    "@vue-toolkit/common": "^0.1.0",
+    "@vue-toolkit/forms": "^0.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
