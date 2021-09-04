@@ -36,6 +36,36 @@ Optionally, import the minimal default Sass styles:
 @import '@vue-toolkit/forms/sass/components';
 ```
 
+## Validators
+
+A validator is a function that processes a value and returns error information or null. A `null` return value means that validation has passed.
+
+### Built-in Validators
+
+?
+
+```ts
+import { required } from '@vue-toolkit/forms/validators';
+```
+
+| Validator   | Description                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| `email`     | Requires the value pass an email validation test.                                            |
+| `maxLength` | Requires the length of the value to be less than or equal to the provided maximum length.    |
+| `max`       | Requires the value to be less than or equal to the provided number.                          |
+| `minLength` | Requires the length of the value to be greater than or equal to the provided minimum length. |
+| `min`       | Requires the value to be greater than or equal to the provided number.                       |
+| `pattern`   | Requires the value to match a regex pattern.                                                 |
+| `required`  | Requires the value to be non-empty.                                                          |
+
+### Custom Validators
+
+```ts
+const mustBeAwesome = (value) => {
+  return value.includes('awesome') ? null : {};
+};
+```
+
 ## Credits
 
 `@vue-toolkit/forms` is a project by [TSG](https://thesmythgroup.com/), a full-service digital agency taking software from concept to launch.

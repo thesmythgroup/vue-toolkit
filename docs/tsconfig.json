@@ -18,6 +18,7 @@
       "@vue-toolkit/aws-auth": ["../packages/aws-auth/src"],
       "@vue-toolkit/common": ["../packages/common/src"],
       "@vue-toolkit/forms": ["../packages/forms/src"],
+      "@vue-toolkit/forms/validators": ["../packages/forms/src/validators"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
