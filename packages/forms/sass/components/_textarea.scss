@@ -1,1 +1,13 @@
 @import './_variables';
+
+.textarea {
+  background-color: $white;
+  border-radius: $input-border-radius;
+  border: 1px solid $input-border;
+  outline: 0;
+  padding: 0.5rem 0.75rem;
+
+  &:focus {
+    border-color: rgba($primary, 50%);
+  }
+}

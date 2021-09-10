@@ -1,8 +1,8 @@
 <template>
-  <label class="radio-button">
+  <label class="radio-group__button">
     <input
       type="radio"
-      class="radio-button__input"
+      class="radio-group__input"
       v-bind="$attrs"
       :name="innerName"
       :value="value"

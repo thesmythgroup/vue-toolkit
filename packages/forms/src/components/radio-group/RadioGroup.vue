@@ -1,5 +1,5 @@
 <template>
-  <div role="radiogroup">
+  <div class="radio-group" role="radiogroup">
     <slot></slot>
   </div>
 </template>

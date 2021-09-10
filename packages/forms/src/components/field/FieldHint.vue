@@ -1,5 +1,5 @@
 <template>
-  <p class="field-hint">
+  <p class="field__hint">
     <slot></slot>
   </p>
 </template>

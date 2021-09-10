@@ -1,6 +1,40 @@
+@import '@vue-toolkit/common/sass/components/_variables';
+
+//
+// Common
+// ========================================
+
+$control-bg: $white !default;
+$control-border: $gray-light !default;
+$control-border-radius: $border-radius !default;
+
 //
 // Field
 // ========================================
 
 $field-hint-color: #9e9e9e !default;
 $field-error-color: #ef5350 !default;
+
+//
+// Input
+// ========================================
+
+$input-bg: $control-bg !default;
+$input-border: $control-border !default;
+$input-border-radius: $control-border-radius !default;
+
+//
+// Select
+// ========================================
+
+$select-bg: $control-bg !default;
+$select-border: $control-border !default;
+$select-border-radius: $control-border-radius !default;
+
+//
+// Textarea
+// ========================================
+
+$textarea-bg: $control-bg !default;
+$textarea-border: $control-border !default;
+$textarea-border-radius: $control-border-radius !default;

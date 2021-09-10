@@ -1,5 +1,5 @@
 <template>
-  <p class="field-error">
+  <p class="field__error">
     <slot></slot>
   </p>
 </template>
