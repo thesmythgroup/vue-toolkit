@@ -1,4 +1,5 @@
 /// <reference types="vue-router/types" />
+import AppAuthBar from '@/components/AppAuthBar.vue';
 import AppOptions from '@/components/AppOptions.vue';
 import AppSnippet from '@/components/AppSnippet.vue';
 import { Auth } from '@aws-amplify/auth';
@@ -24,6 +25,7 @@ Vue.use(Common);
 Vue.use(Forms);
 Vue.use(AwsAuth);
 
+Vue.component('app-auth-bar', AppAuthBar);
 Vue.component('app-options', AppOptions);
 Vue.component('app-snippet', AppSnippet);
 
