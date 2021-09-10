@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="change-password">
     <!-- todo: i18n -->
-    <h1>Change Password</h1>
-    <form @submit="onSubmit">
+    <h1 class="change-password__title">Change Password</h1>
+    <form class="change-password__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Old Password">

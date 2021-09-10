@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="forgot-password-submit">
     <!-- todo: i18n -->
-    <h1>Forgot Password Submit</h1>
-    <form @submit="onSubmit">
+    <h1 class="forgot-password-submit__title">Forgot Password Submit</h1>
+    <form class="forgot-password-submit__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">

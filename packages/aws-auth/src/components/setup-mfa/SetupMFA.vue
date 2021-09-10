@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="setup-mfa">
     <!-- todo: i18n -->
-    <h1>Setup MFA</h1>
-    <form @submit="onSubmit">
+    <h1 class="setup-mfa__title">Setup MFA</h1>
+    <form class="setup-mfa__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Type">
@@ -14,7 +14,9 @@
         </v-select>
       </v-field>
 
-      <v-button @click="onForget">Forget this device</v-button>
+      <v-button class="button--outline" @click="onForget">
+        Forget this device
+      </v-button>
       <v-button type="submit">Submit</v-button>
     </form>
   </section>

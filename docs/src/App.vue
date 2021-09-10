@@ -82,6 +82,7 @@ export default Vue.extend({
 @import '../../packages/common/sass/components';
 @import '../../packages/common/sass/utilities';
 @import '../../packages/forms/sass/components';
+@import '../../packages/aws-auth/sass/components';
 
 body {
   font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

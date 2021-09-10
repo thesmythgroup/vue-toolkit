@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="confirm-sign-up">
     <!-- todo: i18n -->
-    <h1>Confirm Sign Up</h1>
-    <form @submit="onSubmit">
+    <h1 class="confirm-sign-up__title">Confirm Sign Up</h1>
+    <form class="confirm-sign-up__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">

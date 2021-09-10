@@ -1,0 +1,26 @@
+@import './_variables';
+
+.change-password,
+.change-password,
+.complete-forgot-password,
+.confirm-sign-in,
+.confirm-sign-up,
+.forgot-password,
+.forgot-password-submit,
+.require-new-password,
+.setup-mfa,
+.sign-in,
+.sign-up {
+  margin: 0 auto;
+  max-width: $auth-max-width;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__form {
+    border-radius: $auth-form-border-radius;
+    border: 1px solid $auth-form-border;
+    padding: 1rem;
+  }
+}

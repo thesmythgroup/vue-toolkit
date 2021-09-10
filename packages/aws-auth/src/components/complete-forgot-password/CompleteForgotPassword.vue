@@ -1,25 +1,29 @@
 <template>
-  <form @submit="onSubmit">
+  <section class="complete-forgot-password">
     <!-- todo: i18n -->
-    <p v-if="error">{{ error.message }}</p>
+    <h1 class="complete-forgot-password__title">Complete Forgot Password</h1>
+    <form class="complete-forgot-password__form" @submit="onSubmit">
+      <!-- todo: i18n -->
+      <p v-if="error">{{ error.message }}</p>
 
-    <v-field label="Username">
-      <v-input name="username" v-model="username" disabled></v-input>
-    </v-field>
+      <v-field label="Username">
+        <v-input name="username" v-model="username" disabled></v-input>
+      </v-field>
 
-    <v-field label="Code">
-      <v-input name="code" v-model="code"></v-input>
-    </v-field>
+      <v-field label="Code">
+        <v-input name="code" v-model="code"></v-input>
+      </v-field>
 
-    <v-field label="New Password">
-      <v-input type="password" name="password" v-model="password"></v-input>
-    </v-field>
+      <v-field label="New Password">
+        <v-input type="password" name="password" v-model="password"></v-input>
+      </v-field>
 
-    <!-- todo: route config -->
-    <p><router-link to="/sign-in">Back to Sign In</router-link></p>
+      <!-- todo: route config -->
+      <p><router-link to="/sign-in">Back to Sign In</router-link></p>
 
-    <v-button type="submit">Send Code</v-button>
-  </form>
+      <v-button type="submit">Send Code</v-button>
+    </form>
+  </section>
 </template>
 
 <script lang="ts">

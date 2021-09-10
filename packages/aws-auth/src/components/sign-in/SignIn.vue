@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="sign-in">
     <!-- todo: i18n -->
-    <h1>Sign In</h1>
-    <form @submit="onSubmit">
+    <h1 class="sign-in__title">Sign In</h1>
+    <form class="sign-in__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">

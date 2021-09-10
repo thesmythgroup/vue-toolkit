@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="sign-up">
     <!-- todo: i18n -->
-    <h1>Sign Up</h1>
-    <form @submit="onSubmit">
+    <h1 class="sign-up__title">Sign Up</h1>
+    <form class="sign-up__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
       <p v-if="msg">{{ msg }}</p>
 

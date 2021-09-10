@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="require-new-password">
     <!-- todo: i18n -->
-    <h1>New Password Required</h1>
-    <form @submit="onSubmit">
+    <h1 class="require-new-password__title">New Password Required</h1>
+    <form class="require-new-password__form" @submit="onSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="New Password">
