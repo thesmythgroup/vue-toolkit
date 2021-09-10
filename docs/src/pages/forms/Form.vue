@@ -3,8 +3,12 @@
     <h2 class="mt-0">Form</h2>
 
     <app-options>
-      <v-button @click="loadAva" class="mr-2"> Load "Ava" </v-button>
-      <v-button @click="loadLucy"> Load "Lucy" </v-button>
+      <v-button @click="loadAva" class="button--outline mr-2">
+        Load "Ava"
+      </v-button>
+      <v-button @click="loadLucy" class="button--outline">
+        Load "Lucy"
+      </v-button>
     </app-options>
 
     <v-form :value="value" @submit="onSubmit">

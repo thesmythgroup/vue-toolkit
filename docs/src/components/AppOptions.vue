@@ -1,6 +1,6 @@
 <template>
   <fieldset class="options">
-    <legend>Options</legend>
+    <legend class="options__title">Options</legend>
     <slot />
   </fieldset>
 </template>
@@ -14,9 +14,16 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '../../../packages/common/sass/components/variables';
+
 .options {
-  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  border: 1px solid $gray-light;
   margin-bottom: 1.5rem;
   padding-top: 1rem;
+
+  &__title {
+    padding: 0 0.5rem;
+  }
 }
 </style>

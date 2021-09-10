@@ -17,6 +17,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import '../../../packages/common/sass/components/variables';
+
 .snippet {
   &__title {
     margin-bottom: 0;
@@ -24,6 +26,7 @@ export default Vue.extend({
 
   &__content {
     background-color: #f8f9fa;
+    border-radius: $border-radius;
     display: block;
     padding: 0.5rem;
   }
