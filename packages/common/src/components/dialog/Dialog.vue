@@ -7,7 +7,11 @@
       @click="onBackdrop()"
     ></div>
 
-    <section class="dialog__inner" ref="modal">
+    <section
+      class="dialog__inner"
+      :class="size ? 'dialog__inner--' + size : ''"
+      ref="modal"
+    >
       <!-- close -->
       <button
         type="button"
@@ -38,6 +42,7 @@ export default Vue.extend({
   name: 'v-dialog',
   props: {
     title: String,
+    size: String,
     showBackdrop: {
       type: Boolean,
       default: true,

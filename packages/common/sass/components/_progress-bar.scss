@@ -1,1 +1,18 @@
 @import './_variables';
+
+.progress-bar {
+  background-color: $progress-bar-bg;
+  border-radius: $progress-bar-border-radius;
+  border: 1px solid $progress-bar-border;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  position: relative;
+
+  &__progress {
+    background-color: $progress-bar-progress-bg;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}

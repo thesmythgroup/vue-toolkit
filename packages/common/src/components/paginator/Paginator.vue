@@ -23,14 +23,27 @@
 
     <!-- nav -->
     <div class="paginator__buttons">
-      <v-button @click="onPrev" :disabled="isPrevDisabled">Prev</v-button>
-      <v-button @click="onNext" :disabled="isNextDisabled">Next</v-button>
+      <v-button
+        class="paginator__prev"
+        @click="onPrev"
+        :disabled="isPrevDisabled"
+      >
+        Prev
+      </v-button>
+      <v-button
+        class="paginator__next"
+        @click="onNext"
+        :disabled="isNextDisabled"
+      >
+        Next
+      </v-button>
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { PageEvent } from './interfaces';
 
 export default Vue.extend({

@@ -5,7 +5,8 @@
 
   &__content {
     background-color: $popover-bg;
-    border: 1px solid $gray;
+    border-radius: $popover-border-radius;
+    border: 1px solid $popover-border;
     left: 0;
     position: absolute;
     top: 100%;

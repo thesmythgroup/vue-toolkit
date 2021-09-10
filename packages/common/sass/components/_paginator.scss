@@ -6,10 +6,17 @@
   justify-content: center;
 
   &__page-size {
+    border-radius: $paginator-page-size-border-radius;
+    border: 1px solid $paginator-page-size-border;
     margin-right: 1rem;
+    padding: 0.5rem;
   }
 
   &__range {
     margin-right: 1rem;
+  }
+
+  &__prev {
+    margin-right: 0.25rem;
   }
 }

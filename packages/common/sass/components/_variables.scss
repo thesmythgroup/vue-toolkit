@@ -1,25 +1,116 @@
 //
-// Colors
+// Common
 // ========================================
 
-$gray: #d1d1d1 !default;
+$primary: #2980b9 !default;
+$black: #000000 !default;
+$white: #ffffff !default;
+$gray-light: #e1e1e1 !default;
+$gray-dark: #606c76 !default;
+
+$border-radius: 0.4rem !default;
 
 //
-// Chips
+// Accordion
 // ========================================
 
+$accordion-item-border: $gray-light !default;
+$accordion-content-border: $gray-light !default;
+$accordion-icon-color: #212529 !default;
+$accordion-icon-size: 1rem !default;
+
+//
+// Button
+// ========================================
+
+$button-bg: $primary !default;
+$button-border-radius: $border-radius !default;
+$button-border: $primary !default;
+$button-color: $white !default;
+
+$button-active-bg: $gray-dark !default;
+$button-active-border: $gray-dark !default;
+$button-active-color: $white !default;
+
+//
+// Card
+// ========================================
+
+$card-border: $gray-light !default;
+
+//
+// Chip
+// ========================================
+
+$chip-border: $gray-light !default;
 $chip-height: 32px !default;
+
 $chip-remove-size: 18px !default;
+$chip-remove-bg: $gray-light !default;
+$chip-remove-color: $gray-dark !default;
+
+$chip-remove-active-bg: $gray-light !default;
+$chip-remove-active-color: $gray-dark !default;
 
 //
 // Dialog
 // ========================================
 
-$dialog-backdrop-bg: rgba(0, 0, 0, 0.5) !default;
-$modal-bg: #fff !default;
+$dialog-z-index: 1050 !default;
+$dialog-backdrop-bg: rgba($black, 0.5) !default;
+$dialog-inner-bg: $white !default;
+$dialog-border: $gray-light !default;
+$dialog-sizes: (
+  'small': 300px,
+  'large': 800px,
+) !default;
+
+//
+// List
+// ========================================
+
+$list-border: $gray-light !default;
+
+//
+// Paginator
+// ========================================
+
+$paginator-page-size-border: $gray-light !default;
+$paginator-page-size-border-radius: $border-radius !default;
 
 //
 // Popover
 // ========================================
 
-$popover-bg: #fff !default;
+$popover-bg: $white !default;
+$popover-border: $gray-light !default;
+$popover-border-radius: $border-radius !default;
+
+//
+// Progress bar
+// ========================================
+
+$progress-bar-bg: $white !default;
+$progress-bar-border: $gray-light !default;
+$progress-bar-border-radius: $border-radius !default;
+$progress-bar-progress-bg: $primary !default;
+
+//
+// Sidebar
+// ========================================
+
+$sidebar-bg: $white !default;
+$sidebar-border: $gray-light !default;
+$sidebar-width: 250px !default;
+
+//
+// Table
+// ========================================
+
+$table-border: $gray-light !default;
+
+//
+// Tabs
+// ========================================
+
+$tabs-border: $gray-light !default;

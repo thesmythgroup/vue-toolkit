@@ -15,6 +15,13 @@
       <v-field>
         <v-checkbox v-model="keyboardDismiss">Keyboard Dismiss</v-checkbox>
       </v-field>
+      <v-field label="Size">
+        <v-select v-model="size">
+          <v-option value="">Default</v-option>
+          <v-option value="small">Small</v-option>
+          <v-option value="large">Large</v-option>
+        </v-select>
+      </v-field>
     </app-options>
 
     <v-button type="button" @click="onOpen()">Open Dialog</v-button>
@@ -22,6 +29,7 @@
     <v-dialog
       v-if="isOpen"
       @dimissed="onDismiss()"
+      :size="size"
       :show-backdrop="showBackdrop"
       :show-close="showClose"
       :backdrop-dismiss="backdropDismiss"
@@ -49,6 +57,7 @@ export default Vue.extend({
       showClose: true,
       backdropDismiss: true,
       keyboardDismiss: true,
+      size: '',
     };
   },
   methods: {

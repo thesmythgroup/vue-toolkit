@@ -1,11 +1,11 @@
 @import './_variables';
 
 .card {
-  border: 1px solid $gray;
+  border: 1px solid $card-border;
 
   &__header {
     padding: 1rem;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $card-border;
   }
 
   &__content {
@@ -14,6 +14,6 @@
 
   &__footer {
     padding: 1rem;
-    border-top: 1px solid $gray;
+    border-top: 1px solid $card-border;
   }
 }

@@ -11,8 +11,26 @@
       </v-field>
     </app-options>
 
-    <v-button @click="onClick()" :disabled="disabled" :busy="busy">
-      Button
+    <v-button class="mr-1" @click="onClick()" :disabled="disabled" :busy="busy">
+      Default Button
+    </v-button>
+
+    <v-button
+      class="button--outline mr-1"
+      @click="onClick()"
+      :disabled="disabled"
+      :busy="busy"
+    >
+      Outline Button
+    </v-button>
+
+    <v-button
+      class="button--clear"
+      @click="onClick()"
+      :disabled="disabled"
+      :busy="busy"
+    >
+      Clear Button
     </v-button>
   </section>
 </template>

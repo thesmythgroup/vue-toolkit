@@ -1,5 +1,11 @@
 <template>
-  <button type="button" class="button" :disabled="isDisabled" @click="onClick">
+  <button
+    type="button"
+    class="button"
+    :class="{ 'button--disabled': isDisabled }"
+    :disabled="isDisabled"
+    @click="onClick"
+  >
     <slot name="busy" v-if="busy">Loading ...</slot>
     <slot v-else></slot>
   </button>

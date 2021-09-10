@@ -5,7 +5,10 @@
         <button
           type="button"
           class="tabs__button"
-          :class="{ 'tabs__button--active': tab.isActive }"
+          :class="{
+            'tabs__button--active': tab.isActive,
+            'tabs__button--disabled': tab.disabled,
+          }"
           :disabled="tab.disabled"
           @click="setActive(tab)"
         >

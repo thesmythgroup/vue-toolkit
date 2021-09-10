@@ -1,17 +1,18 @@
 <template>
-  <div class="accordion-item">
+  <div class="accordion__item">
     <button
       type="button"
-      class="accordion-item__button"
+      class="accordion__button"
+      :class="{ 'accordion__button--disabled': disabled }"
       :disabled="disabled"
       @click="onToggle()"
     >
-      <h3 class="accordion-item__title">
+      <h3 class="accordion__title">
         <slot name="title">{{ title }}</slot>
       </h3>
       <svg
-        class="accordion-item__icon"
-        :class="{ 'accordion-item__icon--up': isOpen }"
+        class="accordion__icon"
+        :class="{ 'accordion__icon--up': isOpen }"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
       >
@@ -22,7 +23,7 @@
       </svg>
     </button>
 
-    <section v-if="isOpen" class="accordion-item__content">
+    <section v-if="isOpen" class="accordion__content">
       <slot></slot>
     </section>
   </div>

@@ -1,1 +1,50 @@
 @import './_variables';
+
+.button {
+  background-color: $button-bg;
+  border-radius: $button-border-radius;
+  border: 1px solid $button-border;
+  color: $button-color;
+  cursor: pointer;
+  outline: 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:focus,
+  &:hover {
+    background-color: $button-active-bg;
+    border-color: $button-active-border;
+    color: $button-active-color;
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $button-bg;
+
+    &:focus,
+    &:hover {
+      background-color: inherit;
+      color: $button-active-bg;
+    }
+  }
+
+  &--clear {
+    background-color: transparent;
+    border-color: transparent;
+    color: $button-bg;
+
+    &:focus,
+    &:hover {
+      background-color: inherit;
+      border-color: transparent;
+      color: $button-active-bg;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

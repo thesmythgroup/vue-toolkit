@@ -4,7 +4,7 @@
 .chip {
   align-items: center;
   border-radius: math.div($chip-height, 2);
-  border: 1px solid $gray;
+  border: 1px solid $chip-border;
   display: inline-flex;
   height: $chip-height;
 
@@ -14,8 +14,8 @@
 
   &__remove {
     border-radius: 50%;
-    border: 1px solid $gray;
-    color: $gray;
+    border: 1px solid $chip-remove-bg;
+    color: $chip-remove-color;
     cursor: pointer;
     height: $chip-remove-size;
     line-height: 1;
@@ -28,7 +28,8 @@
 
     &:hover,
     &:focus {
-      background-color: $gray;
+      background-color: $chip-remove-active-bg;
+      color: $chip-remove-active-color;
     }
   }
 }

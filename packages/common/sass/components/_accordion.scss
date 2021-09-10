@@ -1,12 +1,16 @@
 @import './_variables';
 
-.accordion-item {
-  margin-bottom: 0.25rem;
+.accordion {
+  &__item {
+    margin-bottom: 0.25rem;
+  }
 
   &__button {
     align-items: center;
     background: none;
-    border: 1px solid $gray;
+    border-color: $accordion-item-border;
+    border-style: solid;
+    border-width: 1px;
     cursor: pointer;
     display: flex;
     margin: 0;
@@ -16,11 +20,11 @@
   }
 
   &__icon {
-    fill: #212529;
-    height: 1rem;
+    fill: $accordion-icon-color;
+    height: $accordion-icon-size;
     transform: rotate(0deg);
     transition: 0.3s transform;
-    width: 1rem;
+    width: $accordion-icon-size;
 
     &--up {
       transform: rotate(180deg);
@@ -33,7 +37,7 @@
   }
 
   &__content {
-    border-color: $gray;
+    border-color: $accordion-content-border;
     border-style: solid;
     border-width: 0 1px 1px 1px;
     padding: 1rem;

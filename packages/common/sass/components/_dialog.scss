@@ -7,7 +7,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1050;
+  z-index: $dialog-z-index;
 
   &__backdrop {
     background-color: $dialog-backdrop-bg;
@@ -38,15 +38,21 @@
   }
 
   &__inner {
-    background-color: $modal-bg;
-    border: 1px solid $gray;
+    background-color: $dialog-inner-bg;
+    border: 1px solid $dialog-border;
     margin: 1.75rem auto;
     max-width: 500px;
     position: relative;
+
+    @each $key, $value in $dialog-sizes {
+      &--#{$key} {
+        max-width: $value;
+      }
+    }
   }
 
   &__header {
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $dialog-border;
     padding: 1rem;
   }
 
@@ -60,7 +66,7 @@
   }
 
   &__footer {
-    border-top: 1px solid $gray;
+    border-top: 1px solid $dialog-border;
     padding: 1rem;
   }
 }
