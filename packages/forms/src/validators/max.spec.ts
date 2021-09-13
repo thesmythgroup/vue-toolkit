@@ -31,10 +31,20 @@ describe('max validator', () => {
   });
 
   it('should error on NaN', () => {
-    expect(maxValidator(8)(NaN)).toEqual({ required: 8, actual: NaN });
+    expect(maxValidator(8)(NaN)).toEqual({
+      max: {
+        required: 8,
+        actual: NaN,
+      },
+    });
   });
 
   it('should error on larger value length', () => {
-    expect(maxValidator(2)(3)).toEqual({ required: 2, actual: 3 });
+    expect(maxValidator(2)(3)).toEqual({
+      max: {
+        required: 2,
+        actual: 3,
+      },
+    });
   });
 });

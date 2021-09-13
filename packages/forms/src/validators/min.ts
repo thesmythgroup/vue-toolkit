@@ -7,6 +7,6 @@ export default function minValidator(min: number) {
 
     return !isNaN(value) && value >= min
       ? null
-      : { required: min, actual: value };
+      : { min: { required: min, actual: value } };
   };
 }

@@ -14,18 +14,18 @@ describe('required validator', () => {
   });
 
   it('should error on null', () => {
-    expect(requiredValidator(null)).toEqual({});
+    expect(requiredValidator(null)).toEqual({ required: true });
   });
 
   it('should error on undefined', () => {
-    expect(requiredValidator(undefined)).toEqual({});
+    expect(requiredValidator(undefined)).toEqual({ required: true });
   });
 
   it('should error on empty string', () => {
-    expect(requiredValidator('')).toEqual({});
+    expect(requiredValidator('')).toEqual({ required: true });
   });
 
   it('should error on empty array', () => {
-    expect(requiredValidator([])).toEqual({});
+    expect(requiredValidator([])).toEqual({ required: true });
   });
 });

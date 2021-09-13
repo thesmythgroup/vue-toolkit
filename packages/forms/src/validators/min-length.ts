@@ -5,6 +5,8 @@ export default function minLengthValidator(min: number) {
       return null;
     }
 
-    return value.length >= min ? null : { required: min, actual: value.length };
+    return value.length >= min
+      ? null
+      : { minLength: { required: min, actual: value.length } };
   };
 }

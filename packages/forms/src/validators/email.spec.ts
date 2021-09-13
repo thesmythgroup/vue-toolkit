@@ -15,6 +15,6 @@ describe('email validator', () => {
   });
 
   it('should error on invalid email', () => {
-    expect(emailValidator('invalid')).toEqual({});
+    expect(emailValidator('invalid')).toEqual({ email: true });
   });
 });

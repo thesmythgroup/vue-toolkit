@@ -8,5 +8,5 @@ export default function emailValidator(value: string) {
     return null;
   }
 
-  return EMAIL_REGEXP.test(value) ? null : {};
+  return EMAIL_REGEXP.test(value) ? null : { email: true };
 }

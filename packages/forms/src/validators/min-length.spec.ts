@@ -31,6 +31,11 @@ describe('minLength validator', () => {
   });
 
   it('should error on shorter value length', () => {
-    expect(minLengthValidator(2)('')).toEqual({ required: 2, actual: 0 });
+    expect(minLengthValidator(2)('')).toEqual({
+      minLength: {
+        required: 2,
+        actual: 0,
+      },
+    });
   });
 });

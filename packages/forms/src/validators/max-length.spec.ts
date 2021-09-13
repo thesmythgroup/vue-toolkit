@@ -31,6 +31,11 @@ describe('maxLength validator', () => {
   });
 
   it('should error on longer value length', () => {
-    expect(maxLengthValidator(2)('abc')).toEqual({ required: 2, actual: 3 });
+    expect(maxLengthValidator(2)('abc')).toEqual({
+      maxLength: {
+        required: 2,
+        actual: 3,
+      },
+    });
   });
 });

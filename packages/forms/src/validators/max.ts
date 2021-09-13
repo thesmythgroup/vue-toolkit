@@ -7,6 +7,6 @@ export default function maxValidator(max: number) {
 
     return !isNaN(value) && value <= max
       ? null
-      : { required: max, actual: value };
+      : { max: { required: max, actual: value } };
   };
 }

@@ -5,6 +5,8 @@ export default function maxLengthValidator(max: number) {
       return null;
     }
 
-    return value.length <= max ? null : { required: max, actual: value.length };
+    return value.length <= max
+      ? null
+      : { maxLength: { required: max, actual: value.length } };
   };
 }

@@ -11,7 +11,7 @@
       </v-button>
     </app-options>
 
-    <v-form :value="value" @submit="onSubmit">
+    <v-form :value="value" :validation-schema="schema" @submit="onSubmit">
       <v-field label="Name">
         <v-input name="name"></v-input>
       </v-field>
@@ -50,12 +50,18 @@
 <script lang="ts">
 import Vue from 'vue';
 import { FormSubmitEvent } from '@vue-toolkit/forms';
+import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
 
 export default Vue.extend({
   data() {
     return {
       value: null as Record<string, unknown> | null,
       submitted: null as FormSubmitEvent | null,
+      schema: {
+        name: [required, minLength(3), maxLength(20)],
+        type: [required],
+        priority: [required],
+      },
     };
   },
   methods: {

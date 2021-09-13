@@ -8,6 +8,7 @@
 import Vue from 'vue';
 
 import { FormSubmitEvent } from './interfaces';
+import { ValidatorFn } from '../../interfaces';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default Vue.extend({
@@ -22,6 +23,9 @@ export default Vue.extend({
   },
   props: {
     value: {
+      type: Object,
+    },
+    validationSchema: {
       type: Object,
     },
   },
@@ -59,12 +63,53 @@ export default Vue.extend({
         }
       });
     },
+    getErrors() {
+      const schema = this.validationSchema as Record<string, ValidatorFn[]>;
+
+      if (!schema) {
+        return null;
+      }
+
+      const formErrors = Object.entries(schema).reduce(
+        (errors, [name, validators]) => {
+          const control = this.controls[name];
+
+          if (control && validators) {
+            const ctrlValue = (control as any).innerValue;
+            const ctrlErrors = validators.reduce((prev, validatorFn) => {
+              const res = validatorFn(ctrlValue);
+
+              return res ? { ...prev, ...res } : prev;
+            }, {});
+
+            if (Object.keys(ctrlErrors).length > 0) {
+              return {
+                ...errors,
+                [name]: ctrlErrors,
+              };
+            }
+          }
+
+          return errors;
+        },
+        {}
+      );
+
+      return Object.keys(formErrors).length > 0 ? formErrors : null;
+    },
     onSubmit(event: Event) {
       event.preventDefault();
 
-      // todo: validation, dirty, touched, etc
+      const errors = this.getErrors();
+      const value = this.getValue();
+      const isValid = errors === null;
+
+      // todo: dirty, touched, etc
       const payload: FormSubmitEvent = {
-        value: (this as any).getValue(),
+        value,
+        errors,
+        valid: isValid,
+        invalid: !isValid,
       };
 
       this.$emit('submit', payload);

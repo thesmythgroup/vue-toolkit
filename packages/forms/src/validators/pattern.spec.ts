@@ -24,8 +24,10 @@ describe('pattern validator', () => {
 
   it('should error on match failure', () => {
     expect(patternValidator(/b/)('aaa')).toEqual({
-      required: '/b/',
-      actual: 'aaa',
+      pattern: {
+        required: '/b/',
+        actual: 'aaa',
+      },
     });
   });
 });

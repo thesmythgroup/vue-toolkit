@@ -7,9 +7,6 @@ export default function patternValidator(pattern: RegExp) {
 
     return pattern.test(value)
       ? null
-      : {
-          required: pattern.toString(),
-          actual: value,
-        };
+      : { pattern: { required: pattern.toString(), actual: value } };
   };
 }

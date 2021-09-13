@@ -31,10 +31,20 @@ describe('min validator', () => {
   });
 
   it('should error on NaN', () => {
-    expect(minValidator(8)(NaN)).toEqual({ required: 8, actual: NaN });
+    expect(minValidator(8)(NaN)).toEqual({
+      min: {
+        required: 8,
+        actual: NaN,
+      },
+    });
   });
 
   it('should error on smaller value length', () => {
-    expect(minValidator(2)(0)).toEqual({ required: 2, actual: 0 });
+    expect(minValidator(2)(0)).toEqual({
+      min: {
+        required: 2,
+        actual: 0,
+      },
+    });
   });
 });
