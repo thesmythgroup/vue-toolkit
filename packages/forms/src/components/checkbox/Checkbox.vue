@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
 import { formControl } from '../../mixins';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-checkbox',
   inheritAttrs: false,
   mixins: [formControl],

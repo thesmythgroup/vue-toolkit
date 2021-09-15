@@ -5,13 +5,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
 interface ChildComponent {
   isOpen: boolean;
 }
 
-export default Vue.extend({
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default defineComponent({
   name: 'v-accordion',
   props: {
     allowMultiple: {

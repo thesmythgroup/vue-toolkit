@@ -35,10 +35,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 import * as focusTrap from 'focus-trap';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-dialog',
   props: {
     title: String,

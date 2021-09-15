@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 import { Auth } from '@aws-amplify/auth';
 
 import {
@@ -36,7 +36,7 @@ import {
   AuthSignUpVerification,
 } from '../../interfaces';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-sign-up',
   data() {
     return {

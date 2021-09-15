@@ -1,6 +1,3 @@
-import { Component } from 'vue';
-import { VueConstructor } from 'vue/types/umd';
-
 import * as components from './components';
 import { AuthConfig, AuthSignUpVerification } from './interfaces';
 
@@ -9,11 +6,12 @@ export * from './router';
 export * from './interfaces';
 
 export default {
-  install: (Vue: VueConstructor, options: AuthConfig) => {
-    const all: Record<string, Component> = components;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  install: (app: any, options: AuthConfig) => {
+    const all: Record<string, any> = components;
 
     for (const key in all) {
-      Vue.component(`V${key}`, all[key] as typeof Vue);
+      app.component(`V${key}`, all[key]);
     }
 
     const config = {

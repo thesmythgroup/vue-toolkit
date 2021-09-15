@@ -5,13 +5,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, ComponentInstance } from 'vue-demi';
 
-interface ParentComponent extends Vue {
-  tabs: Vue[];
+interface ParentComponent extends ComponentInstance {
+  tabs: ComponentInstance[];
 }
 
-export default Vue.extend({
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default defineComponent({
   name: 'v-tab',
   props: {
     title: String,
@@ -27,7 +28,7 @@ export default Vue.extend({
   },
   created() {
     const parent = this.$parent as ParentComponent;
-    parent.tabs.push(this);
+    parent.tabs.push(this as any);
 
     if (parent.tabs.length === 1) {
       this.isActive = true;

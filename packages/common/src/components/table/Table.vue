@@ -23,12 +23,12 @@
 </template>
 
 <script lang="ts">
-import Vue, { VNode } from 'vue';
+import { defineComponent } from 'vue-demi';
 
 import Cell from './Cell.vue';
 import Header from './Header.vue';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-table',
   components: {
     'v-cell': Cell,
@@ -42,7 +42,8 @@ export default Vue.extend({
   },
   data() {
     return {
-      columns: [] as VNode[],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      columns: [] as any[], // VNode[]
     };
   },
   mounted() {

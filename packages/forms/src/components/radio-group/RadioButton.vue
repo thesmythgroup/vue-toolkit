@@ -14,15 +14,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, ComponentInstance } from 'vue-demi';
 
-interface ParentComponent extends Vue {
+interface ParentComponent extends ComponentInstance {
   name: string;
   innerValue: string | number;
   onChange(value: string | number): void;
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-radio-button',
   inheritAttrs: false,
   props: {

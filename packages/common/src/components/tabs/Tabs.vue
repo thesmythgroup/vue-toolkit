@@ -21,13 +21,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
 interface ChildComponent {
   isActive: boolean;
 }
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-tabs',
   data() {
     return {

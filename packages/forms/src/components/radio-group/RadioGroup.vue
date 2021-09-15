@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
 import { formControl } from '../../mixins';
 import { getUniqueId } from '../../utils';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-radio-group',
   mixins: [formControl],
   props: {

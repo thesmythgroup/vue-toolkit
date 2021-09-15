@@ -30,14 +30,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, ComponentInstance } from 'vue-demi';
 
-interface ParentComponent extends Vue {
-  items: Vue[];
-  setOpen(child: Vue): void;
+interface ParentComponent extends ComponentInstance {
+  items: ComponentInstance[];
+  setOpen(child: ComponentInstance): void;
 }
 
-export default Vue.extend({
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export default defineComponent({
   name: 'v-accordion-item',
   props: {
     title: String,
@@ -53,7 +54,7 @@ export default Vue.extend({
   },
   created() {
     const parent = this.$parent as ParentComponent;
-    parent.items.push(this);
+    parent.items.push(this as any);
   },
   destroyed() {
     const parent = this.$parent as ParentComponent;
@@ -68,7 +69,7 @@ export default Vue.extend({
       const parent = this.$parent as ParentComponent;
 
       this.isOpen = !this.isOpen;
-      parent.setOpen(this);
+      parent.setOpen(this as any);
     },
   },
 });

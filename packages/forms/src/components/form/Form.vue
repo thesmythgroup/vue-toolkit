@@ -5,13 +5,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, ComponentInstance } from 'vue-demi';
 
 import { FormSubmitEvent } from './interfaces';
 import { ValidatorFn } from '../../interfaces';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default Vue.extend({
+export default defineComponent({
   name: 'v-form',
   provide() {
     return {
@@ -33,7 +33,7 @@ export default Vue.extend({
     controls: {} as Record<string, any>,
   }),
   methods: {
-    addControl(name: string, comp: Vue) {
+    addControl(name: string, comp: ComponentInstance) {
       if (!name) {
         return;
       }

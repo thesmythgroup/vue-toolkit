@@ -4,10 +4,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 import { CognitoUser } from '@aws-amplify/auth';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-auth-root',
   data() {
     return {

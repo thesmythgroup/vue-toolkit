@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
 import { getUniqueId } from '../../utils';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-field',
   props: {
     label: String,

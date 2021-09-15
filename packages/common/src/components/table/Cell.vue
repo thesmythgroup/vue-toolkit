@@ -1,7 +1,7 @@
 <script lang="ts">
-import Vue, { VNode } from 'vue';
+import { defineComponent } from 'vue-demi';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-cell',
   props: {
     row: {
@@ -14,7 +14,8 @@ export default Vue.extend({
     },
   },
   render(h) {
-    const col = this.column as VNode;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const col = this.column as any; // VNode
     const slots = col.data?.scopedSlots;
 
     return h(

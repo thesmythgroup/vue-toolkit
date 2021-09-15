@@ -23,12 +23,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-require-new-password',
   props: {
     user: Object as () => CognitoUser,

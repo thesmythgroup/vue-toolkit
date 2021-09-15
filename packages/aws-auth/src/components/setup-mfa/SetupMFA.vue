@@ -23,14 +23,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 
 type MFAType = 'TOTP' | 'SMS' | 'NOMFA';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-change-mfa',
   data() {
     return {

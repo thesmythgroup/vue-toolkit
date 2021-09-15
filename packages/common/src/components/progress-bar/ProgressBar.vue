@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue-demi';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'v-progress-bar',
   props: {
     value: Number,

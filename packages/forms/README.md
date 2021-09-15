@@ -19,6 +19,8 @@ Completely style-able, fully accessible form UI components, built with Vue.
 npm install --save @vue-toolkit/forms @vue-toolkit/common
 ```
 
+> Vue Toolkit requires vue >= v3.2 or @vue/composition-api >= v1.1
+
 ## Usage
 
 ```ts
