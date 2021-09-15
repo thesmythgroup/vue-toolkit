@@ -1,7 +1,6 @@
 import { createAuthRoutes } from '@vue-toolkit/aws-auth';
 import VueRouter, { RouteConfig } from 'vue-router';
 
-import { publicPath } from '../../vue.config';
 import AwsAuthRoot from '../pages/AwsAuthRoot.vue';
 import Accordion from '../pages/common/Accordion.vue';
 import Button from '../pages/common/Button.vue';
@@ -75,7 +74,7 @@ const routes: RouteConfig[] = [
 ];
 
 const router = new VueRouter({
-  base: publicPath,
+  base: '/',
   mode: 'history',
   routes,
 });

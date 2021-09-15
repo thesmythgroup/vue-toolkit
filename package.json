@@ -20,12 +20,13 @@
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap && npm --prefix ./docs ci",
     "lint": "lerna exec npm run lint",
-    "test:unit": "lerna exec npm run test:unit",
+    "test": "lerna exec npm run test",
     "build": "lerna exec npm run build",
     "format": "lerna exec npm run format",
     "start": "npm --prefix ./docs run start"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -13,9 +13,9 @@ import App from './App.vue';
 import router from './router';
 
 Auth.configure({
-  userPoolId: process.env.VUE_APP_AWS_USER_POOL_ID,
-  userPoolWebClientId: process.env.VUE_APP_AWS_POOL_WEB_CLIENT_ID,
-  region: process.env.VUE_APP_AWS_REGION,
+  userPoolId: import.meta.env.VITE_AWS_USER_POOL_ID,
+  userPoolWebClientId: import.meta.env.VITE_AWS_POOL_WEB_CLIENT_ID,
+  region: import.meta.env.VITE_AWS_REGION,
 });
 
 Vue.config.productionTip = false;
