@@ -28,7 +28,7 @@
 
     <v-dialog
       v-if="isOpen"
-      @dimissed="onDismiss()"
+      @dismiss="onDismiss()"
       :size="size"
       :show-backdrop="showBackdrop"
       :show-close="showClose"

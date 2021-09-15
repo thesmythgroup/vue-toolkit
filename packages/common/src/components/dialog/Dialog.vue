@@ -87,7 +87,7 @@ export default defineComponent({
   methods: {
     dismiss(reason: string) {
       this.trap?.deactivate();
-      this.$emit('dimissed', reason);
+      this.$emit('dismiss', reason);
     },
     onKeyup(e: KeyboardEvent) {
       if (this.keyboardDismiss && e.code === 'Escape') {
