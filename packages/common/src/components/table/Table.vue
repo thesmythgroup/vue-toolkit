@@ -1,25 +1,27 @@
 <template>
-  <table class="table">
-    <thead>
-      <tr>
-        <v-header
-          v-for="column in columns"
-          :key="column.id"
-          :column="column"
-        ></v-header>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="row in data" :key="row.id">
-        <v-cell
-          v-for="column in columns"
-          :key="column.id"
-          :column="column"
-          :row="row"
-        ></v-cell>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <v-header
+            v-for="column in columns"
+            :key="column.id"
+            :column="column"
+          ></v-header>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in data" :key="row.id">
+          <v-cell
+            v-for="column in columns"
+            :key="column.id"
+            :column="column"
+            :row="row"
+          ></v-cell>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script lang="ts">

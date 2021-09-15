@@ -1,5 +1,10 @@
 @import './_variables';
 
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
 .table {
   border-collapse: collapse;
   width: 100%;
