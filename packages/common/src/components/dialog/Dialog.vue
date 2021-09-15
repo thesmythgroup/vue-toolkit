@@ -22,14 +22,7 @@
         &times;
       </button>
 
-      <!-- header -->
-      <slot name="v-dialog-header" v-if="showHeader"> </slot>
-
-      <!-- content -->
       <slot></slot>
-
-      <!-- footer -->
-      <slot name="v-dialog-footer" v-if="showFooter"></slot>
     </section>
   </div>
 </template>
@@ -62,8 +55,6 @@ export default defineComponent({
   },
   data() {
     return {
-      showHeader: false,
-      showFooter: false,
       trap: null as focusTrap.FocusTrap | null,
     };
   },
@@ -71,9 +62,6 @@ export default defineComponent({
     window.addEventListener('keyup', this.onKeyup);
   },
   mounted() {
-    this.showHeader = !!this.$slots.header;
-    this.showFooter = !!this.$slots.footer;
-
     this.trap = focusTrap.createFocusTrap(this.$refs.modal as HTMLElement, {
       allowOutsideClick: true,
       escapeDeactivates: this.keyboardDismiss,
