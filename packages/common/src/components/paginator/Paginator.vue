@@ -89,6 +89,7 @@ export default defineComponent({
   },
   methods: {
     onPageSizeChange() {
+      this.currentIndex = 0;
       this.emitPage();
     },
     onPrev() {
