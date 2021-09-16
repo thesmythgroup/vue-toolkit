@@ -5,7 +5,9 @@ import { SignIn } from '.';
 describe('SignIn.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(SignIn, {
-      stubs: ['router-link'],
+      global: {
+        stubs: ['router-link'],
+      },
     });
     expect(wrapper).toBeDefined();
   });

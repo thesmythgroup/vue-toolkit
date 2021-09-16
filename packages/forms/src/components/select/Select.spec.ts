@@ -5,10 +5,12 @@ import { Select } from '.';
 describe('Select', () => {
   it('renders', () => {
     const wrapper = shallowMount(Select, {
-      provide: {
-        form: {
-          addControl: jest.fn(),
-          removeControl: jest.fn(),
+      global: {
+        provide: {
+          form: {
+            addControl: jest.fn(),
+            removeControl: jest.fn(),
+          },
         },
       },
     });

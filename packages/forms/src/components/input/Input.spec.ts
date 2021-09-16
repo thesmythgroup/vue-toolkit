@@ -5,10 +5,12 @@ import { Input } from '.';
 describe('Input', () => {
   it('renders', () => {
     const wrapper = shallowMount(Input, {
-      provide: {
-        form: {
-          addControl: jest.fn(),
-          removeControl: jest.fn(),
+      global: {
+        provide: {
+          form: {
+            addControl: jest.fn(),
+            removeControl: jest.fn(),
+          },
         },
       },
     });

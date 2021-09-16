@@ -5,10 +5,12 @@ import { RadioGroup } from '.';
 describe('RadioGroup', () => {
   it('renders', () => {
     const wrapper = shallowMount(RadioGroup, {
-      provide: {
-        form: {
-          addControl: jest.fn(),
-          removeControl: jest.fn(),
+      global: {
+        provide: {
+          form: {
+            addControl: jest.fn(),
+            removeControl: jest.fn(),
+          },
         },
       },
     });

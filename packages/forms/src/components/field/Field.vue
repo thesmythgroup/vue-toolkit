@@ -25,12 +25,7 @@ export default defineComponent({
     };
   },
   mounted() {
-    // todo: improve
-    const control = this.$children.find((x) => x.$attrs.name != null);
-
-    if (control?.$el) {
-      control.$el.id = this.id;
-    }
+    // todo: link lable/control with id
   },
 });
 </script>

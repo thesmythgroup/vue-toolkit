@@ -5,10 +5,12 @@ import { Checkbox } from '.';
 describe('Checkbox', () => {
   it('renders', () => {
     const wrapper = shallowMount(Checkbox, {
-      provide: {
-        form: {
-          addControl: jest.fn(),
-          removeControl: jest.fn(),
+      global: {
+        provide: {
+          form: {
+            addControl: jest.fn(),
+            removeControl: jest.fn(),
+          },
         },
       },
     });

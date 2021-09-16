@@ -4,7 +4,7 @@ module.exports = {
   setupFiles: ['./jest.setup.ts'],
   moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
   transform: {
-    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.(vue)$': '@vue/vue3-jest',
     '^.+\\.tsx?$': 'ts-jest',
   },
 };

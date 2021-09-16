@@ -5,7 +5,9 @@ import { CompleteForgotPassword } from '.';
 describe('CompleteForgotPassword.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(CompleteForgotPassword, {
-      stubs: ['router-link'],
+      global: {
+        stubs: ['router-link'],
+      },
     });
     expect(wrapper).toBeDefined();
   });

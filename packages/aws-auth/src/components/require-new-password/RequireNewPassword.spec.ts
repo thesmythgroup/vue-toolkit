@@ -5,7 +5,9 @@ import { RequireNewPassword } from '.';
 describe('RequireNewPassword.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(RequireNewPassword, {
-      stubs: ['router-link'],
+      global: {
+        stubs: ['router-link'],
+      },
     });
     expect(wrapper).toBeDefined();
   });

@@ -6,6 +6,6 @@ import Vue from 'vue';
 
 import AwsAuth from './src';
 
-Vue.use(Common);
-Vue.use(Forms);
-Vue.use(AwsAuth);
+// Vue.use(Common);
+// Vue.use(Forms);
+// Vue.use(AwsAuth);
