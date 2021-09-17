@@ -13,6 +13,7 @@ import { ValidatorFn } from '../../interfaces';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default defineComponent({
   name: 'v-form',
+  emits: ['submit'],
   provide() {
     return {
       form: {

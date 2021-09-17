@@ -7,20 +7,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue-demi';
+import { defineComponent, isVue3 } from 'vue-demi';
 
 import { formControl } from '../../mixins';
+
+const modelProp = isVue3 ? 'modelValue' : 'value';
+const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-textarea',
   mixins: [formControl],
   props: {
     name: String,
-    value: String,
+    [modelProp]: String,
   },
   data() {
     return {
-      innerValue: this.value,
+      innerValue: this[modelProp],
     };
   },
   methods: {
@@ -28,11 +31,11 @@ export default defineComponent({
       const input = event.target as HTMLTextAreaElement;
 
       this.innerValue = input.value;
-      this.$emit('input', input.value);
+      this.$emit(modelEvent, input.value);
     },
   },
   watch: {
-    value(value: string) {
+    [modelProp](value: string) {
       this.innerValue = value;
     },
   },

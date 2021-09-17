@@ -12,9 +12,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue-demi';
+import { defineComponent, isVue3 } from 'vue-demi';
 
 import { formControl } from '../../mixins';
+
+const modelProp = isVue3 ? 'modelValue' : 'value';
+const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-checkbox',
@@ -22,11 +25,11 @@ export default defineComponent({
   mixins: [formControl],
   props: {
     name: String,
-    value: Boolean,
+    [modelProp]: Boolean,
   },
   data() {
     return {
-      innerValue: this.value,
+      innerValue: this[modelProp],
     };
   },
   methods: {
@@ -34,11 +37,11 @@ export default defineComponent({
       const input = event.target as HTMLInputElement;
 
       this.innerValue = input.checked;
-      this.$emit('input', input.checked);
+      this.$emit(modelEvent, input.checked);
     },
   },
   watch: {
-    value(value: boolean) {
+    [modelProp](value: boolean) {
       this.innerValue = value;
     },
   },
