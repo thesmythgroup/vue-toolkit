@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'app-auth-bar',
   data() {
     return {

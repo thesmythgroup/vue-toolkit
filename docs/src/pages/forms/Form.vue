@@ -48,11 +48,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { FormSubmitEvent } from '@vue-toolkit/forms';
 import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
 
-export default Vue.extend({
+export default defineComponent({
   data() {
     return {
       value: null as Record<string, unknown> | null,

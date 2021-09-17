@@ -1,5 +1,5 @@
 import { createAuthRoutes } from '@vue-toolkit/aws-auth';
-import VueRouter, { RouteConfig } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 import AwsAuthRoot from '../pages/AwsAuthRoot.vue';
 import Accordion from '../pages/common/Accordion.vue';
@@ -25,7 +25,7 @@ import Textarea from '../pages/forms/Textarea.vue';
 import FormsRoot from '../pages/FormsRoot.vue';
 import Home from '../pages/Home.vue';
 
-const routes: RouteConfig[] = [
+const routes = [
   {
     path: '/',
     component: Home,
@@ -73,9 +73,8 @@ const routes: RouteConfig[] = [
   },
 ];
 
-const router = new VueRouter({
-  base: '/',
-  mode: 'history',
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
 });
 

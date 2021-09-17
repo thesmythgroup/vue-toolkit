@@ -1,4 +1,3 @@
-/// <reference types="vue-router/types" />
 import AppAuthBar from '@/components/AppAuthBar.vue';
 import AppOptions from '@/components/AppOptions.vue';
 import AppSnippet from '@/components/AppSnippet.vue';
@@ -6,8 +5,7 @@ import { Auth } from '@aws-amplify/auth';
 import AwsAuth from '@vue-toolkit/aws-auth';
 import Common from '@vue-toolkit/common';
 import Forms from '@vue-toolkit/forms';
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { createApp } from 'vue';
 
 import App from './App.vue';
 import router from './router';
@@ -18,18 +16,15 @@ Auth.configure({
   region: import.meta.env.VITE_AWS_REGION,
 });
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-Vue.use(VueRouter);
-Vue.use(Common);
-Vue.use(Forms);
-Vue.use(AwsAuth);
+app.use(router);
+app.use(Common);
+app.use(Forms);
+app.use(AwsAuth);
 
-Vue.component('app-auth-bar', AppAuthBar);
-Vue.component('app-options', AppOptions);
-Vue.component('app-snippet', AppSnippet);
+app.component('app-auth-bar', AppAuthBar);
+app.component('app-options', AppOptions);
+app.component('app-snippet', AppSnippet);
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount('#app');
+app.mount('#app');

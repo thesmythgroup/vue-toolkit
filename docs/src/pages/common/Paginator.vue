@@ -19,10 +19,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { PageEvent } from '@vue-toolkit/common';
 
-export default Vue.extend({
+export default defineComponent({
   data() {
     return {
       length: 500,
