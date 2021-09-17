@@ -2,8 +2,11 @@
   <button
     type="button"
     class="button"
-    :class="{ 'button--disabled': isDisabled }"
-    :disabled="isDisabled"
+    :class="{
+      'button--disabled': disabled,
+      'button--busy': busy,
+    }"
+    :disabled="busy || disabled"
     @click="onClick"
   >
     <slot name="busy" v-if="busy">Loading ...</slot>
@@ -24,11 +27,6 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    isDisabled(): boolean {
-      return this.busy || this.disabled;
     },
   },
   methods: {
