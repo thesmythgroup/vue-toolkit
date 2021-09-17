@@ -6,7 +6,27 @@
   padding: 0;
 
   &__item {
-    border-bottom: 1px solid $list-border;
+    background: none;
+    border-color: $list-border;
+    border-style: solid;
+    border-width: 0 0 1px 0;;
+    box-sizing: border-box;
+    color: unset;
+    display: block;
+    font-size: unset;
+    outline: 0;
     padding: 0.75rem;
+    text-align: left;
+    width: 100%;
+
+    &--clickable {
+      cursor: pointer;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        background-color: $list-clickable-bg;
+      }
+    }
   }
 }

@@ -2,11 +2,16 @@
   <main class="flex min-h-screen">
     <v-sidebar>
       <section v-for="pkg in packages" :key="pkg.name">
-        <h2>{{ pkg.name }}</h2>
+        <h2 class="pl-3 mb-1">{{ pkg.name }}</h2>
         <nav>
           <v-list>
-            <v-list-item v-for="(page, index) in pkg.pages" :key="index">
-              <router-link :to="page.to">{{ page.label }}</router-link>
+            <v-list-item
+              v-for="(page, index) in pkg.pages"
+              is="router-link"
+              :key="index"
+              :to="page.to"
+            >
+              {{ page.label }}
             </v-list-item>
           </v-list>
         </nav>
