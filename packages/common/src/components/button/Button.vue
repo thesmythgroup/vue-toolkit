@@ -19,6 +19,7 @@ import { defineComponent } from 'vue-demi';
 
 export default defineComponent({
   name: 'v-button',
+  emits: ['click'],
   props: {
     busy: {
       type: Boolean,

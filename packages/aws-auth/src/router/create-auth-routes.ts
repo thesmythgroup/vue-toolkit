@@ -1,5 +1,3 @@
-import { RouteConfig } from 'vue-router';
-
 import {
   AuthRoot,
   ChangePassword,
@@ -14,7 +12,7 @@ import {
 } from '../components';
 
 export function createAuthRoutes(root = '/') {
-  const routes: RouteConfig[] = [
+  const routes = [
     {
       path: root,
       component: AuthRoot,
