@@ -15,8 +15,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@vue-toolkit/common": ["../common/src"],
-      "@vue-toolkit/forms": ["../forms/src"],
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
