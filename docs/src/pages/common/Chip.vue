@@ -13,18 +13,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const showRemove = ref(false);
+    const onRemove = () => alert('Chip removed!');
+
     return {
-      showRemove: false,
+      showRemove,
+      onRemove,
     };
-  },
-  methods: {
-    onRemove() {
-      alert('Chip removed!');
-    },
   },
 });
 </script>

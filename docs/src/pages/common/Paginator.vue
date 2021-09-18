@@ -19,21 +19,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { PageEvent } from '@vue-toolkit/common';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const length = ref(500);
+    const pageSize = ref(50);
+    const output = ref<PageEvent | null>(null);
+    const onPage = (event: PageEvent) => (output.value = event);
+
     return {
-      length: 500,
-      pageSize: 50,
-      output: null as PageEvent | null,
+      length,
+      pageSize,
+      output,
+      onPage,
     };
-  },
-  methods: {
-    onPage(event: PageEvent) {
-      this.output = event;
-    },
   },
 });
 </script>

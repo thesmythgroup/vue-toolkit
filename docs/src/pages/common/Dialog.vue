@@ -47,26 +47,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const isOpen = ref(false);
+    const showBackdrop = ref(true);
+    const showClose = ref(true);
+    const backdropDismiss = ref(true);
+    const keyboardDismiss = ref(true);
+    const size = ref('');
+    const onOpen = () => (isOpen.value = true);
+    const onDismiss = () => (isOpen.value = false);
+
     return {
-      isOpen: false,
-      showBackdrop: true,
-      showClose: true,
-      backdropDismiss: true,
-      keyboardDismiss: true,
-      size: '',
+      isOpen,
+      showBackdrop,
+      showClose,
+      backdropDismiss,
+      keyboardDismiss,
+      size,
+      onOpen,
+      onDismiss,
     };
-  },
-  methods: {
-    onOpen() {
-      this.isOpen = true;
-    },
-    onDismiss() {
-      this.isOpen = false;
-    },
   },
 });
 </script>

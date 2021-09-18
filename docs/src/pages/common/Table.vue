@@ -20,18 +20,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const items = ref([
+      { id: 1, name: 'Luke Skywalker', homeworld: 'Tatooine' },
+      { id: 2, name: 'Han Solo', homeworld: 'Corellia' },
+      { id: 3, name: 'Darth Vadar', homeworld: 'Tatooine' },
+      { id: 4, name: 'Yoda', homeworld: 'unknown' },
+      { id: 5, name: 'Obi-Wan', homeworld: 'Stewjon' },
+    ]);
+
     return {
-      items: [
-        { id: 1, name: 'Luke Skywalker', homeworld: 'Tatooine' },
-        { id: 2, name: 'Han Solo', homeworld: 'Corellia' },
-        { id: 3, name: 'Darth Vadar', homeworld: 'Tatooine' },
-        { id: 4, name: 'Yoda', homeworld: 'unknown' },
-        { id: 5, name: 'Obi-Wan', homeworld: 'Stewjon' },
-      ],
+      items,
     };
   },
 });

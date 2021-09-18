@@ -48,44 +48,50 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { FormSubmitEvent } from '@vue-toolkit/forms';
 import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
 
 export default defineComponent({
-  data() {
-    return {
-      value: null as Record<string, unknown> | null,
-      submitted: null as FormSubmitEvent | null,
-      schema: {
-        name: [required, minLength(3), maxLength(20)],
-        type: [required],
-        priority: [required],
-      },
-    };
-  },
-  methods: {
-    loadAva() {
-      this.value = {
+  setup() {
+    const value = ref<Record<string, unknown> | null>(null);
+    const submitted = ref<FormSubmitEvent | null>(null);
+    const schema = ref({
+      name: [required, minLength(3), maxLength(20)],
+      type: [required],
+      priority: [required],
+    });
+
+    const loadAva = () => {
+      value.value = {
         name: 'Ava',
         description: null,
         type: 'dog',
         priority: 'high',
         isAwesome: true,
       };
-    },
-    loadLucy() {
-      this.value = {
+    };
+    const loadLucy = () => {
+      value.value = {
         name: 'Lucy',
         description: null,
         type: 'cat',
         priority: 'low',
         isAwesome: false,
       };
-    },
-    onSubmit(event: FormSubmitEvent) {
-      this.submitted = event;
-    },
+    };
+    const onSubmit = (event: FormSubmitEvent) => {
+      submitted.value = event;
+    };
+
+    return {
+      value,
+      submitted,
+      schema,
+      loadAva,
+      loadLucy,
+      onSubmit,
+    };
   },
 });
 </script>

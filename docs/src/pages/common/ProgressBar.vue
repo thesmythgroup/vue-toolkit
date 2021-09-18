@@ -13,12 +13,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const value = ref(83);
+
     return {
-      value: 83,
+      value,
     };
   },
 });

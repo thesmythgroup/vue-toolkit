@@ -25,59 +25,61 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'App',
-  data() {
+  setup() {
+    const packages = ref([
+      {
+        name: 'Common',
+        pages: [
+          { to: '/common/accordion', label: 'Accordion' },
+          { to: '/common/button', label: 'Button' },
+          { to: '/common/card', label: 'Card' },
+          { to: '/common/chip', label: 'Chip' },
+          { to: '/common/dialog', label: 'Dialog' },
+          { to: '/common/list', label: 'List' },
+          { to: '/common/paginator', label: 'Paginator' },
+          { to: '/common/popover', label: 'Popover' },
+          { to: '/common/progress-bar', label: 'Progress Bar' },
+          { to: '/common/sidebar', label: 'Sidebar' },
+          { to: '/common/table', label: 'Table' },
+          { to: '/common/tabs', label: 'Tabs' },
+        ],
+      },
+      {
+        name: 'Forms',
+        pages: [
+          { to: '/forms/checkbox', label: 'Checkbox' },
+          { to: '/forms/field', label: 'Field' },
+          { to: '/forms/form', label: 'Form' },
+          { to: '/forms/input', label: 'Input' },
+          { to: '/forms/radio-group', label: 'Radio Group' },
+          { to: '/forms/select', label: 'Select' },
+          { to: '/forms/textarea', label: 'Textarea' },
+        ],
+      },
+      {
+        name: 'AWS Auth',
+        pages: [
+          { to: '/aws-auth/sign-in', label: 'Sign In' },
+          { to: '/aws-auth/sign-up', label: 'Sign Up' },
+          { to: '/aws-auth/confirm-sign-in', label: 'Confirm Sign In' },
+          { to: '/aws-auth/confirm-sign-up', label: 'Confirm Sign Up' },
+          { to: '/aws-auth/forgot-password', label: 'Forgot Password' },
+          {
+            to: '/aws-auth/require-new-password',
+            label: 'Require New Password',
+          },
+          { to: '/aws-auth/change-password', label: 'Change Password' },
+          { to: '/aws-auth/setup-mfa', label: 'Setup MFA' },
+        ],
+      },
+    ]);
+
     return {
-      packages: [
-        {
-          name: 'Common',
-          pages: [
-            { to: '/common/accordion', label: 'Accordion' },
-            { to: '/common/button', label: 'Button' },
-            { to: '/common/card', label: 'Card' },
-            { to: '/common/chip', label: 'Chip' },
-            { to: '/common/dialog', label: 'Dialog' },
-            { to: '/common/list', label: 'List' },
-            { to: '/common/paginator', label: 'Paginator' },
-            { to: '/common/popover', label: 'Popover' },
-            { to: '/common/progress-bar', label: 'Progress Bar' },
-            { to: '/common/sidebar', label: 'Sidebar' },
-            { to: '/common/table', label: 'Table' },
-            { to: '/common/tabs', label: 'Tabs' },
-          ],
-        },
-        {
-          name: 'Forms',
-          pages: [
-            { to: '/forms/checkbox', label: 'Checkbox' },
-            { to: '/forms/field', label: 'Field' },
-            { to: '/forms/form', label: 'Form' },
-            { to: '/forms/input', label: 'Input' },
-            { to: '/forms/radio-group', label: 'Radio Group' },
-            { to: '/forms/select', label: 'Select' },
-            { to: '/forms/textarea', label: 'Textarea' },
-          ],
-        },
-        {
-          name: 'AWS Auth',
-          pages: [
-            { to: '/aws-auth/sign-in', label: 'Sign In' },
-            { to: '/aws-auth/sign-up', label: 'Sign Up' },
-            { to: '/aws-auth/confirm-sign-in', label: 'Confirm Sign In' },
-            { to: '/aws-auth/confirm-sign-up', label: 'Confirm Sign Up' },
-            { to: '/aws-auth/forgot-password', label: 'Forgot Password' },
-            {
-              to: '/aws-auth/require-new-password',
-              label: 'Require New Password',
-            },
-            { to: '/aws-auth/change-password', label: 'Change Password' },
-            { to: '/aws-auth/setup-mfa', label: 'Setup MFA' },
-          ],
-        },
-      ],
+      packages,
     };
   },
 });

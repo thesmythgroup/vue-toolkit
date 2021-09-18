@@ -22,10 +22,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  methods: {
-    onClick(num: number) {
-      alert(`Item #${num} clicked!`);
-    },
+  setup() {
+    const onClick = (num: number) => alert(`Item #${num} clicked!`);
+
+    return { onClick };
   },
 });
 </script>

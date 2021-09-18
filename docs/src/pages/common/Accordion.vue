@@ -29,14 +29,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
-    return {
-      allowMultiple: false,
-      disabled: false,
-    };
+  setup() {
+    const allowMultiple = ref(false);
+    const disabled = ref(false);
+
+    return { allowMultiple, disabled };
   },
 });
 </script>

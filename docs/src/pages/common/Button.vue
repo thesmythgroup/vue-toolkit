@@ -36,19 +36,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const busy = ref(false);
+    const disabled = ref(false);
+    const onClick = () => alert('Button clicked!');
+
     return {
-      disabled: false,
-      busy: false,
+      busy,
+      disabled,
+      onClick,
     };
-  },
-  methods: {
-    onClick() {
-      alert('Button clicked!');
-    },
   },
 });
 </script>

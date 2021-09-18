@@ -2,9 +2,12 @@
   <section class="auth-info">
     <!-- authenticated -->
     <div v-if="isAuthenticated" class="flex items-center justify-between">
-      <p class="m-0">{{ user.username }}</p>
+      <div>
+        <p class="m-0 font-bold">{{ user.attributes.email }}</p>
+        <p class="m-0">{{ user.username }}</p>
+      </div>
 
-      <v-button class="button--outline" @click="onSignOut"> Sign out </v-button>
+      <v-button class="button--outline" @click="signOut"> Sign out </v-button>
     </div>
 
     <!-- unauthenticated -->
@@ -13,36 +16,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref, computed, onMounted } from 'vue';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 export default defineComponent({
   name: 'app-auth-bar',
-  data() {
-    return {
-      user: null as CognitoUser | null,
+  setup() {
+    const user = ref<CognitoUser | null>(null);
+    const isAuthenticated = computed(() => !!user.value);
+    const signOut = async () => {
+      await Auth.signOut();
+      user.value = null;
     };
-  },
-  created() {
-    this.loadUser();
-  },
-  methods: {
-    async loadUser() {
+
+    onMounted(async () => {
       try {
-        this.user = await Auth.currentAuthenticatedUser();
+        user.value = await Auth.currentAuthenticatedUser();
+        console.log(user.value);
       } catch (error) {
         // not authenticated
-        this.user = null;
+        user.value = null;
       }
-    },
-    async onSignOut() {
-      await Auth.signOut();
-    },
-  },
-  computed: {
-    isAuthenticated(): boolean {
-      return !!this.user;
-    },
+    });
+
+    return {
+      user,
+      isAuthenticated,
+      signOut,
+    };
   },
 });
 </script>
