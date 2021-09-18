@@ -1,41 +1,35 @@
 <template>
-  <select class="select" :value="innerValue" @change="onChange($event)">
+  <select class="select" :id="id" :value="innerValue" @change="handleInput">
     <slot></slot>
   </select>
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3 } from 'vue-demi';
+import { defineComponent, isVue3, inject } from 'vue-demi';
 
-import { formControl } from '../../mixins';
+import { useFormControl } from '../../composition';
 
 const modelProp = isVue3 ? 'modelValue' : 'value';
-const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-select',
-  mixins: [formControl],
   props: {
     name: String,
     [modelProp]: [String, Number],
   },
-  data() {
-    return {
-      innerValue: this[modelProp],
-    };
-  },
-  methods: {
-    onChange(event: Event) {
-      const input = event.target as HTMLSelectElement;
+  setup(props, { emit }) {
+    const id = inject<string>('field-id');
+    const { innerValue, handleInput } = useFormControl(
+      props.name as string,
+      props[modelProp],
+      emit
+    );
 
-      this.innerValue = input.value;
-      this.$emit(modelEvent, input.value);
-    },
-  },
-  watch: {
-    [modelProp](value: string | number) {
-      this.innerValue = value;
-    },
+    return {
+      id,
+      innerValue,
+      handleInput,
+    };
   },
 });
 </script>

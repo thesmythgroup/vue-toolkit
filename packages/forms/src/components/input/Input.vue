@@ -2,43 +2,38 @@
   <input
     type="text"
     class="input"
+    :id="id"
     :value="innerValue"
-    @input="onInput($event)"
+    @input="handleInput"
   />
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3 } from 'vue-demi';
+import { defineComponent, isVue3, inject } from 'vue-demi';
 
-import { formControl } from '../../mixins';
+import { useFormControl } from '../../composition';
 
 const modelProp = isVue3 ? 'modelValue' : 'value';
-const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-input',
-  mixins: [formControl],
   props: {
     name: String,
     [modelProp]: [String, Number],
   },
-  data() {
-    return {
-      innerValue: this[modelProp],
-    };
-  },
-  methods: {
-    onInput(event: Event) {
-      const input = event.target as HTMLInputElement;
+  setup(props, { emit }) {
+    const id = inject<string>('field-id');
+    const { innerValue, handleInput } = useFormControl(
+      props.name as string,
+      props[modelProp],
+      emit
+    );
 
-      this.innerValue = input.value;
-      this.$emit(modelEvent, input.value);
-    },
-  },
-  watch: {
-    [modelProp](value: string | number) {
-      this.innerValue = value;
-    },
+    return {
+      id,
+      innerValue,
+      handleInput,
+    };
   },
 });
 </script>

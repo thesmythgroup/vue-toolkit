@@ -5,17 +5,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3 } from 'vue-demi';
+import { defineComponent, isVue3, provide } from 'vue-demi';
 
-import { formControl } from '../../mixins';
+import { useFormControl } from '../../composition';
 import { getUniqueId } from '../../utils';
 
 const modelProp = isVue3 ? 'modelValue' : 'value';
-const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-radio-group',
-  mixins: [formControl],
   props: {
     name: {
       type: String,
@@ -23,21 +21,18 @@ export default defineComponent({
     },
     [modelProp]: [String, Number],
   },
-  data() {
-    return {
-      innerValue: this[modelProp],
-    };
-  },
-  methods: {
-    onChange(value: string | number) {
-      this.innerValue = value;
-      this.$emit(modelEvent, value);
-    },
-  },
-  watch: {
-    [modelProp](value: string | number) {
-      this.innerValue = value;
-    },
+  setup(props, { emit }) {
+    const { innerValue, setValue } = useFormControl(
+      props.name as string,
+      props[modelProp],
+      emit
+    );
+
+    provide('radio-group', {
+      name: props.name,
+      innerValue,
+      setValue,
+    });
   },
 });
 </script>

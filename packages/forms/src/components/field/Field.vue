@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue-demi';
+import { defineComponent, ref, provide } from 'vue-demi';
 
 import { getUniqueId } from '../../utils';
 
@@ -19,13 +19,13 @@ export default defineComponent({
   props: {
     label: String,
   },
-  data() {
+  setup() {
+    const id = ref(getUniqueId('control-'));
+    provide('field-id', id.value);
+
     return {
-      id: getUniqueId('control-'),
+      id,
     };
-  },
-  mounted() {
-    // todo: link lable/control with id
   },
 });
 </script>

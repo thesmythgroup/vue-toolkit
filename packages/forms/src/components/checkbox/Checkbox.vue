@@ -4,46 +4,41 @@
       type="checkbox"
       class="checkbox__input"
       v-bind="$attrs"
+      :id="id"
       :checked="innerValue"
-      @change="onChange($event)"
+      @change="handleInput"
     />
     <slot></slot>
   </label>
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3 } from 'vue-demi';
+import { defineComponent, isVue3, inject } from 'vue-demi';
 
-import { formControl } from '../../mixins';
+import { useFormControl } from '../../composition';
 
 const modelProp = isVue3 ? 'modelValue' : 'value';
-const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export default defineComponent({
   name: 'v-checkbox',
   inheritAttrs: false,
-  mixins: [formControl],
   props: {
     name: String,
     [modelProp]: Boolean,
   },
-  data() {
-    return {
-      innerValue: this[modelProp],
-    };
-  },
-  methods: {
-    onChange(event: Event) {
-      const input = event.target as HTMLInputElement;
+  setup(props, { emit }) {
+    const id = inject<string>('field-id');
+    const { innerValue, handleInput } = useFormControl(
+      props.name as string,
+      props[modelProp],
+      emit
+    );
 
-      this.innerValue = input.checked;
-      this.$emit(modelEvent, input.checked);
-    },
-  },
-  watch: {
-    [modelProp](value: boolean) {
-      this.innerValue = value;
-    },
+    return {
+      id,
+      innerValue,
+      handleInput,
+    };
   },
 });
 </script>

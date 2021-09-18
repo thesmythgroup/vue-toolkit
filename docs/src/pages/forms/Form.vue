@@ -3,15 +3,19 @@
     <h2 class="mt-0">Form</h2>
 
     <app-options>
-      <v-button @click="loadAva" class="button--outline mr-2">
+      <v-button @click="load(1)" class="button--outline mr-2">
         Load "Ava"
       </v-button>
-      <v-button @click="loadLucy" class="button--outline">
+      <v-button @click="load(2)" class="button--outline">
         Load "Lucy"
       </v-button>
     </app-options>
 
-    <v-form :value="value" :validation-schema="schema" @submit="onSubmit">
+    <v-form
+      :initial-value="initialValue"
+      :validation-schema="schema"
+      @submit="onSubmit"
+    >
       <v-field label="Name">
         <v-input name="name"></v-input>
       </v-field>
@@ -54,7 +58,7 @@ import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
 
 export default defineComponent({
   setup() {
-    const value = ref<Record<string, unknown> | null>(null);
+    const initialValue = ref<Record<string, unknown> | null>(null);
     const submitted = ref<FormSubmitEvent | null>(null);
     const schema = ref({
       name: [required, minLength(3), maxLength(20)],
@@ -62,34 +66,45 @@ export default defineComponent({
       priority: [required],
     });
 
-    const loadAva = () => {
-      value.value = {
-        name: 'Ava',
-        description: null,
-        type: 'dog',
-        priority: 'high',
-        isAwesome: true,
-      };
+    const load = (id: number) => {
+      let data: Record<string, unknown> | null = null;
+
+      switch (id) {
+        case 1:
+          data = {
+            name: 'Ava',
+            description: null,
+            type: 'dog',
+            priority: 'high',
+            isAwesome: true,
+          };
+          break;
+        case 2:
+          data = {
+            name: 'Lucy',
+            description: null,
+            type: 'cat',
+            priority: 'low',
+            isAwesome: false,
+          };
+          break;
+        default:
+          data = null;
+          break;
+      }
+
+      initialValue.value = data;
     };
-    const loadLucy = () => {
-      value.value = {
-        name: 'Lucy',
-        description: null,
-        type: 'cat',
-        priority: 'low',
-        isAwesome: false,
-      };
-    };
+
     const onSubmit = (event: FormSubmitEvent) => {
       submitted.value = event;
     };
 
     return {
-      value,
+      initialValue,
       submitted,
       schema,
-      loadAva,
-      loadLucy,
+      load,
       onSubmit,
     };
   },
