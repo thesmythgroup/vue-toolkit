@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.1](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-09-18)
+
+
+### Bug Fixes
+
+* **common:** component compatibility ([9df7fbb](https://github.com/thesmythgroup/vue-toolkit/commit/9df7fbb859af4420450d7213358123afb41c6f97))
+* decouple sass files across packages ([86da918](https://github.com/thesmythgroup/vue-toolkit/commit/86da918fdaf26698847618beb7a0e91858c87a53))
+* **paginator:** reset index on page size change ([#9](https://github.com/thesmythgroup/vue-toolkit/issues/9)) ([013ffc4](https://github.com/thesmythgroup/vue-toolkit/commit/013ffc481c7f5eb1592bbca54fd123182dcba1c3))
+
+
+### Features
+
+* **common:** add breakpoint variables ([f0fdb74](https://github.com/thesmythgroup/vue-toolkit/commit/f0fdb74c527138d8b7a71f658375c04e45a31b0f))
+* **common:** add button busy css class ([e11c4ba](https://github.com/thesmythgroup/vue-toolkit/commit/e11c4ba9bd3384b0d8ffd94d02ed98ab1b8efdb7))
+* **common:** clickable list items ([8d7f674](https://github.com/thesmythgroup/vue-toolkit/commit/8d7f6749992f4a6f46d8324c93668d7dbea6052d))
+
+
+### BREAKING CHANGES
+
+* **common:** `list__item` class moved from `<li>` element to inner element
+
+
+
+
+
 # [1.0.0-alpha.0](https://github.com/thesmythgroup/vue-toolkit/compare/v0.2.0...v1.0.0-alpha.0) (2021-09-15)
 
 

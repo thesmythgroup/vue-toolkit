@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.1](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-09-18)
+
+
+### Bug Fixes
+
+* decouple sass files across packages ([86da918](https://github.com/thesmythgroup/vue-toolkit/commit/86da918fdaf26698847618beb7a0e91858c87a53))
+* **forms:** form control compatibility ([9632853](https://github.com/thesmythgroup/vue-toolkit/commit/9632853f031e454a0f3c90c40861e47f3f3e1d85))
+
+
+### Features
+
+* **forms:** convert to composition api ([ddea78a](https://github.com/thesmythgroup/vue-toolkit/commit/ddea78af1643d4475a4781288aa6a423da9132c1))
+
+
+### BREAKING CHANGES
+
+* **forms:** Form prop `value` has been renamed to `initialValue`.
+
+
+
+
+
 # [1.0.0-alpha.0](https://github.com/thesmythgroup/vue-toolkit/compare/v0.2.0...v1.0.0-alpha.0) (2021-09-15)
 
 
