@@ -4,6 +4,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [vue()],
+  optimizeDeps: {
+    exclude: ['vue-demi'],
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
