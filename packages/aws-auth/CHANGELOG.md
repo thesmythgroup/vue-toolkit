@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.2](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-09-18)
+
+
+### Bug Fixes
+
+* vite build config ([caab654](https://github.com/thesmythgroup/vue-toolkit/commit/caab65475b0df6f590db4a2bd07ef50ecc509c4a))
+
+
+
+
+
 # [1.0.0-alpha.1](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-09-18)
 
 
