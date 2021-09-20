@@ -5,12 +5,10 @@ import { ConfirmSignUp } from '.';
 describe('ConfirmSignUp.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(ConfirmSignUp, {
-      global: {
-        mocks: {
-          $route: {
-            query: {
-              username: 'test@example.org',
-            },
+      mocks: {
+        $route: {
+          query: {
+            username: 'test@example.org',
           },
         },
       },

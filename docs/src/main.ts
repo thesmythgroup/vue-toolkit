@@ -5,7 +5,9 @@ import { Auth } from '@aws-amplify/auth';
 import AwsAuth from '@vue-toolkit/aws-auth';
 import Common from '@vue-toolkit/common';
 import Forms from '@vue-toolkit/forms';
-import { createApp } from 'vue';
+import VueCompositionAPI from '@vue/composition-api';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 
 import App from './App.vue';
 import router from './router';
@@ -16,15 +18,19 @@ Auth.configure({
   region: import.meta.env.VITE_AWS_REGION,
 });
 
-const app = createApp(App);
+Vue.config.productionTip = false;
 
-app.use(router);
-app.use(Common);
-app.use(Forms);
-app.use(AwsAuth);
+Vue.use(VueCompositionAPI);
+Vue.use(VueRouter);
+Vue.use(Common);
+Vue.use(Forms);
+Vue.use(AwsAuth);
 
-app.component('app-auth-bar', AppAuthBar);
-app.component('app-options', AppOptions);
-app.component('app-snippet', AppSnippet);
+Vue.component('app-auth-bar', AppAuthBar);
+Vue.component('app-options', AppOptions);
+Vue.component('app-snippet', AppSnippet);
 
-app.mount('#app');
+new Vue({
+  router,
+  render: (h) => h(App),
+}).$mount('#app');

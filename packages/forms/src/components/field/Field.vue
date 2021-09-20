@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, provide } from 'vue-demi';
+import { defineComponent, ref, provide } from '@vue/composition-api';
 
 import { getUniqueId } from '../../utils';
 

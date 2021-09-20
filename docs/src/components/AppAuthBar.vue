@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from 'vue';
+import { defineComponent, ref, computed, onMounted } from '@vue/composition-api';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 export default defineComponent({

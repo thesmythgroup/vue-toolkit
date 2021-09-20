@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3 } from 'vue-demi';
+import { defineComponent } from '@vue/composition-api';
 
 import Cell from './Cell.vue';
 import Header from './Header.vue';
@@ -50,7 +50,7 @@ export default defineComponent({
   },
   mounted() {
     if (this.$slots.default) {
-      this.columns = isVue3 ? this.$slots.default() : this.$slots.default;
+      this.columns = this.$slots.default;
     }
   },
 });

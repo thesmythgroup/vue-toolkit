@@ -7,7 +7,7 @@
           <v-list>
             <v-list-item
               v-for="(page, index) in pkg.pages"
-              is="router-link"
+              component="router-link"
               :key="index"
               :to="page.to"
             >
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'App',

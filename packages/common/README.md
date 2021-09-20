@@ -20,7 +20,7 @@ Completely style-able, fully accessible UI components, built with Vue.
 npm install --save @vue-toolkit/common
 ```
 
-> Vue Toolkit requires vue >= v3.2 or @vue/composition-api >= v1.1
+> Vue Toolkit requires @vue/composition-api >= v1.1
 
 ## Usage
 

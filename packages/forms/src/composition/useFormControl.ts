@@ -1,4 +1,4 @@
-import { inject, isVue3, onMounted, onUnmounted, ref } from 'vue-demi';
+import { inject, onMounted, onUnmounted, ref } from '@vue/composition-api';
 
 import {
   FieldSetControlFn,
@@ -8,8 +8,6 @@ import {
   ValidatorErrors,
   ValidatorFn,
 } from '../interfaces';
-
-const modelEvent = isVue3 ? 'update:modelValue' : 'input';
 
 export function useFormControl(
   name: string,
@@ -24,7 +22,7 @@ export function useFormControl(
     const newValue = input.type === 'checkbox' ? input.checked : input.value;
 
     innerValue.value = newValue;
-    emit(modelEvent, newValue);
+    emit('input', newValue);
   };
 
   const setValidators = (_validators: ValidatorFn[]) => {
@@ -37,7 +35,7 @@ export function useFormControl(
 
   const setValue = (value: unknown) => {
     innerValue.value = value;
-    emit(modelEvent, value);
+    emit('input', value);
   };
 
   const getErrors = () => {
@@ -65,9 +63,18 @@ export function useFormControl(
     setValue,
   };
 
-  const addFormControl = inject<FormAddControlFn>('form-add-control');
-  const removeFormControl = inject<FormRemoveControlFn>('form-remove-control');
-  const setFieldControl = inject<FieldSetControlFn>('field-set-control');
+  const addFormControl = inject<FormAddControlFn | null>(
+    'form-add-control',
+    null
+  );
+  const removeFormControl = inject<FormRemoveControlFn | null>(
+    'form-remove-control',
+    null
+  );
+  const setFieldControl = inject<FieldSetControlFn | null>(
+    'field-set-control',
+    null
+  );
 
   if (addFormControl && removeFormControl) {
     onMounted(() => addFormControl(name, control));

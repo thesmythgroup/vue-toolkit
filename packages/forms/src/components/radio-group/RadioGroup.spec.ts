@@ -4,16 +4,7 @@ import { RadioGroup } from '.';
 
 describe('RadioGroup', () => {
   it('renders', () => {
-    const wrapper = shallowMount(RadioGroup, {
-      global: {
-        provide: {
-          form: {
-            addControl: jest.fn(),
-            removeControl: jest.fn(),
-          },
-        },
-      },
-    });
+    const wrapper = shallowMount(RadioGroup);
     expect(wrapper).toBeDefined();
   });
 });

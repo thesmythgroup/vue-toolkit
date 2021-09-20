@@ -5,13 +5,11 @@ import { ForgotPasswordSubmit } from '.';
 describe('ForgotPasswordSubmit.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(ForgotPasswordSubmit, {
-      global: {
-        stubs: ['router-link'],
-        mocks: {
-          $route: {
-            query: {
-              username: 'test@example.org',
-            },
+      stubs: ['router-link'],
+      mocks: {
+        $route: {
+          query: {
+            username: 'test@example.org',
           },
         },
       },

@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from '@vue/composition-api';
 import { PageEvent } from '@vue-toolkit/common';
 
 export default defineComponent({

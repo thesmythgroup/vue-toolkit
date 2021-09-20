@@ -1,13 +1,14 @@
+import { VueConstructor } from 'vue';
+
 import * as components from './components';
 
 export * from './components';
 export default {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
-  install: (app: any) => {
-    const all: Record<string, any> = components;
+  install: (Vue: VueConstructor) => {
+    const all: Record<string, typeof Vue> = components;
 
     for (const key in all) {
-      app.component(`V${key}`, all[key]);
+      Vue.component(`V${key}`, all[key]);
     }
   },
 };

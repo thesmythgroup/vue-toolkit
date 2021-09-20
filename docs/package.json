@@ -15,20 +15,18 @@
   "dependencies": {
     "@aws-amplify/auth": "^4.1.2",
     "core-js": "^3.6.5",
-    "vue": "^3.2.11",
-    "vue-router": "^4.0.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
     "@types/jest": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
-    "@vitejs/plugin-vue": "^1.6.2",
-    "@vue/compiler-sfc": "^3.2.11",
+    "@vue/composition-api": "^1.1.5",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
-    "@vue/test-utils": "^2.0.0-rc.14",
-    "@vue/vue3-jest": "^27.0.0-alpha.1",
+    "@vue/test-utils": "^1.2.2",
     "babel-core": "^7.0.0-bridge.0",
     "console": "^0.7.2",
     "eslint": "^6.7.2",
@@ -43,6 +41,9 @@
     "ts-jest": "^27.0.5",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "~4.1.5",
-    "vite": "^2.5.7"
+    "vite": "^2.5.7",
+    "vite-plugin-vue2": "^1.8.2",
+    "vue-jest": "^3.0.7",
+    "vue-template-compiler": "^2.6.11"
   }
 }

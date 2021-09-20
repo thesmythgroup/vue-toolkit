@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from '@vue/composition-api';
 import { FormSubmitEvent } from '@vue-toolkit/forms';
 import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
 

@@ -4,16 +4,7 @@ import { Textarea } from '.';
 
 describe('Textarea', () => {
   it('renders', () => {
-    const wrapper = shallowMount(Textarea, {
-      global: {
-        provide: {
-          form: {
-            addControl: jest.fn(),
-            removeControl: jest.fn(),
-          },
-        },
-      },
-    });
+    const wrapper = shallowMount(Textarea);
     expect(wrapper).toBeDefined();
   });
 });

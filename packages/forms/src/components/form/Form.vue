@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, watch } from 'vue-demi';
+import { defineComponent, watch } from '@vue/composition-api';
 
 import { useForm } from '../../composition';
 

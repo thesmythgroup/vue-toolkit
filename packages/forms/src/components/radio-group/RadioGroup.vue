@@ -5,12 +5,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, isVue3, provide } from 'vue-demi';
+import { defineComponent, provide } from '@vue/composition-api';
 
 import { useFormControl } from '../../composition';
 import { getUniqueId } from '../../utils';
-
-const modelProp = isVue3 ? 'modelValue' : 'value';
 
 export default defineComponent({
   name: 'v-radio-group',
@@ -19,12 +17,12 @@ export default defineComponent({
       type: String,
       default: getUniqueId('radio-group-'),
     },
-    [modelProp]: [String, Number],
+    value: [String, Number],
   },
   setup(props, { emit }) {
     const { innerValue, setValue } = useFormControl(
       props.name as string,
-      props[modelProp],
+      props.value,
       emit
     );
 

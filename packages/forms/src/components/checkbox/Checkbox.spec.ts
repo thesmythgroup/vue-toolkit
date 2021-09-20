@@ -4,16 +4,7 @@ import { Checkbox } from '.';
 
 describe('Checkbox', () => {
   it('renders', () => {
-    const wrapper = shallowMount(Checkbox, {
-      global: {
-        provide: {
-          form: {
-            addControl: jest.fn(),
-            removeControl: jest.fn(),
-          },
-        },
-      },
-    });
+    const wrapper = shallowMount(Checkbox);
     expect(wrapper).toBeDefined();
   });
 });

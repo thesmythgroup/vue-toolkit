@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue-demi';
+import { defineComponent } from '@vue/composition-api';
 
 import { PageEvent } from './interfaces';
 

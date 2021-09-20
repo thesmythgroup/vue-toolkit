@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue-demi';
+import { defineComponent } from '@vue/composition-api';
 import { CognitoUser } from '@aws-amplify/auth';
 
 export default defineComponent({

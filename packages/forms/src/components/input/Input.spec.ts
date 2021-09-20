@@ -4,16 +4,7 @@ import { Input } from '.';
 
 describe('Input', () => {
   it('renders', () => {
-    const wrapper = shallowMount(Input, {
-      global: {
-        provide: {
-          form: {
-            addControl: jest.fn(),
-            removeControl: jest.fn(),
-          },
-        },
-      },
-    });
+    const wrapper = shallowMount(Input);
     expect(wrapper).toBeDefined();
   });
 });

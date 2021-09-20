@@ -5,9 +5,7 @@ import { ForgotPassword } from '.';
 describe('ForgotPassword.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(ForgotPassword, {
-      global: {
-        stubs: ['router-link'],
-      },
+      stubs: ['router-link'],
     });
     expect(wrapper).toBeDefined();
   });

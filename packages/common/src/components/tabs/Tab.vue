@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ComponentInstance } from 'vue-demi';
+import { defineComponent, ComponentInstance } from '@vue/composition-api';
 
 interface ParentComponent extends ComponentInstance {
   tabs: ComponentInstance[];

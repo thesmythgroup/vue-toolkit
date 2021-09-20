@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, computed, Ref } from 'vue-demi';
+import { defineComponent, inject, computed, Ref } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'v-radio-button',
