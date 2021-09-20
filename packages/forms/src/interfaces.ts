@@ -1,3 +1,5 @@
+import { ComputedRef } from '@vue/composition-api';
+
 export interface FormSubmitEvent {
   value: Record<string, unknown>;
   errors: ValidatorErrors | null;
@@ -6,8 +8,8 @@ export interface FormSubmitEvent {
 }
 
 export interface FormControl {
-  getErrors: () => ValidatorErrors | null;
-  getValue: () => unknown;
+  errors: ComputedRef<ValidatorErrors | null>;
+  value: ComputedRef<unknown>;
   setValidators: (validators: ValidatorFn[]) => void;
   setValue: (value: unknown) => void;
 }

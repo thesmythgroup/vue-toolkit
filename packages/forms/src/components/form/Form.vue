@@ -1,6 +1,6 @@
 <template>
   <form class="form" @submit="handleSubmit">
-    <slot></slot>
+    <slot v-bind="{ errors, value }" />
   </form>
 </template>
 
@@ -21,7 +21,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const { handleSubmit, setValue } = useForm(props, emit);
+    const { handleSubmit, setValue, errors, value } = useForm(props, emit);
 
     watch(
       () => props.initialValue,
@@ -29,6 +29,8 @@ export default defineComponent({
     );
 
     return {
+      errors,
+      value,
       handleSubmit,
     };
   },

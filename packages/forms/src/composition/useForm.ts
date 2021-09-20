@@ -1,4 +1,4 @@
-import { provide, ref } from '@vue/composition-api';
+import { computed, provide, ref, unref } from '@vue/composition-api';
 
 import {
   FormAddControlFn,
@@ -15,15 +15,15 @@ export function useForm(
 ) {
   const controls = ref<Record<string, FormControl>>({});
 
-  const getValue = () => {
+  const value = computed(() => {
     return Object.entries(controls.value).reduce(
       (value, [name, control]) => ({
         ...value,
-        [name]: control.getValue(),
+        [name]: control.value,
       }),
       {}
     );
-  };
+  });
 
   const setValue = (value: Record<string, unknown>) => {
     Object.entries(controls.value).forEach(([name, control]) => {
@@ -33,31 +33,30 @@ export function useForm(
     });
   };
 
-  const getErrors = () => {
-    let errors: ValidatorErrors | null = null;
+  const errors = computed(() => {
+    return Object.entries(controls.value).reduce<ValidatorErrors | null>(
+      (prev, [name, control]) => {
+        const res = control.errors;
 
-    Object.entries(controls.value).forEach(([name, control]) => {
-      const result = control.getErrors();
+        if (res) {
+          prev = Object.assign({}, prev, { [name]: res });
+        }
 
-      if (result) {
-        errors = Object.assign({}, errors, { [name]: result });
-      }
-    });
-
-    return errors;
-  };
+        return prev;
+      },
+      null
+    );
+  });
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
 
-    const errors = getErrors();
-    const value = getValue();
-    const isValid = errors === null;
+    const isValid = errors.value === null;
 
     // todo: dirty, touched, etc
     const payload: FormSubmitEvent = {
-      value,
-      errors,
+      value: unref(value),
+      errors: unref(errors),
       valid: isValid,
       invalid: !isValid,
     };
@@ -72,11 +71,17 @@ export function useForm(
       ctrl.setValidators(validators);
     }
 
-    controls.value[name] = ctrl;
+    controls.value = {
+      ...controls.value,
+      [name]: ctrl,
+    };
   };
 
   const removeControl: FormRemoveControlFn = (name) => {
-    delete controls.value[name];
+    const newValue = { ...controls.value };
+
+    delete newValue[name];
+    controls.value = newValue;
   };
 
   provide('form:addControl', addControl);
@@ -87,8 +92,8 @@ export function useForm(
   }
 
   return {
-    getErrors,
-    getValue,
+    errors,
+    value,
     handleSubmit,
     setValue,
   };

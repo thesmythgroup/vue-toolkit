@@ -1,4 +1,4 @@
-import { inject, onMounted, onUnmounted, ref } from '@vue/composition-api';
+import { computed, inject, onMounted, onUnmounted, ref } from '@vue/composition-api';
 
 import {
   FieldSetControlFn,
@@ -29,36 +29,34 @@ export function useFormControl(
     validators.value = val;
   };
 
-  const getValue = () => {
+  const value = computed(() => {
     return innerValue.value;
-  };
+  });
 
   const setValue = (value: unknown) => {
     innerValue.value = value;
     emit('input', value);
   };
 
-  const getErrors = () => {
+  const errors = computed(() => {
     if (validators.value.length === 0) {
       return null;
     }
 
-    let errors: ValidatorErrors | null = null;
+    return validators.value.reduce<ValidatorErrors | null>((prev, fn) => {
+      const res = fn(innerValue.value);
 
-    validators.value.forEach((validatorFn) => {
-      const result = validatorFn(innerValue.value);
-
-      if (result) {
-        errors = Object.assign({}, errors, result);
+      if (res) {
+        prev = Object.assign({}, prev, res);
       }
-    });
 
-    return errors;
-  };
+      return prev;
+    }, null);
+  });
 
   const control: FormControl = {
-    getErrors,
-    getValue,
+    errors,
+    value,
     setValidators,
     setValue,
   };
@@ -88,8 +86,8 @@ export function useFormControl(
 
   return {
     innerValue,
-    getErrors,
-    getValue,
+    errors,
+    value,
     handleInput,
     setValidators,
     setValue,
