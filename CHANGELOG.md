@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.4](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-09-20)
+
+
+### Features
+
+* **popover:** expose methods to default slot ([a11bb70](https://github.com/thesmythgroup/vue-toolkit/commit/a11bb70539c3b699c21ea70f617d3f645dc5612f))
+
+
+
+
+
 # [1.0.0-alpha.3](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-09-20)
 
 **Note:** Version bump only for package vue-toolkit
