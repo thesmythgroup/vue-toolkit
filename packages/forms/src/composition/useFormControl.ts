@@ -25,8 +25,8 @@ export function useFormControl(
     emit('input', newValue);
   };
 
-  const setValidators = (_validators: ValidatorFn[]) => {
-    validators.value = _validators;
+  const setValidators = (val: ValidatorFn[]) => {
+    validators.value = val;
   };
 
   const getValue = () => {
@@ -63,27 +63,27 @@ export function useFormControl(
     setValue,
   };
 
-  const addFormControl = inject<FormAddControlFn | null>(
-    'form-add-control',
+  const formAddControl = inject<FormAddControlFn | null>(
+    'form:addControl',
     null
   );
-  const removeFormControl = inject<FormRemoveControlFn | null>(
-    'form-remove-control',
+  const formRemoveControl = inject<FormRemoveControlFn | null>(
+    'form:removeControl',
     null
   );
-  const setFieldControl = inject<FieldSetControlFn | null>(
-    'field-set-control',
+  const fieldSetControl = inject<FieldSetControlFn | null>(
+    'field:setControl',
     null
   );
 
-  if (addFormControl && removeFormControl) {
-    onMounted(() => addFormControl(name, control));
-    onUnmounted(() => removeFormControl(name));
+  if (formAddControl && formRemoveControl) {
+    onMounted(() => formAddControl(name, control));
+    onUnmounted(() => formRemoveControl(name));
   }
 
-  if (setFieldControl) {
-    onMounted(() => setFieldControl(control));
-    onUnmounted(() => setFieldControl(null));
+  if (fieldSetControl) {
+    onMounted(() => fieldSetControl(control));
+    onUnmounted(() => fieldSetControl(null));
   }
 
   return {

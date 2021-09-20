@@ -13,9 +13,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from '@vue/composition-api';
+import { defineComponent, inject, onMounted, ref } from '@vue/composition-api';
 
 import { useFormControl } from '../../composition';
+import { FieldSetIdFn } from '../../interfaces';
+import { getUniqueId } from '../../utils';
 
 export default defineComponent({
   name: 'v-checkbox',
@@ -25,12 +27,18 @@ export default defineComponent({
     value: Boolean,
   },
   setup(props, { emit }) {
-    const id = inject<string>('field-id', null);
     const { innerValue, handleInput } = useFormControl(
       props.name as string,
       props.value,
       emit
     );
+
+    const id = ref(getUniqueId('control-'));
+    const fieldSetId = inject<FieldSetIdFn | null>('field:setId', null);
+
+    if (fieldSetId) {
+      onMounted(() => fieldSetId(id.value));
+    }
 
     return {
       id,

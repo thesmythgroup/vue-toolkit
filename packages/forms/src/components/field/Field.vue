@@ -4,7 +4,7 @@
       {{ label }}
     </label>
     <div class="field__control">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent, ref, provide } from '@vue/composition-api';
 
-import { getUniqueId } from '../../utils';
+import { FieldSetControlFn, FieldSetIdFn, FormControl } from '../../interfaces';
 
 export default defineComponent({
   name: 'v-field',
@@ -20,11 +20,23 @@ export default defineComponent({
     label: String,
   },
   setup() {
-    const id = ref(getUniqueId('control-'));
-    provide('field-id', id.value);
+    const id = ref<string>(null);
+    const control = ref<FormControl | null>(null);
+
+    const setId: FieldSetIdFn = (value) => {
+      id.value = value;
+    };
+
+    const setControl: FieldSetControlFn = (ctrl) => {
+      control.value = ctrl;
+    };
+
+    provide('field:setId', setId);
+    provide('field:setControl', setControl);
 
     return {
       id,
+      control,
     };
   },
 });

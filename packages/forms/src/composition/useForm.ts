@@ -1,8 +1,10 @@
 import { provide, ref } from '@vue/composition-api';
 
 import {
+  FormAddControlFn,
   FormControl,
   FormOptions,
+  FormRemoveControlFn,
   FormSubmitEvent,
   ValidatorErrors,
 } from '../interfaces';
@@ -63,7 +65,7 @@ export function useForm(
     emit('submit', payload);
   };
 
-  const addControl = (name: string, ctrl: FormControl) => {
+  const addControl: FormAddControlFn = (name, ctrl) => {
     const validators = opts?.validationSchema?.[name];
 
     if (validators) {
@@ -73,12 +75,12 @@ export function useForm(
     controls.value[name] = ctrl;
   };
 
-  const removeControl = (name: string) => {
+  const removeControl: FormRemoveControlFn = (name) => {
     delete controls.value[name];
   };
 
-  provide('form-add-control', addControl);
-  provide('form-remove-control', removeControl);
+  provide('form:addControl', addControl);
+  provide('form:removeControl', removeControl);
 
   if (opts?.initialValue) {
     setValue(opts.initialValue);

@@ -21,6 +21,7 @@ export interface ValidatorErrors {
 export type FormAddControlFn = (name: string, ctrl: FormControl) => void;
 export type FormRemoveControlFn = (name: string) => void;
 export type FieldSetControlFn = (ctrl: FormControl | null) => void;
+export type FieldSetIdFn = (id: string) => void;
 
 export interface FormOptions {
   validationSchema?: Record<string, ValidatorFn[]>;
