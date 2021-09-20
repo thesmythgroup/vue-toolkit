@@ -7,6 +7,7 @@
       :id="id"
       :checked="innerValue"
       @change="handleInput"
+      @blur="handleBlur"
     />
     <slot></slot>
   </label>
@@ -27,7 +28,7 @@ export default defineComponent({
     value: Boolean,
   },
   setup(props, { emit }) {
-    const { innerValue, handleInput } = useFormControl(
+    const { innerValue, handleBlur, handleInput } = useFormControl(
       props.name as string,
       props.value,
       emit
@@ -43,6 +44,7 @@ export default defineComponent({
     return {
       id,
       innerValue,
+      handleBlur,
       handleInput,
     };
   },

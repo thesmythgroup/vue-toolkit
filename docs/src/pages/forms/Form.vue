@@ -15,6 +15,7 @@
       :initial-value="initialValue"
       :validation-schema="schema"
       @submit="onSubmit"
+      v-slot="{ touched, dirty, valid, submitted }"
     >
       <v-field label="Name">
         <v-input name="name"></v-input>
@@ -45,6 +46,13 @@
       </v-field>
 
       <v-button type="submit">Submit</v-button>
+
+      <ul>
+        <li>Submitted: {{ submitted }}</li>
+        <li>Valid: {{ valid }}</li>
+        <li>Touched: {{ touched }}</li>
+        <li>Dirty: {{ dirty }}</li>
+      </ul>
     </v-form>
 
     <app-snippet>{{ submitted }}</app-snippet>

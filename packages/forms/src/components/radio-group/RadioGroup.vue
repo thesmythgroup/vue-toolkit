@@ -20,7 +20,7 @@ export default defineComponent({
     value: [String, Number],
   },
   setup(props, { emit }) {
-    const { innerValue, setValue } = useFormControl(
+    const { innerValue, setValue, handleBlur, handleInput } = useFormControl(
       props.name as string,
       props.value,
       emit
@@ -30,6 +30,8 @@ export default defineComponent({
       name: props.name,
       innerValue,
       setValue,
+      handleBlur,
+      handleInput,
     });
   },
 });

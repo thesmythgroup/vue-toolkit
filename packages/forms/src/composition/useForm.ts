@@ -14,6 +14,7 @@ export function useForm(
   emit: (name: string, ...args: unknown[]) => void
 ) {
   const controls = ref<Record<string, FormControl>>({});
+  const submitted = ref(false);
 
   const value = computed(() => {
     return Object.entries(controls.value).reduce(
@@ -33,6 +34,16 @@ export function useForm(
     });
   };
 
+  const touched = computed(() =>
+    Object.values(controls.value).some((control) => control.touched)
+  );
+
+  const dirty = computed(() =>
+    Object.values(controls.value).some((control) => control.dirty)
+  );
+
+  const valid = computed(() => errors.value === null);
+
   const errors = computed(() => {
     return Object.entries(controls.value).reduce<ValidatorErrors | null>(
       (prev, [name, control]) => {
@@ -50,15 +61,14 @@ export function useForm(
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
+    submitted.value = true;
 
-    const isValid = errors.value === null;
-
-    // todo: dirty, touched, etc
     const payload: FormSubmitEvent = {
       value: unref(value),
       errors: unref(errors),
-      valid: isValid,
-      invalid: !isValid,
+      touched: unref(touched),
+      dirty: unref(dirty),
+      valid: unref(valid),
     };
 
     emit('submit', payload);
@@ -73,7 +83,8 @@ export function useForm(
 
     controls.value = {
       ...controls.value,
-      [name]: ctrl,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      [name]: ctrl as any,
     };
   };
 
@@ -92,9 +103,13 @@ export function useForm(
   }
 
   return {
+    dirty,
     errors,
-    value,
     handleSubmit,
     setValue,
+    submitted,
+    touched,
+    valid,
+    value,
   };
 }

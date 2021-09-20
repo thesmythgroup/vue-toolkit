@@ -7,7 +7,8 @@
       :name="inputName"
       :value="value"
       :checked="isSelected"
-      @change="handleChange"
+      @change="handleInput"
+      @blur="handleBlur"
     />
     <slot></slot>
   </label>
@@ -28,19 +29,17 @@ export default defineComponent({
   },
   setup(props) {
     const group = inject<{
-      setValue: (value: unknown) => void;
       name: string;
       innerValue: Ref<unknown>;
+      handleBlur: () => void,
+      handleInput: (event: Event) => void,
     }>('radio-group');
-
-    const handleChange = () => {
-      group.setValue(props.value);
-    };
 
     return {
       inputName: computed(() => props.name || group.name),
       isSelected: computed(() => group.innerValue.value == props.value),
-      handleChange,
+      handleInput: group.handleInput,
+      handleBlur: group.handleBlur,
     };
   },
 });

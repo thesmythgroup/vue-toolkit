@@ -1,4 +1,11 @@
-import { computed, inject, onMounted, onUnmounted, ref } from '@vue/composition-api';
+import {
+  computed,
+  inject,
+  onMounted,
+  onUnmounted,
+  readonly,
+  ref,
+} from '@vue/composition-api';
 
 import {
   FieldSetControlFn,
@@ -17,6 +24,12 @@ export function useFormControl(
   const innerValue = ref(initialValue);
   const validators = ref<ValidatorFn[]>([]);
 
+  const value = computed(() => innerValue.value);
+
+  const touched = ref(false);
+  const dirty = computed(() => innerValue.value !== initialValue);
+
+  const handleBlur = () => (touched.value = true);
   const handleInput = (event: Event) => {
     const input = event.target as HTMLInputElement;
     const newValue = input.type === 'checkbox' ? input.checked : input.value;
@@ -28,10 +41,6 @@ export function useFormControl(
   const setValidators = (val: ValidatorFn[]) => {
     validators.value = val;
   };
-
-  const value = computed(() => {
-    return innerValue.value;
-  });
 
   const setValue = (value: unknown) => {
     innerValue.value = value;
@@ -55,10 +64,12 @@ export function useFormControl(
   });
 
   const control: FormControl = {
+    dirty,
     errors,
-    value,
     setValidators,
     setValue,
+    touched: readonly(touched),
+    value,
   };
 
   const formAddControl = inject<FormAddControlFn | null>(
@@ -85,11 +96,14 @@ export function useFormControl(
   }
 
   return {
-    innerValue,
+    dirty,
     errors,
-    value,
+    handleBlur,
     handleInput,
+    innerValue,
     setValidators,
     setValue,
+    touched,
+    value,
   };
 }

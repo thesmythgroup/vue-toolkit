@@ -4,6 +4,7 @@
     :id="id"
     :value="innerValue"
     @input="handleInput"
+    @blur="handleBlur"
   ></textarea>
 </template>
 
@@ -21,7 +22,7 @@ export default defineComponent({
     value: String,
   },
   setup(props, { emit }) {
-    const { innerValue, handleInput } = useFormControl(
+    const { innerValue, handleBlur, handleInput } = useFormControl(
       props.name as string,
       props.value,
       emit
@@ -37,6 +38,7 @@ export default defineComponent({
     return {
       id,
       innerValue,
+      handleBlur,
       handleInput,
     };
   },

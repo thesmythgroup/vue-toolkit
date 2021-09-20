@@ -1,17 +1,20 @@
-import { ComputedRef } from '@vue/composition-api';
+import { ComputedRef, Ref, DeepReadonly } from '@vue/composition-api';
 
 export interface FormSubmitEvent {
-  value: Record<string, unknown>;
+  dirty: boolean;
   errors: ValidatorErrors | null;
+  touched: boolean;
   valid: boolean;
-  invalid: boolean;
+  value: Record<string, unknown>;
 }
 
 export interface FormControl {
+  dirty: ComputedRef<boolean>;
   errors: ComputedRef<ValidatorErrors | null>;
-  value: ComputedRef<unknown>;
   setValidators: (validators: ValidatorFn[]) => void;
   setValue: (value: unknown) => void;
+  touched: DeepReadonly<Ref<boolean>>;
+  value: ComputedRef<unknown>;
 }
 
 export type ValidatorFn = (value: unknown) => ValidatorErrors | null;
@@ -26,6 +29,6 @@ export type FieldSetControlFn = (ctrl: FormControl | null) => void;
 export type FieldSetIdFn = (id: string) => void;
 
 export interface FormOptions {
-  validationSchema?: Record<string, ValidatorFn[]>;
   initialValue?: Record<string, unknown>;
+  validationSchema?: Record<string, ValidatorFn[]>;
 }

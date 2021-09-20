@@ -1,5 +1,11 @@
 <template>
-  <select class="select" :id="id" :value="innerValue" @change="handleInput">
+  <select
+    class="select"
+    :id="id"
+    :value="innerValue"
+    @blur="handleBlur"
+    @change="handleInput"
+  >
     <slot></slot>
   </select>
 </template>
@@ -18,7 +24,7 @@ export default defineComponent({
     value: [String, Number],
   },
   setup(props, { emit }) {
-    const { innerValue, handleInput } = useFormControl(
+    const { innerValue, handleBlur, handleInput } = useFormControl(
       props.name as string,
       props.value,
       emit
@@ -34,6 +40,7 @@ export default defineComponent({
     return {
       id,
       innerValue,
+      handleBlur,
       handleInput,
     };
   },
