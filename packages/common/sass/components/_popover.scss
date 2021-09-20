@@ -10,5 +10,6 @@
     left: 0;
     position: absolute;
     top: 100%;
+    z-index: $popover-z-index;
   }
 }
