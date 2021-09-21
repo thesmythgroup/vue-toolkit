@@ -9,7 +9,7 @@ export default defineConfig({
     global: {},
   },
   resolve: {
-    dedupe: ['vue'],
+    dedupe: ['vue', '@vue/composition-api'],
     alias: [
       {
         find: '@',
