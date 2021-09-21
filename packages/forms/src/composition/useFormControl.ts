@@ -15,6 +15,7 @@ import {
   ValidatorErrors,
   ValidatorFn,
 } from '../interfaces';
+import requiredValidator from '../validators/required';
 
 export function useFormControl(
   name: string,
@@ -33,6 +34,8 @@ export function useFormControl(
 
   const touched = ref(false);
   const untouched = computed(() => !touched.value);
+
+  const required = computed(() => validators.value.includes(requiredValidator));
 
   const handleBlur = () => (touched.value = true);
   const handleInput = (event: Event) => {
@@ -73,6 +76,7 @@ export function useFormControl(
     errors,
     invalid,
     pristine,
+    required,
     setValidators,
     setValue,
     touched: readonly(touched),

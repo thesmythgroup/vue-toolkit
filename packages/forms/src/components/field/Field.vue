@@ -2,6 +2,7 @@
   <div class="field">
     <label v-if="label" class="field__label" :for="id">
       {{ label }}
+      <span class="field__required" v-if="required">*</span>
     </label>
     <div class="field__control">
       <slot />
@@ -10,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, provide } from '@vue/composition-api';
+import { defineComponent, computed, ref, provide } from '@vue/composition-api';
 
 import { FieldSetControlFn, FieldSetIdFn, FormControl } from '../../interfaces';
 
@@ -22,6 +23,7 @@ export default defineComponent({
   setup() {
     const id = ref<string>(null);
     const control = ref<FormControl | null>(null);
+    const required = computed(() => control.value?.required ?? false);
 
     const setId: FieldSetIdFn = (value) => {
       id.value = value;
@@ -36,7 +38,7 @@ export default defineComponent({
 
     return {
       id,
-      control,
+      required,
     };
   },
 });

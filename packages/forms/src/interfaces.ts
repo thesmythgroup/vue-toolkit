@@ -13,6 +13,7 @@ export interface FormControl {
   errors: ComputedRef<ValidatorErrors | null>;
   invalid: ComputedRef<boolean>;
   pristine: ComputedRef<boolean>;
+  required: ComputedRef<boolean>;
   setValidators: (validators: ValidatorFn[]) => void;
   setValue: (value: unknown) => void;
   touched: DeepReadonly<Ref<boolean>>;

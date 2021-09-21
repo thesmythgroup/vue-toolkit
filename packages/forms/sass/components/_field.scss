@@ -20,4 +20,8 @@
     margin-top: 0.25rem;
     color: $field-error-color;
   }
+
+  &__required {
+    color: $field-required-color;
+  }
 }
