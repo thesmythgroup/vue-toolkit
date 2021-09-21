@@ -1,3 +1,0 @@
-# Forgot Password Submit
-
-Todo.

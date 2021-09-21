@@ -1,3 +1,0 @@
-# Require New Password
-
-Todo.

@@ -1,3 +1,0 @@
-# Confirm Sign Up
-
-Todo.
