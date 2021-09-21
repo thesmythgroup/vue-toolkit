@@ -6,6 +6,7 @@
     "start": "npm run serve -- --open",
     "serve": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "test": "jest",
     "lint": "eslint . --ext .js,.ts,.vue",
     "predeploy": "npm run build",

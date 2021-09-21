@@ -5,9 +5,6 @@ import { createVuePlugin } from 'vite-plugin-vue2';
 export default defineConfig({
   plugins: [createVuePlugin()],
   base: process.env.NODE_ENV === 'production' ? '/vue-toolkit/' : './',
-  define: {
-    global: {},
-  },
   resolve: {
     dedupe: ['vue', '@vue/composition-api'],
     alias: [
