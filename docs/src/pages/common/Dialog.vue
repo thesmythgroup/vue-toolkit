@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Dialog</h2>
+    <app-info
+      title="Dialog"
+      component-source-path="/packages/common/src/components/dialog"
+      docs-source-path="/docs/src/pages/common/Dialog.vue"
+    />
 
     <app-options>
       <v-field>

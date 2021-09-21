@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Chip</h2>
+    <app-info
+      title="Chip"
+      component-source-path="/packages/common/src/components/chip"
+      docs-source-path="/docs/src/pages/common/Chip.vue"
+    />
 
     <app-options>
       <v-field>

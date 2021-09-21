@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Textarea</h2>
+    <app-info
+      title="Textarea"
+      component-source-path="/packages/forms/src/components/textarea"
+      docs-source-path="/docs/src/pages/forms/Textarea.vue"
+    />
 
     <v-textarea v-model="value"></v-textarea>
 

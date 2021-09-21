@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Accordion</h2>
+    <app-info
+      title="Accordion"
+      component-source-path="/packages/common/src/components/accordion"
+      docs-source-path="/docs/src/pages/common/Accordion.vue"
+    />
 
     <app-options>
       <v-field>

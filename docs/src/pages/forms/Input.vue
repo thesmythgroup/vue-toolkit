@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Input</h2>
+    <app-info
+      title="Input"
+      component-source-path="/packages/forms/src/components/input"
+      docs-source-path="/docs/src/pages/forms/Input.vue"
+    />
 
     <v-input v-model="value"></v-input>
 

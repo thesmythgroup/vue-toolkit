@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Checkbox</h2>
+    <app-info
+      title="Checkbox"
+      component-source-path="/packages/forms/src/components/checkbox"
+      docs-source-path="/docs/src/pages/forms/Checkbox.vue"
+    />
 
     <v-checkbox v-model="value">Example</v-checkbox>
 

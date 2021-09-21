@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">List</h2>
+    <app-info
+      title="List"
+      component-source-path="/packages/common/src/components/list"
+      docs-source-path="/docs/src/pages/common/List.vue"
+    />
 
     <h3 class="mb-2">Default list</h3>
     <v-list>

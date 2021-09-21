@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Progress Bar</h2>
+    <app-info
+      title="Progress Bar"
+      component-source-path="/packages/common/src/components/progress-bar"
+      docs-source-path="/docs/src/pages/common/ProgressBar.vue"
+    />
 
     <app-options>
       <v-field label="Value">

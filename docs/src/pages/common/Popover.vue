@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Popover</h2>
+    <app-info
+      title="Popover"
+      component-source-path="/packages/common/src/components/popover"
+      docs-source-path="/docs/src/pages/common/Popover.vue"
+    />
 
     <v-popover>
       <template #trigger="{ toggle }">

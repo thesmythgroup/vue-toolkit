@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Table</h2>
+    <app-info
+      title="Table"
+      component-source-path="/packages/common/src/components/table"
+      docs-source-path="/docs/src/pages/common/Table.vue"
+    />
 
     <v-table :data="items">
       <v-column v-slot="{ row }"> # {{ row.id }} </v-column>

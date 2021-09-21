@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Form</h2>
+    <app-info
+      title="Form"
+      component-source-path="/packages/forms/src/components/form"
+      docs-source-path="/docs/src/pages/forms/Form.vue"
+    />
 
     <app-options>
       <v-button @click="load(1)" class="button--outline mr-2">

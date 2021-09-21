@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Tabs</h2>
+    <app-info
+      title="Tabs"
+      component-source-path="/packages/common/src/components/tabs"
+      docs-source-path="/docs/src/pages/common/Tabs.vue"
+    />
 
     <app-options>
       <v-field>

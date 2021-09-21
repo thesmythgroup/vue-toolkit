@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Select</h2>
+    <app-info
+      title="Select"
+      component-source-path="/packages/forms/src/components/select"
+      docs-source-path="/docs/src/pages/forms/Select.vue"
+    />
 
     <v-select v-model="value">
       <v-option value="1">Option #1</v-option>

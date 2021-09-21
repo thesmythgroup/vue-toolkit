@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Paginator</h2>
+    <app-info
+      title="Paginator"
+      component-source-path="/packages/common/src/components/paginator"
+      docs-source-path="/docs/src/pages/common/Paginator.vue"
+    />
 
     <app-options>
       <v-field label="Length">

@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Button</h2>
+    <app-info
+      title="Button"
+      component-source-path="/packages/common/src/components/button"
+      docs-source-path="/docs/src/pages/common/Button.vue"
+    />
 
     <app-options>
       <v-field>

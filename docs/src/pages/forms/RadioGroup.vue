@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Radio Group</h2>
+    <app-info
+      title="Radio Group"
+      component-source-path="/packages/forms/src/components/radio-group"
+      docs-source-path="/docs/src/pages/forms/RadioGroup.vue"
+    />
 
     <v-radio-group v-model="value">
       <v-radio-button value="1">Item #1</v-radio-button>

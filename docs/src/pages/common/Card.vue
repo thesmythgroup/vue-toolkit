@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Card</h2>
+    <app-info
+      title="Card"
+      component-source-path="/packages/common/src/components/card"
+      docs-source-path="/docs/src/pages/common/Card.vue"
+    />
 
     <v-card>
       <v-card-header>Card Header</v-card-header>

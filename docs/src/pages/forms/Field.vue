@@ -1,6 +1,10 @@
 <template>
   <section class="p-4">
-    <h2 class="mt-0">Field</h2>
+    <app-info
+      title="Field"
+      component-source-path="/packages/forms/src/components/field"
+      docs-source-path="/docs/src/pages/forms/Field.vue"
+    />
 
     <v-field label="Example">
       <v-input name="example1"></v-input>
