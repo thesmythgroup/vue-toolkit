@@ -45,7 +45,11 @@ export default defineComponent({
   setup(props, { slots }) {
     const columns = ref([]);
 
-    onMounted(() => (columns.value = slots?.default()));
+    onMounted(() => {
+      if (slots.default) {
+        columns.value = slots.default();
+      }
+    });
 
     return { columns };
   },
