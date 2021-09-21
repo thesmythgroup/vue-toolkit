@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.6](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-09-21)
+
+
+### Bug Fixes
+
+* **docs:** build config ([ca185ce](https://github.com/thesmythgroup/vue-toolkit/commit/ca185ce5c9c863061f2a70d8e4b59dd286d87db4))
+* external composition api ([8794bf5](https://github.com/thesmythgroup/vue-toolkit/commit/8794bf52a362073047990e448793f3773f86efa5))
+
+
+### Features
+
+* **docs:** add source links ([464effe](https://github.com/thesmythgroup/vue-toolkit/commit/464effe0ccc6fa407457594a03a20f3d4851e02f))
+
+
+
+
+
 # [1.0.0-alpha.5](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-09-21)
 
 
