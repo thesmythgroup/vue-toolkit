@@ -1,6 +1,14 @@
 <template>
   <textarea
     class="textarea"
+    :class="{
+      'textarea--dirty': dirty,
+      'textarea--invalid': invalid,
+      'textarea--pristine': pristine,
+      'textarea--touched': touched,
+      'textarea--untouched': untouched,
+      'textarea--valid': valid,
+    }"
     :id="id"
     :value="innerValue"
     @input="handleInput"
@@ -22,11 +30,17 @@ export default defineComponent({
     value: String,
   },
   setup(props, { emit }) {
-    const { innerValue, handleBlur, handleInput } = useFormControl(
-      props.name as string,
-      props.value,
-      emit
-    );
+    const {
+      dirty,
+      handleBlur,
+      handleInput,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
+    } = useFormControl(props.name as string, props.value, emit);
 
     const id = ref(getUniqueId('control-'));
     const fieldSetId = inject<FieldSetIdFn | null>('field:setId', null);
@@ -36,10 +50,16 @@ export default defineComponent({
     }
 
     return {
-      id,
-      innerValue,
+      dirty,
       handleBlur,
       handleInput,
+      id,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
     };
   },
 });

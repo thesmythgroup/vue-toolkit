@@ -3,6 +3,14 @@
     <input
       type="checkbox"
       class="checkbox__input"
+      :class="{
+        'checkbox__input--dirty': dirty,
+        'checkbox__input--invalid': invalid,
+        'checkbox__input--pristine': pristine,
+        'checkbox__input--touched': touched,
+        'checkbox__input--untouched': untouched,
+        'checkbox__input--valid': valid,
+      }"
       v-bind="$attrs"
       :id="id"
       :checked="innerValue"
@@ -28,11 +36,17 @@ export default defineComponent({
     value: Boolean,
   },
   setup(props, { emit }) {
-    const { innerValue, handleBlur, handleInput } = useFormControl(
-      props.name as string,
-      props.value,
-      emit
-    );
+    const {
+      dirty,
+      handleBlur,
+      handleInput,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
+    } = useFormControl(props.name as string, props.value, emit);
 
     const id = ref(getUniqueId('control-'));
     const fieldSetId = inject<FieldSetIdFn | null>('field:setId', null);
@@ -42,10 +56,16 @@ export default defineComponent({
     }
 
     return {
-      id,
-      innerValue,
+      dirty,
       handleBlur,
       handleInput,
+      id,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
     };
   },
 });

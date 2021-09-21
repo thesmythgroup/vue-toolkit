@@ -22,12 +22,17 @@ export function useFormControl(
   emit: (name: string, ...args: unknown[]) => void
 ) {
   const innerValue = ref(initialValue);
+  const value = computed(() => innerValue.value);
   const validators = ref<ValidatorFn[]>([]);
 
-  const value = computed(() => innerValue.value);
+  const dirty = computed(() => innerValue.value !== initialValue);
+  const pristine = computed(() => !valid.value);
+
+  const valid = computed(() => errors.value === null);
+  const invalid = computed(() => !valid.value);
 
   const touched = ref(false);
-  const dirty = computed(() => innerValue.value !== initialValue);
+  const untouched = computed(() => !touched.value);
 
   const handleBlur = () => (touched.value = true);
   const handleInput = (event: Event) => {
@@ -66,9 +71,13 @@ export function useFormControl(
   const control: FormControl = {
     dirty,
     errors,
+    invalid,
+    pristine,
     setValidators,
     setValue,
     touched: readonly(touched),
+    untouched,
+    valid,
     value,
   };
 
@@ -101,9 +110,13 @@ export function useFormControl(
     handleBlur,
     handleInput,
     innerValue,
+    invalid,
+    pristine,
     setValidators,
     setValue,
     touched,
+    untouched,
+    valid,
     value,
   };
 }

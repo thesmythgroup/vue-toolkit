@@ -11,9 +11,13 @@ export interface FormSubmitEvent {
 export interface FormControl {
   dirty: ComputedRef<boolean>;
   errors: ComputedRef<ValidatorErrors | null>;
+  invalid: ComputedRef<boolean>;
+  pristine: ComputedRef<boolean>;
   setValidators: (validators: ValidatorFn[]) => void;
   setValue: (value: unknown) => void;
   touched: DeepReadonly<Ref<boolean>>;
+  untouched: DeepReadonly<Ref<boolean>>;
+  valid: ComputedRef<boolean>;
   value: ComputedRef<unknown>;
 }
 

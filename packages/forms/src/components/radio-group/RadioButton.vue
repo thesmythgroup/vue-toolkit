@@ -31,8 +31,8 @@ export default defineComponent({
     const group = inject<{
       name: string;
       innerValue: Ref<unknown>;
-      handleBlur: () => void,
-      handleInput: (event: Event) => void,
+      handleBlur: () => void;
+      handleInput: (event: Event) => void;
     }>('radio-group');
 
     return {

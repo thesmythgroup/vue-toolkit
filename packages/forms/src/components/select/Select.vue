@@ -1,6 +1,14 @@
 <template>
   <select
     class="select"
+    :class="{
+      'select--dirty': dirty,
+      'select--invalid': invalid,
+      'select--pristine': pristine,
+      'select--touched': touched,
+      'select--untouched': untouched,
+      'select--valid': valid,
+    }"
     :id="id"
     :value="innerValue"
     @blur="handleBlur"
@@ -24,11 +32,17 @@ export default defineComponent({
     value: [String, Number],
   },
   setup(props, { emit }) {
-    const { innerValue, handleBlur, handleInput } = useFormControl(
-      props.name as string,
-      props.value,
-      emit
-    );
+    const {
+      dirty,
+      handleBlur,
+      handleInput,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
+    } = useFormControl(props.name as string, props.value, emit);
 
     const id = ref(getUniqueId('control-'));
     const fieldSetId = inject<FieldSetIdFn | null>('field:setId', null);
@@ -38,10 +52,16 @@ export default defineComponent({
     }
 
     return {
-      id,
-      innerValue,
+      dirty,
       handleBlur,
       handleInput,
+      id,
+      innerValue,
+      invalid,
+      pristine,
+      touched,
+      untouched,
+      valid,
     };
   },
 });
