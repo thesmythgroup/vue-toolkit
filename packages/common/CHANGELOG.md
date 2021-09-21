@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.5](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-09-21)
+
+
+### Bug Fixes
+
+* **table:** check for default slot ([6366a2b](https://github.com/thesmythgroup/vue-toolkit/commit/6366a2b29ba1eab50b8161e77f2f8ffb3578f904))
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-09-20)
 
 

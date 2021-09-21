@@ -1,6 +1,6 @@
 {
   "name": "@vue-toolkit/common",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Completely style-able, fully accessible UI components, built with Vue.",
   "keywords": [
     "vue",

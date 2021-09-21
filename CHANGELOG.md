@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.5](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-09-21)
+
+
+### Bug Fixes
+
+* **docs:** dedupe composition api ([905972f](https://github.com/thesmythgroup/vue-toolkit/commit/905972fdc3686a9a3f0dbc3795c30127d2a245b1))
+* **table:** check for default slot ([6366a2b](https://github.com/thesmythgroup/vue-toolkit/commit/6366a2b29ba1eab50b8161e77f2f8ffb3578f904))
+
+
+### Features
+
+* **form:** add errors/value as slot content ([43abb4b](https://github.com/thesmythgroup/vue-toolkit/commit/43abb4b7f4bcc3f573c8f5986d4dbc8c94d903da))
+* **forms:** add control status css classes ([a2a8bf6](https://github.com/thesmythgroup/vue-toolkit/commit/a2a8bf6b9ee84f8a9296c42d08725470b053373b))
+* **forms:** add form control state ([d966e9a](https://github.com/thesmythgroup/vue-toolkit/commit/d966e9ad1489ce1e8b5f468283626c84f0b55239)), closes [#2](https://github.com/thesmythgroup/vue-toolkit/issues/2)
+* **forms:** form field required marker ([fc81fd4](https://github.com/thesmythgroup/vue-toolkit/commit/fc81fd4eba55c20d01717e585b3dc296d8fea411)), closes [#5](https://github.com/thesmythgroup/vue-toolkit/issues/5)
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-09-20)
 
 
