@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref, onMounted } from '@vue/composition-api';
 
 import Cell from './Cell.vue';
 import Header from './Header.vue';
@@ -42,16 +42,12 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
-    return {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      columns: [] as any[], // VNode[]
-    };
-  },
-  mounted() {
-    if (this.$slots.default) {
-      this.columns = this.$slots.default;
-    }
+  setup(props, { slots }) {
+    const columns = ref([]);
+
+    onMounted(() => (columns.value = slots?.default()));
+
+    return { columns };
   },
 });
 </script>

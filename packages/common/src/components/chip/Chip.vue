@@ -7,7 +7,7 @@
       type="button"
       class="chip__remove"
       v-if="showRemove"
-      @click="onRemove()"
+      @click="handleRemove()"
     >
       &times;
     </button>
@@ -25,10 +25,12 @@ export default defineComponent({
       default: false,
     },
   },
-  methods: {
-    onRemove() {
-      this.$emit('removed');
-    },
+  setup(props, { emit }) {
+    const handleRemove = () => {
+      emit('removed');
+    };
+
+    return { handleRemove };
   },
 });
 </script>

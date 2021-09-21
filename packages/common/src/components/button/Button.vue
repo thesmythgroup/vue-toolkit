@@ -7,10 +7,10 @@
       'button--busy': busy,
     }"
     :disabled="busy || disabled"
-    @click="onClick"
+    @click="handleClick"
   >
     <slot name="busy" v-if="busy">Loading ...</slot>
-    <slot v-else></slot>
+    <slot v-else />
   </button>
 </template>
 
@@ -29,10 +29,12 @@ export default defineComponent({
       default: false,
     },
   },
-  methods: {
-    onClick(event: Event) {
-      this.$emit('click', event);
-    },
+  setup(props, { emit }) {
+    const handleClick = (event: Event) => {
+      emit('click', event);
+    };
+
+    return { handleClick };
   },
 });
 </script>

@@ -4,7 +4,7 @@
     <div
       class="dialog__backdrop"
       v-if="showBackdrop"
-      @click="onBackdrop()"
+      @click="handleBackdropClick()"
     ></div>
 
     <section
@@ -17,7 +17,7 @@
         type="button"
         class="dialog__close"
         v-if="showClose"
-        @click="onClose()"
+        @click="handleClose()"
       >
         &times;
       </button>
@@ -28,7 +28,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import {
+  defineComponent,
+  ref,
+  onMounted,
+  onUnmounted,
+} from '@vue/composition-api';
 import * as focusTrap from 'focus-trap';
 
 export default defineComponent({
@@ -53,43 +58,42 @@ export default defineComponent({
       default: true,
     },
   },
-  data() {
-    return {
-      trap: null as focusTrap.FocusTrap | null,
+  setup(props, { emit }) {
+    const trap = ref<focusTrap.FocusTrap | null>(null);
+
+    const dismiss = (reason: string) => {
+      trap.value?.deactivate();
+      emit('dismiss', reason);
     };
-  },
-  created() {
-    window.addEventListener('keyup', this.onKeyup);
-  },
-  mounted() {
-    this.trap = focusTrap.createFocusTrap(this.$refs.modal as HTMLElement, {
-      allowOutsideClick: true,
-      escapeDeactivates: this.keyboardDismiss,
+
+    const handleKeyup = (event: KeyboardEvent) => {
+      if (props.keyboardDismiss && event.code === 'Escape') {
+        dismiss('keyboard');
+      }
+    };
+
+    const handleBackdropClick = () => {
+      if (props.backdropDismiss) {
+        dismiss('backdrop');
+      }
+    };
+
+    const handleClose = () => {
+      dismiss('close');
+    };
+
+    onMounted(() => window.addEventListener('keyup', handleKeyup));
+    onUnmounted(() => {
+      window.removeEventListener('keyup', handleKeyup);
+      trap.value?.deactivate();
     });
-    this.trap.activate();
-  },
-  destroyed() {
-    window.removeEventListener('keyup', this.onKeyup);
-    this.trap?.deactivate();
-  },
-  methods: {
-    dismiss(reason: string) {
-      this.trap?.deactivate();
-      this.$emit('dismiss', reason);
-    },
-    onKeyup(e: KeyboardEvent) {
-      if (this.keyboardDismiss && e.code === 'Escape') {
-        this.dismiss('keyboard');
-      }
-    },
-    onBackdrop() {
-      if (this.backdropDismiss) {
-        this.dismiss('backdrop');
-      }
-    },
-    onClose() {
-      this.dismiss('close');
-    },
+
+    return {
+      trap,
+      handleKeyup,
+      handleClose,
+      handleBackdropClick,
+    };
   },
 });
 </script>

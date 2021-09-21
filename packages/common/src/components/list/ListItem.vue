@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, computed } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'v-list-item',
@@ -23,14 +23,15 @@ export default defineComponent({
       default: 'div',
     },
   },
-  computed: {
-    isClickable(): boolean {
-      return (
-        this.component === 'a' ||
-        this.component === 'button' ||
-        this.component === 'router-link'
-      );
-    },
+  setup(props) {
+    const isClickable = computed(
+      () =>
+        props.component === 'a' ||
+        props.component === 'button' ||
+        props.component === 'router-link'
+    );
+
+    return { isClickable };
   },
 });
 </script>
