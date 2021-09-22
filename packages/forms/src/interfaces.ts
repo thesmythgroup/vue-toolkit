@@ -14,6 +14,7 @@ export interface FormControl {
   invalid: ComputedRef<boolean>;
   pristine: ComputedRef<boolean>;
   required: ComputedRef<boolean>;
+  reset: () => void;
   setValidators: (validators: ValidatorFn[]) => void;
   setValue: (value: unknown) => void;
   touched: DeepReadonly<Ref<boolean>>;

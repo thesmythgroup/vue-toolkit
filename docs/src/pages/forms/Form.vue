@@ -19,7 +19,7 @@
       :initial-value="initialValue"
       :validation-schema="schema"
       @submit="onSubmit"
-      v-slot="{ touched, dirty, valid, submitted }"
+      v-slot="{ touched, dirty, valid, reset, submitted }"
     >
       <v-field label="Name">
         <v-input name="name"></v-input>
@@ -49,6 +49,7 @@
         <v-checkbox name="isAwesome"></v-checkbox>
       </v-field>
 
+      <v-button class="button--outline mr-1" @click="reset">Reset</v-button>
       <v-button type="submit">Submit</v-button>
 
       <ul>

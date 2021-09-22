@@ -1,6 +1,16 @@
 <template>
   <form class="form" @submit="handleSubmit">
-    <slot v-bind="{ errors, value, touched, dirty, valid, submitted }" />
+    <slot
+      v-bind="{
+        dirty,
+        errors,
+        reset,
+        submitted,
+        touched,
+        valid,
+        value,
+      }"
+    />
   </form>
 </template>
 
@@ -22,14 +32,15 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const {
-      handleSubmit,
-      setValue,
-      errors,
-      value,
-      touched,
       dirty,
-      valid,
+      errors,
+      handleSubmit,
+      reset,
+      setValue,
       submitted,
+      touched,
+      valid,
+      value,
     } = useForm(props, emit);
 
     watch(
@@ -38,13 +49,14 @@ export default defineComponent({
     );
 
     return {
-      errors,
-      value,
-      touched,
       dirty,
-      valid,
-      submitted,
+      errors,
       handleSubmit,
+      reset,
+      submitted,
+      touched,
+      valid,
+      value,
     };
   },
 });

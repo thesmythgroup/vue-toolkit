@@ -46,6 +46,11 @@ export function useFormControl(
     emit('input', newValue);
   };
 
+  const reset = () => {
+    innerValue.value = initialValue;
+    touched.value = false;
+  }
+
   const setValidators = (val: ValidatorFn[]) => {
     validators.value = val;
   };
@@ -79,6 +84,7 @@ export function useFormControl(
     required,
     setValidators,
     setValue,
+    reset,
     touched: readonly(touched),
     untouched,
     valid,
@@ -116,6 +122,7 @@ export function useFormControl(
     innerValue,
     invalid,
     pristine,
+    reset,
     setValidators,
     setValue,
     touched,

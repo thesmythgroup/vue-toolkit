@@ -74,6 +74,11 @@ export function useForm(
     emit('submit', payload);
   };
 
+  const reset = () => {
+    submitted.value = false;
+    Object.values(controls.value).forEach((control) => control.reset());
+  };
+
   const addControl: FormAddControlFn = (name, ctrl) => {
     const validators = opts?.validationSchema?.[name];
 
@@ -106,6 +111,7 @@ export function useForm(
     dirty,
     errors,
     handleSubmit,
+    reset,
     setValue,
     submitted,
     touched,
