@@ -3,6 +3,7 @@
     <component
       class="list__item"
       v-bind="$attrs"
+      v-on="$listeners"
       :class="[{ 'list__item--clickable': isClickable }, itemClass]"
       :is="compTag"
     >
