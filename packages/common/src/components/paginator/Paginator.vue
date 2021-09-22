@@ -6,6 +6,7 @@
       class="paginator__page-size"
       v-model="currentSize"
       @change="handlePageSizeChange"
+      v-if="showPageSize"
     >
       <option
         v-for="(item, index) in pageSizeOptions"
@@ -64,6 +65,10 @@ export default defineComponent({
     pageSizeOptions: {
       type: Array,
       default: () => [25, 50, 100],
+    },
+    showPageSize: {
+      type: Boolean,
+      default: true,
     },
   },
   setup(props, { emit }) {
