@@ -4,6 +4,7 @@
     <!-- pages -->
     <select
       class="paginator__page-size"
+      v-if="!hidePageSize"
       v-model="currentSize"
       @change="handlePageSizeChange"
     >
@@ -49,6 +50,10 @@ import { PageEvent } from './interfaces';
 export default defineComponent({
   name: 'v-paginator',
   props: {
+    hidePageSize: {
+      type: Boolean,
+      default: false,
+    },
     length: {
       type: Number,
       default: 0,
