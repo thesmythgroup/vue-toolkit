@@ -24,9 +24,15 @@
 
     <h3 class="mb-2">Router link list</h3>
     <v-list>
-      <v-list-item tag="router-link" to="../button"> Go to Button </v-list-item>
-      <v-list-item tag="router-link" to="../dialog"> Go to Dialog </v-list-item>
-      <v-list-item tag="router-link" to="../table"> Go to Table </v-list-item>
+      <v-list-item tag="router-link" to="../common/button">
+        Go to Button
+      </v-list-item>
+      <v-list-item tag="router-link" to="../common/dialog">
+        Go to Dialog
+      </v-list-item>
+      <v-list-item tag="router-link" to="../common/table">
+        Go to Table
+      </v-list-item>
     </v-list>
   </section>
 </template>
