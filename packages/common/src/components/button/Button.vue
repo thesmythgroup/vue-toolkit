@@ -5,7 +5,6 @@
     :class="{
       'button--block': block,
       'button--busy': busy,
-      'button--busy': busy,
       'button--clear': clear,
       'button--disabled': disabled,
       'button--outline': outline,

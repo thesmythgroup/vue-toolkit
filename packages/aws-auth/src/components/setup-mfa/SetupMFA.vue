@@ -14,9 +14,7 @@
         </v-select>
       </v-field>
 
-      <v-button outline @click="onForget">
-        Forget this device
-      </v-button>
+      <v-button outline @click="onForget"> Forget this device </v-button>
       <v-button type="submit">Submit</v-button>
     </form>
   </section>
