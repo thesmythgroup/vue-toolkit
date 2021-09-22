@@ -1,6 +1,5 @@
 export * from './auth-root';
 export * from './change-password';
-export * from './complete-forgot-password';
 export * from './confirm-sign-in';
 export * from './confirm-sign-up';
 export * from './forgot-password-submit';

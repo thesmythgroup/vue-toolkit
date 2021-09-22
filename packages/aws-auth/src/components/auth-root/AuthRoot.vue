@@ -1,23 +1,24 @@
 <template>
   <!-- todo: message that aws is not configured? -->
-  <router-view @set-user="onSetUser($event)" :user="user" />
+  <router-view @set-user="handleSetUser($event)" :user="user" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { CognitoUser } from '@aws-amplify/auth';
 
 export default defineComponent({
   name: 'v-auth-root',
-  data() {
-    return {
-      user: null as CognitoUser | null,
+  setup() {
+    const user = ref<CognitoUser | null>();
+    const handleSetUser = (value: CognitoUser) => {
+      user.value = value;
     };
-  },
-  methods: {
-    onSetUser(user: CognitoUser) {
-      this.user = user;
-    },
+
+    return {
+      user,
+      handleSetUser,
+    };
   },
 });
 </script>

@@ -2,7 +2,7 @@
   <section class="forgot-password-submit">
     <!-- todo: i18n -->
     <h1 class="forgot-password-submit__title">Forgot Password Submit</h1>
-    <form class="forgot-password-submit__form" @submit="onSubmit">
+    <form class="forgot-password-submit__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
@@ -34,40 +34,47 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
-
+import { defineComponent, onMounted, ref } from '@vue/composition-api';
+import { useRouter } from '../../composition';
 import { AuthError } from '../../interfaces';
 
 export default defineComponent({
   name: 'v-forgot-password-submit',
-  data() {
-    return {
-      username: '',
-      code: '',
-      password: '',
-      error: null as AuthError | null,
-    };
-  },
-  mounted() {
-    this.username = this.$route.query.username as string;
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup() {
+    const router = useRouter();
+    const username = ref('');
+    const code = ref('');
+    const password = ref('');
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
         await Auth.forgotPasswordSubmit(
-          this.username,
-          this.code,
-          this.password
+          username.value,
+          code.value,
+          password.value
         );
 
-        this.$router.push({ path: '/sign-in' });
+        router.push({ path: '/sign-in' });
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    onMounted(() => {
+      username.value = router.currentRoute.query.username as string;
+    });
+
+    return {
+      code,
+      error,
+      handleSubmit,
+      password,
+      username,
+    };
   },
 });
 </script>

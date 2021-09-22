@@ -2,7 +2,7 @@
   <section class="sign-in">
     <!-- todo: i18n -->
     <h1 class="sign-in__title">Sign In</h1>
-    <form class="sign-in__form" @submit="onSubmit">
+    <form class="sign-in__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
@@ -26,27 +26,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
+import { useRouter } from '../../composition';
 
 export default defineComponent({
   name: 'v-sign-in',
-  data() {
-    return {
-      username: '',
-      password: '',
-      error: null as AuthError | null,
-    };
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup(props, { emit }) {
+    const router = useRouter();
+    const username = ref('');
+    const password = ref('');
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
-        const user = await Auth.signIn(this.username, this.password);
-        this.$emit('set-user', user);
+        const user = await Auth.signIn(username.value, password.value);
+        emit('set-user', user);
 
         if (!user.challengeName) {
           // todo: go to root?
@@ -55,11 +54,11 @@ export default defineComponent({
 
         switch (user.challengeName) {
           case 'NEW_PASSWORD_REQUIRED':
-            this.$router.push({ path: '/require-new-password' });
+            router.push({ path: '/require-new-password' });
             break;
           case 'SMS_MFA':
           case 'SOFTWARE_TOKEN_MFA':
-            this.$router.push({ path: '/confirm-sign-in' });
+            router.push({ path: '/confirm-sign-in' });
             break;
           case 'MFA_SETUP':
             // todo
@@ -68,9 +67,16 @@ export default defineComponent({
             break;
         }
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    return {
+      error,
+      handleSubmit,
+      password,
+      username,
+    };
   },
 });
 </script>

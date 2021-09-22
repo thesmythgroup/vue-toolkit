@@ -2,7 +2,7 @@
   <section class="require-new-password">
     <!-- todo: i18n -->
     <h1 class="require-new-password__title">New Password Required</h1>
-    <form class="require-new-password__form" @submit="onSubmit">
+    <form class="require-new-password__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="New Password">
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
@@ -33,32 +33,36 @@ export default defineComponent({
   props: {
     user: Object as () => CognitoUser,
   },
-  data() {
-    return {
-      password: '',
-      error: null as AuthError | null,
-    };
-  },
-  methods: {
-    async onSubmit(event: Event) {
-      event.preventDefault();
+  setup(props) {
+    const password = ref('');
+    const error = ref<AuthError | null>(null);
 
-      try {
-        await Auth.completeNewPassword(this.user, this.password);
-
-        const username = await this.getUsername();
-        await Auth.signIn(username, this.password);
-      } catch (error) {
-        this.error = error;
-      }
-    },
-    getUsername() {
+    const getUsername = () => {
       return new Promise<string>((resolve, reject) => {
-        this.user?.getUserData((error, data) =>
+        props.user?.getUserData((error, data) =>
           data ? resolve(data.Username) : reject(error)
         );
       });
-    },
+    };
+
+    const handleSubmit = async (event: Event) => {
+      event.preventDefault();
+
+      try {
+        await Auth.completeNewPassword(props.user, password.value);
+
+        const username = await getUsername();
+        await Auth.signIn(username, password.value);
+      } catch (error) {
+        error.value = error;
+      }
+    };
+
+    return {
+      error,
+      handleSubmit,
+      password,
+    };
   },
 });
 </script>

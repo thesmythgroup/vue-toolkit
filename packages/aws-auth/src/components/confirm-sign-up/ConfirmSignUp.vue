@@ -2,7 +2,7 @@
   <section class="confirm-sign-up">
     <!-- todo: i18n -->
     <h1 class="confirm-sign-up__title">Confirm Sign Up</h1>
-    <form class="confirm-sign-up__form" @submit="onSubmit">
+    <form class="confirm-sign-up__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
@@ -22,34 +22,41 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref, onMounted } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
+import { useRouter } from '../../composition';
 
 export default defineComponent({
   name: 'v-confirm-sign-up',
-  data() {
-    return {
-      username: '',
-      code: '',
-      error: null as AuthError | null,
-    };
-  },
-  mounted() {
-    this.username = this.$route.query.username as string;
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup() {
+    const router = useRouter();
+    const username = ref('');
+    const code = ref('');
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
-        await Auth.confirmSignUp(this.username, this.code);
-        this.$router.push({ path: '/sign-in' });
+        await Auth.confirmSignUp(username.value, code.value);
+        router.push({ path: '/sign-in' });
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    onMounted(() => {
+      username.value = router.currentRoute.query.username as string;
+    });
+
+    return {
+      code,
+      error,
+      handleSubmit,
+      username,
+    };
   },
 });
 </script>

@@ -2,7 +2,7 @@
   <section class="forgot-password">
     <!-- todo: i18n -->
     <h1 class="forgot-password__title">Forgot Password</h1>
-    <form class="forgot-password__form" @submit="onSubmit">
+    <form class="forgot-password__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
@@ -18,36 +18,41 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
+import { useRouter } from '../../composition';
 
 export default defineComponent({
   name: 'v-forgot-password',
-  data() {
-    return {
-      username: '',
-      error: null as AuthError | null,
-    };
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup() {
+    const router = useRouter();
+    const username = ref('');
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
-        await Auth.forgotPassword(this.username);
+        await Auth.forgotPassword(username.value);
 
-        this.$router.push({
+        router.push({
           path: '/forgot-password-submit',
           query: {
-            username: this.username,
+            username: username.value,
           },
         });
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    return {
+      error,
+      handleSubmit,
+      username,
+    };
   },
 });
 </script>

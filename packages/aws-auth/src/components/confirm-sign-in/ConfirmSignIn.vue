@@ -2,7 +2,7 @@
   <section class="confirm-sign-up">
     <!-- todo: i18n -->
     <h1 class="confirm-sign-up__title">Confirm Sign In</h1>
-    <form class="confirm-sign-up__form" @submit="onSubmit">
+    <form class="confirm-sign-up__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Confirmation code">
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref, onMounted } from '@vue/composition-api';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
@@ -37,34 +37,39 @@ export default defineComponent({
   props: {
     user: Object as () => CognitoUser,
   },
-  data() {
-    return {
-      code: '',
-      remember: false,
-      error: null as AuthError | null,
-    };
-  },
-  mounted() {
-    if (!this.user) {
-      // todo: back to sign in with an error message
-    }
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup(props) {
+    const code = ref('');
+    const remember = ref(false);
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
-        await Auth.confirmSignIn(this.user, this.code);
+        await Auth.confirmSignIn(props.user, code.value);
 
-        if (this.remember) {
+        if (remember.value) {
           await Auth.rememberDevice();
         }
 
         // todo: go to root?
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    onMounted(() => {
+      if (!props.user) {
+        // todo: back to sign in with an error message
+      }
+    });
+
+    return {
+      code,
+      error,
+      handleSubmit,
+      remember,
+    };
   },
 });
 </script>

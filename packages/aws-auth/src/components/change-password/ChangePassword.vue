@@ -2,7 +2,7 @@
   <section class="change-password">
     <!-- todo: i18n -->
     <h1 class="change-password__title">Change Password</h1>
-    <form class="change-password__form" @submit="onSubmit">
+    <form class="change-password__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Old Password">
@@ -27,31 +27,35 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 
 export default defineComponent({
   name: 'v-change-password',
-  data() {
-    return {
-      oldPassword: '',
-      newPassword: '',
-      error: null as AuthError | null,
-    };
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup() {
+    const oldPassword = ref('');
+    const newPassword = ref('');
+    const error = ref<AuthError | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
         const user = await Auth.currentAuthenticatedUser();
-        await Auth.changePassword(user, this.oldPassword, this.newPassword);
+        await Auth.changePassword(user, oldPassword.value, newPassword.value);
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    return {
+      error,
+      handleSubmit,
+      newPassword,
+      oldPassword,
+    };
   },
 });
 </script>

@@ -69,6 +69,10 @@ export default defineComponent({
           { to: '/aws-auth/confirm-sign-up', label: 'Confirm Sign Up' },
           { to: '/aws-auth/forgot-password', label: 'Forgot Password' },
           {
+            to: '/aws-auth/forgot-password-submit',
+            label: 'Forgot Password Submit',
+          },
+          {
             to: '/aws-auth/require-new-password',
             label: 'Require New Password',
           },

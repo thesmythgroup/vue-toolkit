@@ -2,7 +2,7 @@
   <section class="sign-up">
     <!-- todo: i18n -->
     <h1 class="sign-up__title">Sign Up</h1>
-    <form class="sign-up__form" @submit="onSubmit">
+    <form class="sign-up__form" @submit="handleSubmit">
       <p v-if="error">{{ error.message }}</p>
       <p v-if="msg">{{ msg }}</p>
 
@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Auth } from '@aws-amplify/auth';
 
 import {
@@ -35,55 +35,63 @@ import {
   AuthConfig,
   AuthSignUpVerification,
 } from '../../interfaces';
+import { useRouter } from '../../composition';
 
 export default defineComponent({
   name: 'v-sign-up',
-  data() {
-    return {
-      username: '',
-      password: '',
-      phone: '',
-      error: null as AuthError | null,
-      msg: null as string | null,
-    };
-  },
-  methods: {
-    async onSubmit(event: Event) {
+  setup() {
+    const router = useRouter();
+    const username = ref('');
+    const password = ref('');
+    const phone = ref('');
+    const error = ref<AuthError | null>(null);
+    const msg = ref<string | null>(null);
+
+    const handleSubmit = async (event: Event) => {
       event.preventDefault();
 
       try {
         // todo: config
         const config = {} as AuthConfig;
         const res = await Auth.signUp({
-          username: this.username,
-          password: this.password,
+          username: username.value,
+          password: password.value,
         });
 
         if (res.userConfirmed) {
-          this.$router.push({ path: '/sign-in' });
+          router.push({ path: '/sign-in' });
         } else if (res.codeDeliveryDetails) {
           switch (config.signUpVerification) {
             case AuthSignUpVerification.Code:
-              this.$router.push({
+              router.push({
                 path: '/confirm-sign-up',
-                query: { username: this.username },
+                query: { username: username.value },
               });
               break;
             case AuthSignUpVerification.Link:
-              this.msg = `Please check ${res.codeDeliveryDetails.Destination} for vertifcation instructions.`;
+              msg.value = `Please check ${res.codeDeliveryDetails.Destination} for vertifcation instructions.`;
               break;
             default:
-              this.msg =
+              msg.value =
                 'Please contact your system administrator to verify your account.';
               break;
           }
         } else {
-          this.$router.push({ path: '/sign-in' });
+          router.push({ path: '/sign-in' });
         }
       } catch (error) {
-        this.error = error;
+        error.value = error;
       }
-    },
+    };
+
+    return {
+      error,
+      handleSubmit,
+      msg,
+      password,
+      phone,
+      username,
+    };
   },
 });
 </script>
