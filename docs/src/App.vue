@@ -7,7 +7,7 @@
           <v-list>
             <v-list-item
               v-for="(page, index) in pkg.pages"
-              component="router-link"
+              tag="router-link"
               :key="index"
               :to="page.to"
             >

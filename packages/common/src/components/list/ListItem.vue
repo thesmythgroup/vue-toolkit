@@ -3,10 +3,10 @@
     <component
       class="list__item"
       v-bind="$attrs"
-      :class="{ 'list__item--clickable': isClickable }"
-      :is="component"
+      :class="[{ 'list__item--clickable': isClickable }, itemClass]"
+      :is="compTag"
     >
-      <slot></slot>
+      <slot />
     </component>
   </li>
 </template>
@@ -18,20 +18,43 @@ export default defineComponent({
   name: 'v-list-item',
   inheritAttrs: false,
   props: {
-    component: {
+    button: {
+      type: Boolean,
+      default: false,
+    },
+    href: {
       type: String,
-      default: 'div',
+    },
+    tag: {
+      type: String,
+    },
+    // not needed in vue3
+    // https://v3.vuejs.org/guide/migration/attrs-includes-class-style.html
+    itemClass: {
+      type: [String, Object],
     },
   },
   setup(props) {
+    const compTag = computed(() => {
+      if (props.tag) {
+        return props.tag;
+      } else if (props.href) {
+        return 'a';
+      } else if (props.button) {
+        return 'button';
+      } else {
+        return 'div';
+      }
+    });
+
     const isClickable = computed(
       () =>
-        props.component === 'a' ||
-        props.component === 'button' ||
-        props.component === 'router-link'
+        compTag.value === 'a' ||
+        compTag.value === 'button' ||
+        compTag.value === 'router-link'
     );
 
-    return { isClickable };
+    return { isClickable, compTag };
   },
 });
 </script>

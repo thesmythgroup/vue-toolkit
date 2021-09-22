@@ -15,9 +15,18 @@
 
     <h3 class="mb-2">Button list</h3>
     <v-list>
-      <v-list-item component="button" @click="onClick(1)"> Item #1</v-list-item>
-      <v-list-item component="button" @click="onClick(2)"> Item #2</v-list-item>
-      <v-list-item component="button" @click="onClick(3)"> Item #3</v-list-item>
+      <v-list-item button @click="onClick(1)"> Item #1</v-list-item>
+      <v-list-item button @click="onClick(2)"> Item #2</v-list-item>
+      <v-list-item button @click="onClick(3)" item-class="list__item--special">
+        Item #3 (with custom class)
+      </v-list-item>
+    </v-list>
+
+    <h3 class="mb-2">Router link list</h3>
+    <v-list>
+      <v-list-item tag="router-link" to="../button"> Go to Button </v-list-item>
+      <v-list-item tag="router-link" to="../dialog"> Go to Dialog </v-list-item>
+      <v-list-item tag="router-link" to="../table"> Go to Table </v-list-item>
     </v-list>
   </section>
 </template>
@@ -33,3 +42,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+@import '../../packages/common/sass/components';
+
+.list__item {
+  &--special {
+    color: $primary;
+  }
+}
+</style>
