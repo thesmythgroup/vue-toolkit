@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.8](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-09-22)
+
+
+### Bug Fixes
+
+* **list-item:** add v-on listeners ([#14](https://github.com/thesmythgroup/vue-toolkit/issues/14)) ([c326989](https://github.com/thesmythgroup/vue-toolkit/commit/c326989c0534344eb5efb4b6b1f4c4f4d7a8ab6a))
+
+
+
+
+
 # [1.0.0-alpha.7](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-09-22)
 
 
