@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.7](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-09-22)
+
+
+### Features
+
+* **field-error:** automatically display by error name ([d815c9e](https://github.com/thesmythgroup/vue-toolkit/commit/d815c9ecb8a4464935da13603673b1995060ef22)), closes [#10](https://github.com/thesmythgroup/vue-toolkit/issues/10)
+* **form:** add reset function to form and control ([ff5a0ab](https://github.com/thesmythgroup/vue-toolkit/commit/ff5a0ab5974ae2bb8bb579b9e68cb55394af6bb4)), closes [#11](https://github.com/thesmythgroup/vue-toolkit/issues/11)
+* **list-item:** allow for custom classes on inner component ([b3f9069](https://github.com/thesmythgroup/vue-toolkit/commit/b3f9069caee27e4d546f3384ff0651ae8212a7cb))
+
+
+### BREAKING CHANGES
+
+* **list-item:** Prop `component` renamed to `tag`.
+
+
+
+
+
 # [1.0.0-alpha.6](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-09-21)
 
 
