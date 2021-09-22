@@ -1,7 +1,6 @@
 <template>
-  <li>
+  <li class="list__item">
     <component
-      class="list__item"
       v-bind="$attrs"
       :class="{ 'list__item--clickable': isClickable }"
       :is="component"

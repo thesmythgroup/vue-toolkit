@@ -9,7 +9,7 @@
     background: none;
     border-color: $list-border;
     border-style: solid;
-    border-width: 0 0 1px 0;;
+    border-width: 0 0 1px 0;
     box-sizing: border-box;
     color: unset;
     display: block;
@@ -20,8 +20,12 @@
     width: 100%;
 
     &--clickable {
+      border: none;
+      background: none;
       cursor: pointer;
       text-decoration: none;
+      font-size: unset;
+      padding: 0;
 
       &:focus,
       &:hover {
