@@ -23,6 +23,13 @@
     >
       <v-field label="Name">
         <v-input name="name"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
+        <v-field-error name="minLength" v-slot="{ error }">
+          Must be {{ error.required }} characters or more
+        </v-field-error>
+        <v-field-error name="maxLength" v-slot="{ error }">
+          Must be {{ error.required }} characters or less
+        </v-field-error>
       </v-field>
 
       <v-field label="Description">
@@ -35,6 +42,7 @@
           <v-option value="cat">Cat</v-option>
           <v-option value="bird">Bird</v-option>
         </v-select>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Priority">
@@ -43,6 +51,7 @@
           <v-radio-button value="medium">Medium</v-radio-button>
           <v-radio-button value="low">Low</v-radio-button>
         </v-radio-group>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Awesome">

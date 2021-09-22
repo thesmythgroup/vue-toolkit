@@ -102,6 +102,7 @@ export function useForm(
 
   provide('form:addControl', addControl);
   provide('form:removeControl', removeControl);
+  provide('form:context', { submitted });
 
   if (opts?.initialValue) {
     setValue(opts.initialValue);

@@ -1,6 +1,6 @@
 <template>
   <p class="field__hint">
-    <slot></slot>
+    <slot />
   </p>
 </template>
 

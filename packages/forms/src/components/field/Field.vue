@@ -11,7 +11,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, provide } from '@vue/composition-api';
+import {
+  computed,
+  defineComponent,
+  provide,
+  readonly,
+  ref,
+} from '@vue/composition-api';
 
 import { FieldSetControlFn, FieldSetIdFn, FormControl } from '../../interfaces';
 
@@ -35,6 +41,7 @@ export default defineComponent({
 
     provide('field:setId', setId);
     provide('field:setControl', setControl);
+    provide('field:control', readonly(control));
 
     return {
       id,

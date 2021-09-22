@@ -49,7 +49,7 @@ export function useFormControl(
   const reset = () => {
     innerValue.value = initialValue;
     touched.value = false;
-  }
+  };
 
   const setValidators = (val: ValidatorFn[]) => {
     validators.value = val;
