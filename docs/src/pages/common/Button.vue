@@ -20,7 +20,8 @@
     </v-button>
 
     <v-button
-      class="button--outline mr-1"
+      outline
+      class="mr-1"
       @click="onClick()"
       :disabled="disabled"
       :busy="busy"
@@ -28,12 +29,7 @@
       Outline Button
     </v-button>
 
-    <v-button
-      class="button--clear"
-      @click="onClick()"
-      :disabled="disabled"
-      :busy="busy"
-    >
+    <v-button clear @click="onClick()" :disabled="disabled" :busy="busy">
       Clear Button
     </v-button>
   </section>

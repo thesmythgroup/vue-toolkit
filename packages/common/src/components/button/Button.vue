@@ -3,8 +3,12 @@
     type="button"
     class="button"
     :class="{
-      'button--disabled': disabled,
+      'button--block': block,
       'button--busy': busy,
+      'button--busy': busy,
+      'button--clear': clear,
+      'button--disabled': disabled,
+      'button--outline': outline,
     }"
     :disabled="busy || disabled"
     @click="handleClick"
@@ -20,6 +24,18 @@ import { defineComponent } from '@vue/composition-api';
 export default defineComponent({
   name: 'v-button',
   props: {
+    outline: {
+      type: Boolean,
+      default: false,
+    },
+    clear: {
+      type: Boolean,
+      default: false,
+    },
+    block: {
+      type: Boolean,
+      default: false,
+    },
     busy: {
       type: Boolean,
       default: false,

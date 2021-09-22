@@ -7,7 +7,7 @@
         <p class="m-0">{{ user.username }}</p>
       </div>
 
-      <v-button class="button--outline" @click="signOut"> Sign out </v-button>
+      <v-button outline @click="signOut"> Sign out </v-button>
     </div>
 
     <!-- unauthenticated -->

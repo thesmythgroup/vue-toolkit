@@ -7,10 +7,10 @@
     />
 
     <app-options>
-      <v-button @click="load(1)" class="button--outline mr-2">
+      <v-button @click="load(1)" outline class="mr-2">
         Load "Ava"
       </v-button>
-      <v-button @click="load(2)" class="button--outline">
+      <v-button @click="load(2)" outline>
         Load "Lucy"
       </v-button>
     </app-options>
@@ -58,7 +58,7 @@
         <v-checkbox name="isAwesome"></v-checkbox>
       </v-field>
 
-      <v-button class="button--outline mr-1" @click="reset">Reset</v-button>
+      <v-button class="mr-1" outline @click="reset">Reset</v-button>
       <v-button type="submit">Submit</v-button>
 
       <ul>

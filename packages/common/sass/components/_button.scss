@@ -43,6 +43,11 @@
     }
   }
 
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
   &--busy,
   &--disabled {
     opacity: 0.5;
