@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.9](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-09-22)
+
+
+### Features
+
+* **button:** add props for common modifiers ([303f765](https://github.com/thesmythgroup/vue-toolkit/commit/303f7656bd852998e04ebb6b7061a5673b600a78))
+* **paginator:** add option to hide page size ([01b15ff](https://github.com/thesmythgroup/vue-toolkit/commit/01b15ffe99117ff5f3b6ee75128b5d7faa966eee))
+
+
+
+
+
 # [1.0.0-alpha.8](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-09-22)
 
 
