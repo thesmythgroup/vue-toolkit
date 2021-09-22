@@ -1,4 +1,4 @@
-import { getCurrentInstance } from 'vue-demi';
+import { getCurrentInstance } from '@vue/composition-api';
 import VueRouter from 'vue-router';
 
 export function useRouter() {
