@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-24)
+
+
+### Bug Fixes
+
+* **button:** remove duplicate busy class ([d7b380c](https://github.com/thesmythgroup/vue-toolkit/commit/d7b380c326c38376bc75578a132db5624a525cef))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-09-22)
 
 

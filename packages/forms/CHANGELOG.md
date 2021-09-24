@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-24)
+
+
+### Bug Fixes
+
+* **forms:** allow number values ([ce19702](https://github.com/thesmythgroup/vue-toolkit/commit/ce19702ab0aecac1af4840469250876358e85581))
+
+
+### Features
+
+* **forms:** move validators ([47e9235](https://github.com/thesmythgroup/vue-toolkit/commit/47e923553d117c5a8e5c9eafba093d9d830f855d))
+
+
+### BREAKING CHANGES
+
+* **forms:** From validators moved into root forms package,
+exported as a group.
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-09-22)
 
 **Note:** Version bump only for package @vue-toolkit/forms
