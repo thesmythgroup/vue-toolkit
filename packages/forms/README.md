@@ -45,7 +45,7 @@ A validator is a function that processes a value and returns error information o
 ### Built-in Validators
 
 ```ts
-import { required } from '@vue-toolkit/forms/validators';
+import { validators } from '@vue-toolkit/forms';
 ```
 
 | Validator   | Description                                                                                  |
@@ -62,7 +62,7 @@ import { required } from '@vue-toolkit/forms/validators';
 
 ```ts
 const mustBeAwesome = (value) => {
-  return value.includes('awesome') ? null : {};
+  return value.includes('awesome') ? null : { awesome: true };
 };
 ```
 

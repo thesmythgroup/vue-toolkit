@@ -7,12 +7,8 @@
     />
 
     <app-options>
-      <v-button @click="load(1)" outline class="mr-2">
-        Load "Ava"
-      </v-button>
-      <v-button @click="load(2)" outline>
-        Load "Lucy"
-      </v-button>
+      <v-button @click="load(1)" outline class="mr-2"> Load "Ava" </v-button>
+      <v-button @click="load(2)" outline> Load "Lucy" </v-button>
     </app-options>
 
     <v-form
@@ -75,17 +71,20 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
-import { FormSubmitEvent } from '@vue-toolkit/forms';
-import { required, minLength, maxLength } from '@vue-toolkit/forms/validators';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
 
 export default defineComponent({
   setup() {
     const initialValue = ref<Record<string, unknown> | null>(null);
     const submitted = ref<FormSubmitEvent | null>(null);
     const schema = ref({
-      name: [required, minLength(3), maxLength(20)],
-      type: [required],
-      priority: [required],
+      name: [
+        validators.required,
+        validators.minLength(3),
+        validators.maxLength(20),
+      ],
+      type: [validators.required],
+      priority: [validators.required],
     });
 
     const load = (id: number) => {

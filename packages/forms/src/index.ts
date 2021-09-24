@@ -3,6 +3,8 @@ import { VueConstructor } from 'vue';
 import * as components from './components';
 
 export * from './components';
+export * as validators from './validators';
+
 export default {
   install: (Vue: VueConstructor) => {
     const all: Record<string, typeof Vue> = components;
