@@ -10,7 +10,7 @@
       @change="handleInput"
       @blur="handleBlur"
     />
-    <slot></slot>
+    <slot />
   </label>
 </template>
 
@@ -32,13 +32,21 @@ export default defineComponent({
       name: string;
       innerValue: Ref<unknown>;
       handleBlur: () => void;
-      handleInput: (event: Event) => void;
+      setValue: (value: unknown) => void;
     }>('radio-group');
+
+    const handleInput = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+
+      // v-bind stores underlying (non-string) values as `_value`
+      const value = '_value' in input ? (input as any)._value : input.value;
+      group.setValue(value);
+    };
 
     return {
       inputName: computed(() => props.name || group.name),
       isSelected: computed(() => group.innerValue.value == props.value),
-      handleInput: group.handleInput,
+      handleInput,
       handleBlur: group.handleBlur,
     };
   },

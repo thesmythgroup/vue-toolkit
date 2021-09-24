@@ -1,6 +1,6 @@
 <template>
-  <option>
-    <slot></slot>
+  <option :value="value">
+    <slot />
   </option>
 </template>
 
@@ -9,5 +9,11 @@ import { defineComponent } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'v-option',
+  props: {
+    value: {
+      type: [String, Number],
+      required: true,
+    },
+  },
 });
 </script>

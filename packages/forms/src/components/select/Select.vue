@@ -14,7 +14,7 @@
     @blur="handleBlur"
     @change="handleInput"
   >
-    <slot></slot>
+    <slot />
   </select>
 </template>
 
@@ -35,13 +35,13 @@ export default defineComponent({
     const {
       dirty,
       handleBlur,
-      handleInput,
       innerValue,
       invalid,
       pristine,
       touched,
       untouched,
       valid,
+      setValue,
     } = useFormControl(props.name as string, props.value, emit);
 
     const id = ref(getUniqueId('control-'));
@@ -50,6 +50,16 @@ export default defineComponent({
     if (fieldSetId) {
       onMounted(() => fieldSetId(id.value));
     }
+
+    const handleInput = (event: Event) => {
+      const select = event.target as HTMLSelectElement;
+      const opt = select.selectedOptions[0];
+
+      // v-bind stores underlying (non-string) values as `_value`
+      const value = '_value' in opt ? (opt as any)._value : opt.value;
+
+      setValue(value);
+    };
 
     return {
       dirty,

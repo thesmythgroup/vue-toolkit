@@ -11,7 +11,7 @@
     }"
     role="radiogroup"
   >
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -46,7 +46,6 @@ export default defineComponent({
 
     provide('radio-group', {
       handleBlur,
-      handleInput,
       innerValue,
       name: props.name,
       setValue,

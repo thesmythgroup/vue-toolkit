@@ -42,8 +42,7 @@ export function useFormControl(
     const input = event.target as HTMLInputElement;
     const newValue = input.type === 'checkbox' ? input.checked : input.value;
 
-    innerValue.value = newValue;
-    emit('input', newValue);
+    setValue(newValue);
   };
 
   const reset = () => {
