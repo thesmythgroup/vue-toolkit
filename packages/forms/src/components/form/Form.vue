@@ -1,5 +1,16 @@
 <template>
-  <form class="form" @submit="handleSubmit">
+  <form
+    @submit="handleSubmit"
+    class="form"
+    :class="{
+      'form--dirty': dirty,
+      'form--invalid': !valid,
+      'form--pristine': !dirty,
+      'form--touched': touched,
+      'form--untouched': !touched,
+      'form--valid': valid,
+    }"
+  >
     <slot
       v-bind="{
         dirty,
