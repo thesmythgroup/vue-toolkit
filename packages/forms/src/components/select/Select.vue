@@ -19,7 +19,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, ref, onMounted, watch } from '@vue/composition-api';
+import {
+  defineComponent,
+  inject,
+  ref,
+  onMounted,
+  watch,
+} from '@vue/composition-api';
 
 import { useFormControl } from '../../composition';
 import { FieldSetIdFn } from '../../interfaces';
