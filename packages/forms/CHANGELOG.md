@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2021-09-27)
+
+
+### Features
+
+* **form:** add form state classes ([156a912](https://github.com/thesmythgroup/vue-toolkit/commit/156a912d6a0631efaca91ff7bd5f248cc4fcdf9d))
+* **forms:** add generic types ([faecb65](https://github.com/thesmythgroup/vue-toolkit/commit/faecb6538b90cdfc1ba8ef91936dbfb22bfeb49b))
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-24)
 
 
