@@ -18,7 +18,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, ref, onMounted } from '@vue/composition-api';
+import {
+  defineComponent,
+  inject,
+  ref,
+  onMounted,
+  watch,
+} from '@vue/composition-api';
 
 import { useFormControl } from '../../composition';
 import { FieldSetIdFn } from '../../interfaces';
@@ -38,6 +44,7 @@ export default defineComponent({
       innerValue,
       invalid,
       pristine,
+      setValue,
       touched,
       untouched,
       valid,
@@ -45,6 +52,8 @@ export default defineComponent({
 
     const id = ref(getUniqueId('control-'));
     const fieldSetId = inject<FieldSetIdFn | null>('field:setId', null);
+
+    watch(() => props.value, setValue);
 
     if (fieldSetId) {
       onMounted(() => fieldSetId(id.value));
