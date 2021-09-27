@@ -18,7 +18,9 @@ Completely style-able components for [Amazon Cognito](https://aws.amazon.com/cog
 npm install --save @vue-toolkit/aws-auth @vue-toolkit/common @aws-amplify/auth
 ```
 
-> Vue Toolkit requires @vue/composition-api >= v1.1
+> Vue Toolkit requires `@vue/composition-api` >= v1.1
+
+> AWS Auth requires `vue-router` and `@aws-amplify/auth` as peer dependencies
 
 ## Usage
 
