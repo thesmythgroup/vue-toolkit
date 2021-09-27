@@ -6,9 +6,11 @@ describe('ConfirmSignUp.vue', () => {
   it('renders', () => {
     const wrapper = shallowMount(ConfirmSignUp, {
       mocks: {
-        $route: {
-          query: {
-            username: 'test@example.org',
+        $router: {
+          currentRoute: {
+            query: {
+              username: 'test@example.org',
+            },
           },
         },
       },

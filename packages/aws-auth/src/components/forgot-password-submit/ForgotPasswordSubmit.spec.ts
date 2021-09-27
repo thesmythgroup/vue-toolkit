@@ -7,9 +7,11 @@ describe('ForgotPasswordSubmit.vue', () => {
     const wrapper = shallowMount(ForgotPasswordSubmit, {
       stubs: ['router-link'],
       mocks: {
-        $route: {
-          query: {
-            username: 'test@example.org',
+        $router: {
+          currentRoute: {
+            query: {
+              username: 'test@example.org',
+            },
           },
         },
       },
