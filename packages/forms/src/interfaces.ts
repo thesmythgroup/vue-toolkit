@@ -1,14 +1,14 @@
 import { ComputedRef, Ref, DeepReadonly } from '@vue/composition-api';
 
-export interface FormSubmitEvent {
+export interface FormSubmitEvent<T = Record<string, any>> {
   dirty: boolean;
   errors: ValidatorErrors | null;
   touched: boolean;
   valid: boolean;
-  value: Record<string, unknown>;
+  value: T;
 }
 
-export interface FormControl {
+export interface FormControl<T = any> {
   dirty: ComputedRef<boolean>;
   errors: ComputedRef<ValidatorErrors | null>;
   invalid: ComputedRef<boolean>;
@@ -16,14 +16,14 @@ export interface FormControl {
   required: ComputedRef<boolean>;
   reset: () => void;
   setValidators: (validators: ValidatorFn[]) => void;
-  setValue: (value: unknown) => void;
+  setValue: (value: T) => void;
   touched: DeepReadonly<Ref<boolean>>;
   untouched: DeepReadonly<Ref<boolean>>;
   valid: ComputedRef<boolean>;
-  value: ComputedRef<unknown>;
+  value: ComputedRef<T>;
 }
 
-export type ValidatorFn = (value: unknown) => ValidatorErrors | null;
+export type ValidatorFn = (value: any) => ValidatorErrors | null;
 
 export interface ValidatorErrors {
   [name: string]: any;
@@ -34,7 +34,7 @@ export type FormRemoveControlFn = (name: string) => void;
 export type FieldSetControlFn = (ctrl: FormControl | null) => void;
 export type FieldSetIdFn = (id: string) => void;
 
-export interface FormOptions {
-  initialValue?: Record<string, unknown>;
+export interface FormOptions<T = Record<string, any>> {
+  initialValue?: T;
   validationSchema?: Record<string, ValidatorFn[]>;
 }
