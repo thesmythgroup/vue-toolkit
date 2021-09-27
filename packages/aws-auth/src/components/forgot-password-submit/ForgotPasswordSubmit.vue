@@ -2,24 +2,27 @@
   <section class="forgot-password-submit">
     <!-- todo: i18n -->
     <h1 class="forgot-password-submit__title">Forgot Password Submit</h1>
-    <form class="forgot-password-submit__form" @submit="handleSubmit">
+    <v-form
+      class="forgot-password-submit__form"
+      :validation-schema="schema"
+      :initial-value="initalValue"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
-        <v-input name="username" v-model="username" disabled></v-input>
+        <v-input name="username" disabled></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Code">
-        <v-input name="code" v-model="code"></v-input>
+        <v-input name="code"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="New Password">
-        <v-input
-          type="password"
-          name="password"
-          v-model="password"
-          autocomplete="off"
-        ></v-input>
+        <v-input type="password" name="password" autocomplete="off"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: resend -->
@@ -29,34 +32,43 @@
       <p><router-link to="/sign-in">Back to Sign In</router-link></p>
 
       <v-button type="submit">Submit</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
 <script lang="ts">
 import { Auth } from '@aws-amplify/auth';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
 import { defineComponent, onMounted, ref } from '@vue/composition-api';
 import { useRouter } from '../../composition';
 import { AuthError } from '../../interfaces';
+
+interface FormData {
+  username: string;
+  code: string;
+  password: string;
+}
 
 export default defineComponent({
   name: 'v-forgot-password-submit',
   setup() {
     const router = useRouter();
-    const username = ref('');
-    const code = ref('');
-    const password = ref('');
     const error = ref<AuthError | null>(null);
+    const initalValue = ref<Partial<FormData> | null>(null);
+    const schema = ref({
+      username: [validators.required],
+      code: [validators.required],
+      password: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
-        await Auth.forgotPasswordSubmit(
-          username.value,
-          code.value,
-          password.value
-        );
+        const { username, code, password } = form.value;
+        await Auth.forgotPasswordSubmit(username, code, password);
 
         router.push({ path: '/sign-in' });
       } catch (error) {
@@ -65,15 +77,15 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      username.value = router.currentRoute.query.username as string;
+      const username = router.currentRoute.query.username as string;
+      initalValue.value = { username };
     });
 
     return {
-      code,
       error,
       handleSubmit,
-      password,
-      username,
+      initalValue,
+      schema,
     };
   },
 });

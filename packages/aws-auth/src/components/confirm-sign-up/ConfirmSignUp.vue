@@ -2,22 +2,29 @@
   <section class="confirm-sign-up">
     <!-- todo: i18n -->
     <h1 class="confirm-sign-up__title">Confirm Sign Up</h1>
-    <form class="confirm-sign-up__form" @submit="handleSubmit">
+    <v-form
+      class="confirm-sign-up__form"
+      :validation-schema="schema"
+      :initial-value="initialValue"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
-        <v-input name="username" v-model="username" disabled></v-input>
+        <v-input name="username" disabled></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Code">
-        <v-input name="code" v-model="code"></v-input>
+        <v-input name="code"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: resend -->
       <p>Lost your code? <a href="#">Resend Code</a></p>
 
       <v-button type="submit">Confirm</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
@@ -27,20 +34,32 @@ import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 import { useRouter } from '../../composition';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
+
+interface FormData {
+  username: string;
+  code: string;
+}
 
 export default defineComponent({
   name: 'v-confirm-sign-up',
   setup() {
     const router = useRouter();
-    const username = ref('');
-    const code = ref('');
     const error = ref<AuthError | null>(null);
+    const initialValue = ref<Partial<FormData> | null>(null);
+    const schema = ref({
+      username: [validators.required],
+      code: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
-        await Auth.confirmSignUp(username.value, code.value);
+        const { username, code } = form.value;
+        await Auth.confirmSignUp(username, code);
         router.push({ path: '/sign-in' });
       } catch (error) {
         error.value = error;
@@ -48,14 +67,15 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      username.value = router.currentRoute.query.username as string;
+      const username = router.currentRoute.query.username as string;
+      initialValue.value = { username };
     });
 
     return {
-      code,
       error,
       handleSubmit,
-      username,
+      initialValue,
+      schema,
     };
   },
 });

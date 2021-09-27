@@ -2,15 +2,21 @@
   <section class="sign-in">
     <!-- todo: i18n -->
     <h1 class="sign-in__title">Sign In</h1>
-    <form class="sign-in__form" @submit="handleSubmit">
+    <v-form
+      class="sign-in__form"
+      :validation-schema="schema"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
-        <v-input name="username" v-model="username"></v-input>
+        <v-input name="username"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Password">
-        <v-input type="password" name="password" v-model="password"></v-input>
+        <v-input type="password" name="password"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: route config -->
@@ -21,30 +27,41 @@
       <p>No account <router-link to="/sign-up">Create account</router-link></p>
 
       <v-button type="submit">Sign In</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
 import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 import { useRouter } from '../../composition';
 
+interface FormData {
+  username: string;
+  password: string;
+}
+
 export default defineComponent({
   name: 'v-sign-in',
   setup(props, { emit }) {
     const router = useRouter();
-    const username = ref('');
-    const password = ref('');
     const error = ref<AuthError | null>(null);
+    const schema = ref({
+      username: [validators.required],
+      password: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
-        const user = await Auth.signIn(username.value, password.value);
+        const { username, password } = form.value;
+        const user = await Auth.signIn(username, password);
         emit('set-user', user);
 
         if (!user.challengeName) {
@@ -74,8 +91,7 @@ export default defineComponent({
     return {
       error,
       handleSubmit,
-      password,
-      username,
+      schema,
     };
   },
 });

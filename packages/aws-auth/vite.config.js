@@ -11,7 +11,12 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', '@vue/composition-api'],
+      external: [
+        'vue',
+        '@vue/composition-api',
+        '@vue-toolkit/common',
+        '@vue-toolkit/forms',
+      ],
       output: {
         globals: {
           vue: 'Vue',

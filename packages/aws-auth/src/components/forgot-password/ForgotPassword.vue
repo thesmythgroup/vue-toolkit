@@ -2,18 +2,23 @@
   <section class="forgot-password">
     <!-- todo: i18n -->
     <h1 class="forgot-password__title">Forgot Password</h1>
-    <form class="forgot-password__form" @submit="handleSubmit">
+    <v-form
+      class="forgot-password__form"
+      :validation-schema="schema"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Username">
-        <v-input name="username" v-model="username"></v-input>
+        <v-input name="username"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: route config -->
       <p><router-link to="/sign-in">Back to Sign In</router-link></p>
 
       <v-button type="submit">Send Code</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
@@ -23,24 +28,33 @@ import { Auth } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
 import { useRouter } from '../../composition';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
+
+interface FormData {
+  username: string;
+}
 
 export default defineComponent({
   name: 'v-forgot-password',
   setup() {
     const router = useRouter();
-    const username = ref('');
     const error = ref<AuthError | null>(null);
+    const schema = ref({
+      username: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
-
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
       try {
-        await Auth.forgotPassword(username.value);
+        const { username } = form.value;
+        await Auth.forgotPassword(username);
 
         router.push({
           path: '/forgot-password-submit',
           query: {
-            username: username.value,
+            username,
           },
         });
       } catch (error) {
@@ -51,7 +65,7 @@ export default defineComponent({
     return {
       error,
       handleSubmit,
-      username,
+      schema,
     };
   },
 });

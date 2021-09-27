@@ -2,17 +2,20 @@
   <section class="confirm-sign-up">
     <!-- todo: i18n -->
     <h1 class="confirm-sign-up__title">Confirm Sign In</h1>
-    <form class="confirm-sign-up__form" @submit="handleSubmit">
+    <v-form
+      class="confirm-sign-up__form"
+      :validation-schema="schema"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="Confirmation code">
-        <v-input name="code" v-model="code"></v-input>
+        <v-input name="code"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field>
-        <v-checkbox name="remember" v-model="remember">
-          Remember this device?
-        </v-checkbox>
+        <v-checkbox name="remember"> Remember this device? </v-checkbox>
       </v-field>
 
       <!-- todo: resend -->
@@ -22,7 +25,7 @@
       <p><router-link to="/sign-in">Back to Sign In</router-link></p>
 
       <v-button type="submit">Confirm</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
@@ -31,6 +34,12 @@ import { defineComponent, ref, onMounted } from '@vue/composition-api';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
+
+interface FormData {
+  code: string;
+  remember: string;
+}
 
 export default defineComponent({
   name: 'v-confirm-sign-in',
@@ -38,17 +47,21 @@ export default defineComponent({
     user: Object as () => CognitoUser,
   },
   setup(props) {
-    const code = ref('');
-    const remember = ref(false);
     const error = ref<AuthError | null>(null);
+    const schema = ref({
+      code: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
-        await Auth.confirmSignIn(props.user, code.value);
+        const { code, remember } = form.value;
+        await Auth.confirmSignIn(props.user, code);
 
-        if (remember.value) {
+        if (remember) {
           await Auth.rememberDevice();
         }
 
@@ -65,10 +78,9 @@ export default defineComponent({
     });
 
     return {
-      code,
       error,
       handleSubmit,
-      remember,
+      schema,
     };
   },
 });

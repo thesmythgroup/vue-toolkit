@@ -2,32 +2,40 @@
   <section class="sign-up">
     <!-- todo: i18n -->
     <h1 class="sign-up__title">Sign Up</h1>
-    <form class="sign-up__form" @submit="handleSubmit">
+    <v-form
+      class="sign-up__form"
+      :validation-schema="schema"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
       <p v-if="msg">{{ msg }}</p>
 
       <v-field label="Username">
-        <v-input name="username" v-model="username"></v-input>
+        <v-input name="username"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Password">
-        <v-input type="password" name="password" v-model="password"></v-input>
+        <v-input type="password" name="password"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <v-field label="Phone">
-        <v-input type="tel" name="phone" v-model="phone"></v-input>
+        <v-input type="tel" name="phone"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: route config -->
       <p>Have an account? <router-link to="/sign-in">Sign In</router-link></p>
 
       <v-button type="submit">Create Account</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from '@vue/composition-api';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
 import { Auth } from '@aws-amplify/auth';
 
 import {
@@ -37,25 +45,37 @@ import {
 } from '../../interfaces';
 import { useRouter } from '../../composition';
 
+interface FormData {
+  username: string;
+  password: string;
+  phone: string;
+}
+
 export default defineComponent({
   name: 'v-sign-up',
   setup() {
     const router = useRouter();
-    const username = ref('');
-    const password = ref('');
-    const phone = ref('');
     const error = ref<AuthError | null>(null);
     const msg = ref<string | null>(null);
+    const schema = ref({
+      username: [validators.required],
+      password: [validators.required],
+      phone: [validators.required],
+    });
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
+        const { username, password, phone } = form.value;
+
         // todo: config
         const config = {} as AuthConfig;
         const res = await Auth.signUp({
-          username: username.value,
-          password: password.value,
+          username,
+          password,
         });
 
         if (res.userConfirmed) {
@@ -65,7 +85,7 @@ export default defineComponent({
             case AuthSignUpVerification.Code:
               router.push({
                 path: '/confirm-sign-up',
-                query: { username: username.value },
+                query: { username },
               });
               break;
             case AuthSignUpVerification.Link:
@@ -88,9 +108,7 @@ export default defineComponent({
       error,
       handleSubmit,
       msg,
-      password,
-      phone,
-      username,
+      schema,
     };
   },
 });

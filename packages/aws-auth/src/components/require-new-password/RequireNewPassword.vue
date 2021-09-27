@@ -2,23 +2,23 @@
   <section class="require-new-password">
     <!-- todo: i18n -->
     <h1 class="require-new-password__title">New Password Required</h1>
-    <form class="require-new-password__form" @submit="handleSubmit">
+    <v-form
+      class="require-new-password__form"
+      :validation-schema="schema"
+      @submit="handleSubmit"
+    >
       <p v-if="error">{{ error.message }}</p>
 
       <v-field label="New Password">
-        <v-input
-          type="password"
-          name="password"
-          v-model="password"
-          autocomplete="off"
-        ></v-input>
+        <v-input type="password" name="password" autocomplete="off"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
       </v-field>
 
       <!-- todo: route config -->
       <p><router-link to="/sign-in">Back to Sign In</router-link></p>
 
       <v-button type="submit">Change</v-button>
-    </form>
+    </v-form>
   </section>
 </template>
 
@@ -27,6 +27,11 @@ import { defineComponent, ref } from '@vue/composition-api';
 import { Auth, CognitoUser } from '@aws-amplify/auth';
 
 import { AuthError } from '../../interfaces';
+import { FormSubmitEvent, validators } from '@vue-toolkit/forms';
+
+interface FormData {
+  password: string;
+}
 
 export default defineComponent({
   name: 'v-require-new-password',
@@ -34,8 +39,10 @@ export default defineComponent({
     user: Object as () => CognitoUser,
   },
   setup(props) {
-    const password = ref('');
     const error = ref<AuthError | null>(null);
+    const schema = ref({
+      password: [validators.required],
+    });
 
     const getUsername = () => {
       return new Promise<string>((resolve, reject) => {
@@ -45,14 +52,17 @@ export default defineComponent({
       });
     };
 
-    const handleSubmit = async (event: Event) => {
-      event.preventDefault();
+    const handleSubmit = async (form: FormSubmitEvent<FormData>) => {
+      if (!form.valid) {
+        return;
+      }
 
       try {
-        await Auth.completeNewPassword(props.user, password.value);
+        const { password } = form.value;
+        await Auth.completeNewPassword(props.user, password);
 
         const username = await getUsername();
-        await Auth.signIn(username, password.value);
+        await Auth.signIn(username, password);
       } catch (error) {
         error.value = error;
       }
@@ -61,7 +71,7 @@ export default defineComponent({
     return {
       error,
       handleSubmit,
-      password,
+      schema,
     };
   },
 });
