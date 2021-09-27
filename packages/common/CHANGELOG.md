@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.12...v1.0.0-beta.0) (2021-09-27)
+
+**Note:** Version bump only for package @vue-toolkit/common
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-09-24)
 
 

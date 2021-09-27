@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.12...v1.0.0-beta.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* **forms:** update control value on props change ([30a233d](https://github.com/thesmythgroup/vue-toolkit/commit/30a233dc8959a20c4ffc1d6f5f483674b2f3096f))
+
+
+### Features
+
+* **aws-auth:** implement form component and validation ([2aded0c](https://github.com/thesmythgroup/vue-toolkit/commit/2aded0cbe826d8b136e8626a9b860fbf5383afad))
+
+
+
+
+
 # [1.0.0-alpha.12](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2021-09-27)
 
 
