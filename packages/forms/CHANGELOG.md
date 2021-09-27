@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.1](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* **forms:** lint errors ([d051b1a](https://github.com/thesmythgroup/vue-toolkit/commit/d051b1a6adcc6d0f88baad480b97fc6b152cad05))
+* **forms:** update control value on props change ([c5d7d0d](https://github.com/thesmythgroup/vue-toolkit/commit/c5d7d0dc1c5c157b57bca15c28d0de751a23214b))
+
+
+
+
+
 # [1.0.0-beta.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.12...v1.0.0-beta.0) (2021-09-27)
 
 
