@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, provide } from '@vue/composition-api';
+import { defineComponent, provide, watch } from '@vue/composition-api';
 
 import { useFormControl } from '../../composition';
 import { getUniqueId } from '../../utils';
@@ -43,6 +43,8 @@ export default defineComponent({
       untouched,
       valid,
     } = useFormControl(props.name as string, props.value, emit);
+
+    watch(() => props.value, setValue);
 
     provide('radio-group', {
       handleBlur,
