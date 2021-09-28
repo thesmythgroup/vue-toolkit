@@ -1,19 +1,26 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Chip"
-      component-source-path="/packages/common/src/components/chip"
-      docs-source-path="/docs/src/pages/common/Chip.vue"
-    />
-
+  <app-info
+    title="Chip"
+    component-source-path="/packages/common/src/components/chip"
+    docs-source-path="/docs/src/pages/common/Chip.vue"
+    :props="[
+      {
+        name: 'show-remove',
+        description: 'Whether the remove button is rendered.',
+      },
+    ]"
+    :events="[
+      { name: 'removed', description: 'Emitted when a chip is removed.' },
+    ]"
+  >
     <app-options>
       <v-field>
         <v-checkbox v-model="showRemove">Show Remove</v-checkbox>
       </v-field>
     </app-options>
 
-    <v-chip :showRemove="showRemove" @removed="onRemove()"> Chip </v-chip>
-  </section>
+    <v-chip :show-remove="showRemove" @removed="onRemove()"> Chip </v-chip>
+  </app-info>
 </template>
 
 <script lang="ts">

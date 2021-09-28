@@ -1,15 +1,14 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Checkbox"
-      component-source-path="/packages/forms/src/components/checkbox"
-      docs-source-path="/docs/src/pages/forms/Checkbox.vue"
-    />
-
+  <app-info
+    title="Checkbox"
+    component-source-path="/packages/forms/src/components/checkbox"
+    docs-source-path="/docs/src/pages/forms/Checkbox.vue"
+    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+  >
     <v-checkbox v-model="value">Example</v-checkbox>
 
     <app-snippet>{{ value }}</app-snippet>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

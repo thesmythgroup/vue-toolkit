@@ -1,11 +1,9 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Tabs"
-      component-source-path="/packages/common/src/components/tabs"
-      docs-source-path="/docs/src/pages/common/Tabs.vue"
-    />
-
+  <app-info
+    title="Tabs"
+    component-source-path="/packages/common/src/components/tabs"
+    docs-source-path="/docs/src/pages/common/Tabs.vue"
+  >
     <app-options>
       <v-field>
         <v-checkbox v-model="disabled">Disable "Tab #3"</v-checkbox>
@@ -17,7 +15,7 @@
       <v-tab title="Tab #2"> Content for tab #2. </v-tab>
       <v-tab title="Tab #3" :disabled="disabled"> Content for tab #3. </v-tab>
     </v-tabs>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

@@ -1,11 +1,10 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Select"
-      component-source-path="/packages/forms/src/components/select"
-      docs-source-path="/docs/src/pages/forms/Select.vue"
-    />
-
+  <app-info
+    title="Select"
+    component-source-path="/packages/forms/src/components/select"
+    docs-source-path="/docs/src/pages/forms/Select.vue"
+    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+  >
     <v-select v-model="value">
       <v-option value="1">Option #1</v-option>
       <v-option value="2">Option #2</v-option>
@@ -13,7 +12,7 @@
     </v-select>
 
     <app-snippet>{{ value }}</app-snippet>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

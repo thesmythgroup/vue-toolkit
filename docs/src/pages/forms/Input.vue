@@ -1,15 +1,14 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Input"
-      component-source-path="/packages/forms/src/components/input"
-      docs-source-path="/docs/src/pages/forms/Input.vue"
-    />
-
+  <app-info
+    title="Input"
+    component-source-path="/packages/forms/src/components/input"
+    docs-source-path="/docs/src/pages/forms/Input.vue"
+    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+  >
     <v-input v-model="value"></v-input>
 
     <app-snippet>{{ value }}</app-snippet>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

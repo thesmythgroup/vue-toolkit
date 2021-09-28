@@ -1,11 +1,19 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Form"
-      component-source-path="/packages/forms/src/components/form"
-      docs-source-path="/docs/src/pages/forms/Form.vue"
-    />
-
+  <app-info
+    title="Form"
+    component-source-path="/packages/forms/src/components/form"
+    docs-source-path="/docs/src/pages/forms/Form.vue"
+    :props="[
+      {
+        name: 'initial-value',
+        description: 'Initial values to fill the fields with.',
+      },
+      {
+        name: 'validation-schema',
+        description: 'An object describing a schema to validate fields with.',
+      },
+    ]"
+  >
     <app-options>
       <v-button @click="load(1)" outline class="mr-2"> Load "Ava" </v-button>
       <v-button @click="load(2)" outline> Load "Lucy" </v-button>
@@ -66,7 +74,7 @@
     </v-form>
 
     <app-snippet>{{ submitted }}</app-snippet>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

@@ -1,11 +1,31 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Dialog"
-      component-source-path="/packages/common/src/components/dialog"
-      docs-source-path="/docs/src/pages/common/Dialog.vue"
-    />
-
+  <app-info
+    title="Dialog"
+    component-source-path="/packages/common/src/components/dialog"
+    docs-source-path="/docs/src/pages/common/Dialog.vue"
+    :props="[
+      { name: 'size', description: 'Apply size class modifier.' },
+      {
+        name: 'show-backdrop',
+        description: 'Whether the dialog has a backdrop.',
+      },
+      {
+        name: 'show-close',
+        description: 'Whether the dialog has a close button.',
+      },
+      {
+        name: 'backdrop-dismiss',
+        description: 'Whether the dialog is dismissed on backdrop click.',
+      },
+      {
+        name: 'keyboard-dismiss',
+        description: 'Whether the dialog is dismisses on the escape keypress',
+      },
+    ]"
+    :events="[
+      { name: 'dismiss', description: 'Emitted when a chip is dismissed.' },
+    ]"
+  >
     <app-options>
       <v-field>
         <v-checkbox v-model="showBackdrop">Show Backdrop</v-checkbox>
@@ -47,7 +67,7 @@
         <v-button type="button" @click="onDismiss()">Done</v-button>
       </v-dialog-footer>
     </v-dialog>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

@@ -1,11 +1,32 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Paginator"
-      component-source-path="/packages/common/src/components/paginator"
-      docs-source-path="/docs/src/pages/common/Paginator.vue"
-    />
-
+  <app-info
+    title="Paginator"
+    component-source-path="/packages/common/src/components/paginator"
+    docs-source-path="/docs/src/pages/common/Paginator.vue"
+    :props="[
+      {
+        name: 'hide-page-size',
+        description:
+          'Whether to hide the page size selection UI from the user.',
+      },
+      {
+        name: 'length',
+        description:
+          'The length of the total number of items that are being paginated.',
+      },
+      {
+        name: 'page-size',
+        description: 'Number of items to display on a page.',
+      },
+    ]"
+    :events="[
+      {
+        name: 'page',
+        description:
+          'Change event object that is emitted when the user selects a different page size or navigates to another page.',
+      },
+    ]"
+  >
     <app-options>
       <v-field label="Hide Page Size">
         <v-checkbox v-model="hidePageSize" />
@@ -23,7 +44,7 @@
     ></v-paginator>
 
     <app-snippet>{{ output }}</app-snippet>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

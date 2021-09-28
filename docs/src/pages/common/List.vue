@@ -1,11 +1,9 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="List"
-      component-source-path="/packages/common/src/components/list"
-      docs-source-path="/docs/src/pages/common/List.vue"
-    />
-
+  <app-info
+    title="List"
+    component-source-path="/packages/common/src/components/list"
+    docs-source-path="/docs/src/pages/common/List.vue"
+  >
     <h3 class="mb-2">Default list</h3>
     <v-list>
       <v-list-item>Item #1</v-list-item>
@@ -34,7 +32,7 @@
         Go to Table
       </v-list-item>
     </v-list>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

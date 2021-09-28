@@ -1,11 +1,9 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Popover"
-      component-source-path="/packages/common/src/components/popover"
-      docs-source-path="/docs/src/pages/common/Popover.vue"
-    />
-
+  <app-info
+    title="Popover"
+    component-source-path="/packages/common/src/components/popover"
+    docs-source-path="/docs/src/pages/common/Popover.vue"
+  >
     <v-popover>
       <template #trigger="{ toggle }">
         <v-button @click="toggle">Open Popover</v-button>
@@ -18,5 +16,5 @@
         </div>
       </template>
     </v-popover>
-  </section>
+  </app-info>
 </template>

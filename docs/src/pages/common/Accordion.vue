@@ -1,11 +1,16 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Accordion"
-      component-source-path="/packages/common/src/components/accordion"
-      docs-source-path="/docs/src/pages/common/Accordion.vue"
-    />
-
+  <app-info
+    title="Accordion"
+    component-source-path="/packages/common/src/components/accordion"
+    docs-source-path="/docs/src/pages/common/Accordion.vue"
+    :props="[
+      {
+        name: 'allow-multiple',
+        description:
+          'Whether the accordion should allow multiple expanded items simultaneously.',
+      },
+    ]"
+  >
     <app-options>
       <v-field>
         <v-checkbox v-model="allowMultiple">Allow Multiple</v-checkbox>
@@ -29,7 +34,7 @@
         Content for item #3.
       </v-accordion-item>
     </v-accordion>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

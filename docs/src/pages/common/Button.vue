@@ -1,11 +1,14 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Button"
-      component-source-path="/packages/common/src/components/button"
-      docs-source-path="/docs/src/pages/common/Button.vue"
-    />
-
+  <app-info
+    title="Button"
+    component-source-path="/packages/common/src/components/button"
+    docs-source-path="/docs/src/pages/common/Button.vue"
+    :props="[
+      { name: 'busy', description: 'Disable button and show busy content.' },
+      { name: 'clear', description: 'Apply clear class modifier.' },
+      { name: 'outline', description: 'Apply outline class modifier.' },
+    ]"
+  >
     <app-options>
       <v-field>
         <v-checkbox v-model="disabled">Disabled</v-checkbox>
@@ -32,7 +35,7 @@
     <v-button clear @click="onClick()" :disabled="disabled" :busy="busy">
       Clear Button
     </v-button>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

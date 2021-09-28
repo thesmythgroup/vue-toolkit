@@ -1,11 +1,10 @@
 <template>
-  <section class="p-4">
-    <app-info
-      title="Table"
-      component-source-path="/packages/common/src/components/table"
-      docs-source-path="/docs/src/pages/common/Table.vue"
-    />
-
+  <app-info
+    title="Table"
+    component-source-path="/packages/common/src/components/table"
+    docs-source-path="/docs/src/pages/common/Table.vue"
+    :props="[{ name: 'data', description: `The table's source of data` }]"
+  >
     <v-table :data="items">
       <v-column v-slot="{ row }"> # {{ row.id }} </v-column>
       <v-column label="Name" v-slot="{ row }">
@@ -20,7 +19,7 @@
         </template>
       </v-column>
     </v-table>
-  </section>
+  </app-info>
 </template>
 
 <script lang="ts">

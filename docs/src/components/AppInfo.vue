@@ -1,28 +1,63 @@
 <template>
   <section class="info">
-    <h2 class="info__title">{{ title }}</h2>
-    <ul class="info__list">
-      <li class="info__item">
-        <a
-          :href="componentSourceUrl"
-          title="View component source"
-          target="_blank"
-          class="info__link"
-        >
-          <font-awesome-icon :icon="['fab', 'github']" size="lg" />
-        </a>
-      </li>
-      <li class="info__item">
-        <a
-          :href="docsSourceUrl"
-          title="View docs source"
-          target="_blank"
-          class="info__link"
-        >
-          <font-awesome-icon icon="file-alt" size="lg" />
-        </a>
-      </li>
-    </ul>
+    <header class="info__header">
+      <h2 class="info__title">{{ title }}</h2>
+
+      <!-- links -->
+      <ul class="info__list">
+        <li class="info__item">
+          <a
+            :href="componentSourceUrl"
+            title="View component source"
+            target="_blank"
+            class="info__link"
+          >
+            <font-awesome-icon :icon="['fab', 'github']" size="lg" />
+          </a>
+        </li>
+        <li class="info__item">
+          <a
+            :href="docsSourceUrl"
+            title="View docs source"
+            target="_blank"
+            class="info__link"
+          >
+            <font-awesome-icon icon="file-alt" size="lg" />
+          </a>
+        </li>
+      </ul>
+    </header>
+
+    <!-- example -->
+    <div class="info__content">
+      <slot />
+    </div>
+
+    <!-- props -->
+    <section v-if="props">
+      <h2 class="info__subtitle">Props</h2>
+      <v-table :data="props">
+        <v-column label="Name" v-slot="{ row }">
+          <code class="info__code">{{ row.name }}</code>
+        </v-column>
+        <v-column label="Description" v-slot="{ row }">
+          {{ row.description }}
+        </v-column>
+      </v-table>
+    </section>
+
+    <!-- events -->
+    <section v-if="events">
+      <h2 class="info__subtitle">Events</h2>
+      <v-table :data="events">
+        <v-column label="Name" v-slot="{ row }">
+          <code class="info__code">{{ row.name }}</code>
+        </v-column>
+        <v-column label="Description" v-slot="{ row }">
+          {{ row.description }}
+        </v-column>
+      </v-table>
+    </section>
   </section>
 </template>
 
@@ -44,6 +79,12 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    props: {
+      type: Array,
+    },
+    events: {
+      type: Array,
+    },
   },
   setup(props) {
     const repo = import.meta.env.VITE_SOURCE_ROOT;
@@ -63,8 +104,12 @@ export default defineComponent({
 @import '../../../packages/common/sass/components/variables';
 
 .info {
-  display: flex;
-  margin-bottom: 1rem;
+  padding: 1rem;
+
+  &__header {
+    display: flex;
+    margin-bottom: 1rem;
+  }
 
   &__title {
     flex: 1 0;
@@ -96,6 +141,20 @@ export default defineComponent({
     &:hover {
       opacity: 1;
     }
+  }
+
+  &__content {
+    margin-bottom: 4rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 0.5rem;
+  }
+
+  &__code {
+    background-color: #f8f9fa;
+    border-radius: $border-radius;
+    padding: 0.25em 0.5rem;
   }
 }
 </style>
