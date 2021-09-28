@@ -1,5 +1,5 @@
 <template>
-  <main class="flex min-h-screen">
+  <main class="min-h-screen">
     <v-sidebar>
       <section v-for="pkg in packages" :key="pkg.name">
         <h2 class="pl-3 mb-1">{{ pkg.name }}</h2>
@@ -18,7 +18,7 @@
       </section>
     </v-sidebar>
 
-    <div class="flex-auto p-1">
+    <div class="content p-1">
       <router-view />
     </div>
   </main>
@@ -98,5 +98,9 @@ export default defineComponent({
 body {
   font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   margin: 0;
+}
+
+.content {
+  margin-left: $sidebar-width;
 }
 </style>

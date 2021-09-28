@@ -3,5 +3,11 @@
 .sidebar {
   background-color: $sidebar-bg;
   border-right: 1px solid $sidebar-border;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
   width: $sidebar-width;
 }
