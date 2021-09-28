@@ -2,7 +2,7 @@ import { computed, provide, ref, unref } from '@vue/composition-api';
 
 import {
   FormAddControlFn,
-  FormControl,
+  FormControlRef,
   FormOptions,
   FormRemoveControlFn,
   FormSubmitEvent,
@@ -13,7 +13,7 @@ export function useForm(
   opts: FormOptions,
   emit: (name: string, ...args: unknown[]) => void
 ) {
-  const controls = ref<Record<string, FormControl>>({});
+  const controls = ref<Record<string, FormControlRef>>({});
   const submitted = ref(false);
 
   const value = computed(() => {

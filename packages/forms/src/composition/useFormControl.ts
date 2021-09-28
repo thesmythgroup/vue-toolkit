@@ -10,7 +10,7 @@ import {
 import {
   FieldSetControlFn,
   FormAddControlFn,
-  FormControl,
+  FormControlRef,
   FormRemoveControlFn,
   ValidatorErrors,
   ValidatorFn,
@@ -75,7 +75,7 @@ export function useFormControl(
     }, null);
   });
 
-  const control: FormControl = {
+  const control: FormControlRef = {
     dirty,
     errors,
     invalid,

@@ -8,7 +8,7 @@ export interface FormSubmitEvent<T = Record<string, any>> {
   value: T;
 }
 
-export interface FormControl<T = any> {
+export interface FormControlRef<T = any> {
   dirty: ComputedRef<boolean>;
   errors: ComputedRef<ValidatorErrors | null>;
   invalid: ComputedRef<boolean>;
@@ -29,9 +29,9 @@ export interface ValidatorErrors {
   [name: string]: any;
 }
 
-export type FormAddControlFn = (name: string, ctrl: FormControl) => void;
+export type FormAddControlFn = (name: string, ctrl: FormControlRef) => void;
 export type FormRemoveControlFn = (name: string) => void;
-export type FieldSetControlFn = (ctrl: FormControl | null) => void;
+export type FieldSetControlFn = (ctrl: FormControlRef | null) => void;
 export type FieldSetIdFn = (id: string) => void;
 
 export interface FormOptions<T = Record<string, any>> {
