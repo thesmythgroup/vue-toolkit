@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.2](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-09-28)
+
+
+### Features
+
+* **sidebar:** fixed position ([1cff0e8](https://github.com/thesmythgroup/vue-toolkit/commit/1cff0e856f6b6c19338acd1e3a2267120ee7ca68))
+
+
+### BREAKING CHANGES
+
+* **sidebar:** Sidebar is now fixed position.
+
+
+
+
+
 # [1.0.0-beta.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-alpha.12...v1.0.0-beta.0) (2021-09-27)
 
 **Note:** Version bump only for package @vue-toolkit/common
