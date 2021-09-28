@@ -43,6 +43,9 @@
         <v-column label="Description" v-slot="{ row }">
           {{ row.description }}
         </v-column>
+        <v-column label="Type" v-slot="{ row }">
+          <code class="info__code">{{ row.type }}</code>
+        </v-column>
       </v-table>
     </section>
 

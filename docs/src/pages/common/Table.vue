@@ -3,7 +3,13 @@
     title="Table"
     component-source-path="/packages/common/src/components/table"
     docs-source-path="/docs/src/pages/common/Table.vue"
-    :props="[{ name: 'data', description: `The table's source of data` }]"
+    :props="[
+      {
+        name: 'data',
+        description: `The table's source of data.`,
+        type: 'array',
+      },
+    ]"
   >
     <v-table :data="items">
       <v-column v-slot="{ row }"> # {{ row.id }} </v-column>

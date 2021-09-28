@@ -7,6 +7,7 @@
       {
         name: 'show-remove',
         description: 'Whether the remove button is rendered.',
+          type: 'boolean'
       },
     ]"
     :events="[

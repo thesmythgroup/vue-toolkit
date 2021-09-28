@@ -7,10 +7,12 @@
       {
         name: 'initial-value',
         description: 'Initial values to fill the fields with.',
+        type: 'object',
       },
       {
         name: 'validation-schema',
         description: 'An object describing a schema to validate fields with.',
+        type: 'object',
       },
     ]"
   >

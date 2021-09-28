@@ -3,7 +3,13 @@
     title="Select"
     component-source-path="/packages/forms/src/components/select"
     docs-source-path="/docs/src/pages/forms/Select.vue"
-    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+    :props="[
+      {
+        name: 'name',
+        description: 'Name of the form control.',
+        type: 'string',
+      },
+    ]"
   >
     <v-select v-model="value">
       <v-option value="1">Option #1</v-option>

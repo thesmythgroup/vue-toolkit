@@ -4,22 +4,30 @@
     component-source-path="/packages/common/src/components/dialog"
     docs-source-path="/docs/src/pages/common/Dialog.vue"
     :props="[
-      { name: 'size', description: 'Apply size class modifier.' },
+      {
+        name: 'size',
+        description: 'Apply size class modifier.',
+        type: 'string',
+      },
       {
         name: 'show-backdrop',
         description: 'Whether the dialog has a backdrop.',
+        type: 'boolean',
       },
       {
         name: 'show-close',
         description: 'Whether the dialog has a close button.',
+        type: 'boolean',
       },
       {
         name: 'backdrop-dismiss',
         description: 'Whether the dialog is dismissed on backdrop click.',
+        type: 'boolean',
       },
       {
         name: 'keyboard-dismiss',
         description: 'Whether the dialog is dismisses on the escape keypress',
+        type: 'boolean',
       },
     ]"
     :events="[

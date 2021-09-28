@@ -4,9 +4,21 @@
     component-source-path="/packages/common/src/components/button"
     docs-source-path="/docs/src/pages/common/Button.vue"
     :props="[
-      { name: 'busy', description: 'Disable button and show busy content.' },
-      { name: 'clear', description: 'Apply clear class modifier.' },
-      { name: 'outline', description: 'Apply outline class modifier.' },
+      {
+        name: 'busy',
+        description: 'Disable button and show busy content.',
+        type: 'boolean',
+      },
+      {
+        name: 'clear',
+        description: 'Apply clear class modifier.',
+        type: 'boolean',
+      },
+      {
+        name: 'outline',
+        description: 'Apply outline class modifier.',
+        type: 'boolean',
+      },
     ]"
   >
     <app-options>

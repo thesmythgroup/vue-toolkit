@@ -8,6 +8,7 @@
         name: 'allow-multiple',
         description:
           'Whether the accordion should allow multiple expanded items simultaneously.',
+          type: 'boolean'
       },
     ]"
   >

@@ -3,7 +3,13 @@
     title="Progress Bar"
     component-source-path="/packages/common/src/components/progress-bar"
     docs-source-path="/docs/src/pages/common/ProgressBar.vue"
-    :props="[{ name: 'value', description: 'Value of the progress bar.' }]"
+    :props="[
+      {
+        name: 'value',
+        description: 'Value of the progress bar.',
+        type: 'number',
+      },
+    ]"
   >
     <app-options>
       <v-field label="Value">

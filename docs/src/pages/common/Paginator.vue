@@ -8,15 +8,18 @@
         name: 'hide-page-size',
         description:
           'Whether to hide the page size selection UI from the user.',
+        type: 'boolean',
       },
       {
         name: 'length',
         description:
           'The length of the total number of items that are being paginated.',
+        type: 'number',
       },
       {
         name: 'page-size',
         description: 'Number of items to display on a page.',
+        type: 'number',
       },
     ]"
     :events="[

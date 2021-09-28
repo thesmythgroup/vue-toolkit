@@ -3,7 +3,13 @@
     title="Checkbox"
     component-source-path="/packages/forms/src/components/checkbox"
     docs-source-path="/docs/src/pages/forms/Checkbox.vue"
-    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+    :props="[
+      {
+        name: 'name',
+        description: 'Name of the form control.',
+        type: 'string',
+      },
+    ]"
   >
     <v-checkbox v-model="value">Example</v-checkbox>
 

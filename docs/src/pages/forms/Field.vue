@@ -7,6 +7,7 @@
       {
         name: 'label',
         description: 'Label to display associated to the form control.',
+        type: 'string',
       },
     ]"
   >

@@ -3,7 +3,13 @@
     title="Radio Group"
     component-source-path="/packages/forms/src/components/radio-group"
     docs-source-path="/docs/src/pages/forms/RadioGroup.vue"
-    :props="[{ name: 'name', description: 'Name of the form control.' }]"
+    :props="[
+      {
+        name: 'name',
+        description: 'Name of the form control.',
+        type: 'string',
+      },
+    ]"
   >
     <v-radio-group v-model="value">
       <v-radio-button value="1">Item #1</v-radio-button>
