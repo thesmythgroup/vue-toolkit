@@ -64,6 +64,24 @@
         <v-checkbox name="isAwesome"></v-checkbox>
       </v-field>
 
+      <v-field label="Level">
+        <v-form-control name="level" v-slot="{ control, listeners }">
+          <input
+            type="number"
+            class="input"
+            v-bind="control"
+            v-on="listeners"
+          />
+        </v-form-control>
+        <v-field-error name="required">Field is required</v-field-error>
+        <v-field-error name="min" v-slot="{ error }">
+          Must be {{ error.required }} or greater
+        </v-field-error>
+        <v-field-error name="max" v-slot="{ error }">
+          Must be {{ error.required }} or less
+        </v-field-error>
+      </v-field>
+
       <v-button class="mr-1" outline @click="reset">Reset</v-button>
       <v-button type="submit">Submit</v-button>
 
@@ -95,6 +113,7 @@ export default defineComponent({
       ],
       type: [validators.required],
       priority: [validators.required],
+      level: [validators.required, validators.min(1), validators.max(10)],
     });
 
     const load = (id: number) => {
