@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.3](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2021-09-28)
+
+
+### Bug Fixes
+
+* **forms:** deduplicate exported name ([d10d13f](https://github.com/thesmythgroup/vue-toolkit/commit/d10d13fc33fd94b824f9226168faf139d93c9296))
+
+
+
+
+
 # [1.0.0-beta.2](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2021-09-28)
 
 
