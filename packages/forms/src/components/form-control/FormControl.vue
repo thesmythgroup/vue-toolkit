@@ -1,6 +1,20 @@
 <template>
   <div>
-    <slot v-bind="{ control, listeners }" />
+    <slot
+      v-bind="{
+        dirty,
+        handleBlur,
+        handleInput,
+        id,
+        innerValue,
+        invalid,
+        pristine,
+        setValue,
+        touched,
+        untouched,
+        valid,
+      }"
+    />
   </div>
 </template>
 
@@ -37,19 +51,11 @@ export default defineComponent({
       onMounted(() => fieldSetId(id.value));
     }
 
-    const control = {
-      id: id.value,
-    };
-
-    const listeners = {
-      blur: handleBlur,
-      input: handleInput,
-    };
-
     return {
-      control,
-      listeners,
       dirty,
+      handleBlur,
+      handleInput,
+      id: id.value,
       innerValue,
       invalid,
       pristine,

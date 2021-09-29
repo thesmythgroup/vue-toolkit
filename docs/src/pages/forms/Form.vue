@@ -65,12 +65,12 @@
       </v-field>
 
       <v-field label="Level">
-        <v-form-control name="level" v-slot="{ control, listeners }">
+        <v-form-control name="level" v-slot="{ id, handleBlur, handleInput }">
           <input
             type="number"
             class="input"
-            v-bind="control"
-            v-on="listeners"
+            v-bind="{ id }"
+            v-on="{ blur: handleBlur, input: handleInput }"
           />
         </v-form-control>
         <v-field-error name="required">Field is required</v-field-error>
