@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2021-09-29)
+
+
+### Bug Fixes
+
+* **form-control:** add all items to slot content directly ([06bf197](https://github.com/thesmythgroup/vue-toolkit/commit/06bf19744a717d461f54135d3ed737eaa929979b))
+
+
+
+
+
 # [1.0.0-beta.3](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.2...v1.0.0-beta.3) (2021-09-28)
 
 
