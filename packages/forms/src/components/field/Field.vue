@@ -19,7 +19,11 @@ import {
   ref,
 } from '@vue/composition-api';
 
-import { FieldSetControlFn, FieldSetIdFn, FormControl } from '../../interfaces';
+import {
+  FieldSetControlFn,
+  FieldSetIdFn,
+  FormControlRef,
+} from '../../interfaces';
 
 export default defineComponent({
   name: 'v-field',
@@ -28,7 +32,7 @@ export default defineComponent({
   },
   setup() {
     const id = ref<string>(null);
-    const control = ref<FormControl | null>(null);
+    const control = ref<FormControlRef | null>(null);
     const required = computed(() => control.value?.required ?? false);
 
     const setId: FieldSetIdFn = (value) => {

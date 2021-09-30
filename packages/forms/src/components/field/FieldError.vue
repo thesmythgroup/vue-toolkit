@@ -6,14 +6,13 @@
 
 <script lang="ts">
 import { defineComponent, computed, inject, Ref } from '@vue/composition-api';
-import { FormControl } from '../../interfaces';
+import { FormControlRef } from '../../interfaces';
 
 export default defineComponent({
   name: 'v-field-error',
   props: {
     name: {
       type: String,
-      required: true,
     },
   },
   setup(props) {
@@ -21,13 +20,17 @@ export default defineComponent({
       'form:context',
       null
     );
-    const control = inject<Readonly<Ref<FormControl | null>>>(
+    const control = inject<Readonly<Ref<FormControlRef | null>>>(
       'field:control',
       null
     );
 
-    const error = computed(() => control.value?.errors?.[props.name]);
-    const show = computed(() => form?.submitted.value && !!error.value);
+    const error = computed(() =>
+      props.name ? control.value?.errors?.[props.name] : null
+    );
+    const show = computed(
+      () => form?.submitted.value && (!props.name || !!error.value)
+    );
 
     return { error, show };
   },
