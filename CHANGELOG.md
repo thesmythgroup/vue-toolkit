@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.5](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2021-09-30)
+
+
+### Features
+
+* **field-error:** make name optional ([c62cef1](https://github.com/thesmythgroup/vue-toolkit/commit/c62cef1abf8ce0eb6d7875c1b5a0ba8b0d38970a))
+* **forms:** add $listeners to form components ([c3e6d9e](https://github.com/thesmythgroup/vue-toolkit/commit/c3e6d9e1432f94eea5d8aa5bf210ae5bc2b2946c))
+
+
+
+
+
 # [1.0.0-beta.4](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2021-09-29)
 
 
