@@ -12,7 +12,6 @@
     }"
     :id="id"
     :value="innerValue"
-    v-on="$listeners"
     @input="handleInput"
     @blur="handleBlur"
   />

@@ -14,7 +14,6 @@
       v-bind="$attrs"
       :id="id"
       :checked="innerValue"
-      v-on="$listeners"
       @change="handleInput"
       @blur="handleBlur"
     />
