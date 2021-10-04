@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.6](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2021-10-04)
+
+
+### Bug Fixes
+
+* **forms:** remove $listeners from form components ([b8e6fd7](https://github.com/thesmythgroup/vue-toolkit/commit/b8e6fd78308d866cbce14cb393d396090cdecc84))
+
+
+
+
+
 # [1.0.0-beta.5](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2021-09-30)
 
 
