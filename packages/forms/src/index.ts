@@ -8,10 +8,8 @@ export * as validators from './validators';
 
 export default {
   install: (Vue: VueConstructor) => {
-    const all: Record<string, typeof Vue> = components;
-
-    for (const key in all) {
-      Vue.component(`V${key}`, all[key]);
-    }
+    Object.values(components).forEach((comp) => {
+      Vue.component(comp.name, comp);
+    });
   },
 };
