@@ -9,6 +9,11 @@
         description: 'Name of the form control.',
         type: 'string',
       },
+      {
+        name: 'type',
+        description: `The type of the form control. Setting this value will override the default 'type='text'' at runtime. Permitted values are listed in <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types'>input types</a>.`,
+        type: 'string',
+      },
     ]"
   >
     <v-input v-model="value"></v-input>

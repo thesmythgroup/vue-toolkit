@@ -82,6 +82,33 @@
         </v-field-error>
       </v-field>
 
+      <v-field label="Quantity">
+        <v-input name="quantity" type="number" :min="quantityLimits.min" :max="quantityLimits.max"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
+        <v-field-error name="min" v-slot="{ error }">
+          Must be {{ error.required }} characters or more
+        </v-field-error>
+        <v-field-error name="max" v-slot="{ error }">
+          Must be {{ error.required }} characters or less
+        </v-field-error>
+      </v-field>
+
+      <v-field label="Email">
+        <v-input name="email" type="email"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
+      </v-field>
+
+      <v-field label="Password">
+        <v-input name="password" type="password"></v-input>
+        <v-field-error name="required">Field is required</v-field-error>
+        <v-field-error name="minLength" v-slot="{ error }">
+          Must be {{ error.required }} characters or more
+        </v-field-error>
+        <v-field-error name="maxLength" v-slot="{ error }">
+          Must be {{ error.required }} characters or less
+        </v-field-error>
+      </v-field>
+
       <v-button class="mr-1" outline @click="reset">Reset</v-button>
       <v-button type="submit">Submit</v-button>
 
@@ -105,6 +132,7 @@ export default defineComponent({
   setup() {
     const initialValue = ref<Record<string, unknown> | null>(null);
     const submitted = ref<FormSubmitEvent | null>(null);
+    const quantityLimits = { min: 1, max: 10};
     const schema = ref({
       name: [
         validators.required,
@@ -114,6 +142,9 @@ export default defineComponent({
       type: [validators.required],
       priority: [validators.required],
       level: [validators.required, validators.min(1), validators.max(10)],
+      quantity: [validators.required, validators.min(quantityLimits.min), validators.max(quantityLimits.max)],
+      email: [validators.required],
+      password: [validators.required, validators.minLength(8), validators.maxLength(16)],
     });
 
     const load = (id: number) => {
@@ -156,6 +187,7 @@ export default defineComponent({
       schema,
       load,
       onSubmit,
+      quantityLimits,
     };
   },
 });

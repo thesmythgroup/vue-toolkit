@@ -41,7 +41,7 @@
           <code class="info__code">{{ row.name }}</code>
         </v-column>
         <v-column label="Description" v-slot="{ row }">
-          {{ row.description }}
+          <div v-html="row.description"></div>
         </v-column>
         <v-column label="Type" v-slot="{ row }">
           <code class="info__code">{{ row.type }}</code>
