@@ -1,6 +1,6 @@
 <template>
   <div class="dialog__content">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="chip">
     <div class="chip__content">
-      <slot></slot>
+      <slot />
     </div>
     <button
       type="button"

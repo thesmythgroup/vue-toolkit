@@ -22,7 +22,7 @@
         &times;
       </button>
 
-      <slot></slot>
+      <slot />
     </section>
   </div>
 </template>

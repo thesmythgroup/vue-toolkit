@@ -1,6 +1,6 @@
 <template>
   <section class="tabs__content" v-if="isActive">
-    <slot></slot>
+    <slot />
   </section>
 </template>
 

@@ -16,7 +16,7 @@
         </button>
       </li>
     </ul>
-    <slot></slot>
+    <slot />
   </section>
 </template>
 

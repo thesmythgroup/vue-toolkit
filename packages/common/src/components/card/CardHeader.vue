@@ -1,6 +1,6 @@
 <template>
   <header class="card__header">
-    <slot></slot>
+    <slot />
   </header>
 </template>
 

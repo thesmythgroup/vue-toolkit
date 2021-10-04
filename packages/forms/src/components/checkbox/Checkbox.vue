@@ -17,7 +17,7 @@
       @change="handleInput"
       @blur="handleBlur"
     />
-    <slot></slot>
+    <slot />
   </label>
 </template>
 

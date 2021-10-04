@@ -24,7 +24,7 @@
     </button>
 
     <section v-if="isOpen" class="accordion__content">
-      <slot></slot>
+      <slot />
     </section>
   </div>
 </template>

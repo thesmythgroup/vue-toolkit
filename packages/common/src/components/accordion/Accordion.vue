@@ -1,6 +1,6 @@
 <template>
   <section class="accordion">
-    <slot></slot>
+    <slot />
   </section>
 </template>
 

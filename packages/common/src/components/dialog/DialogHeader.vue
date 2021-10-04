@@ -1,6 +1,6 @@
 <template>
   <header class="dialog__header">
-    <slot></slot>
+    <slot />
   </header>
 </template>
 

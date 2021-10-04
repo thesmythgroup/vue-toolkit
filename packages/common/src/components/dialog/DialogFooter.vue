@@ -1,6 +1,6 @@
 <template>
   <footer class="dialog__footer">
-    <slot></slot>
+    <slot />
   </footer>
 </template>
 
