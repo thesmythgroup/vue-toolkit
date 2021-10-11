@@ -9,9 +9,7 @@
       'form--touched': touched,
       'form--untouched': !touched,
       'form--valid': valid,
-      'form--disabled': disabled,
     }"
-    :disabled="disabled"
   >
     <slot
       v-bind="{
@@ -41,10 +39,6 @@ export default defineComponent({
     },
     validationSchema: {
       type: Object,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
     },
   },
   setup(props, { emit }) {
