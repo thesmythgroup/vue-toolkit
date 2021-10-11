@@ -8,8 +8,10 @@
       'radio-group--touched': touched,
       'radio-group--untouched': untouched,
       'radio-group--valid': valid,
+      'radio-group--disabled': disabled,
     }"
     role="radiogroup"
+    :disabled="disabled"
   >
     <slot />
   </div>
@@ -29,6 +31,10 @@ export default defineComponent({
       default: getUniqueId('radio-group-'),
     },
     value: [String, Number],
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const {

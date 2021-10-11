@@ -8,7 +8,9 @@
       'select--touched': touched,
       'select--untouched': untouched,
       'select--valid': valid,
+      'select--disabled': disabled,
     }"
+    :disabled="disabled"
     :id="id"
     :value="innerValue"
     @blur="handleBlur"
@@ -36,6 +38,10 @@ export default defineComponent({
   props: {
     name: String,
     value: [String, Number],
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const {

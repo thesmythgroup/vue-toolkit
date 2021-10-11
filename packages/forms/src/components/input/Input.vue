@@ -9,7 +9,9 @@
       'input--touched': touched,
       'input--untouched': untouched,
       'input--valid': valid,
+      'input--disabled': disabled,
     }"
+    :disabled="disabled"
     :id="id"
     :value="innerValue"
     @input="handleInput"
@@ -35,6 +37,10 @@ export default defineComponent({
   props: {
     name: String,
     value: [String, Number],
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const {
