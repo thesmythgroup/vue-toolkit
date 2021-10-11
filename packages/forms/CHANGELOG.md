@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0...v1.1.0) (2021-10-11)
+
+
+### Features
+
+* **forms:** add disabled class to form controls ([#20](https://github.com/thesmythgroup/vue-toolkit/issues/20)) ([070aad5](https://github.com/thesmythgroup/vue-toolkit/commit/070aad56d8f8696474e56cc7cf54c69fcfa85826))
+
+
+
+
+
 # [1.0.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0-rc.1...v1.0.0) (2021-10-07)
 
 **Note:** Version bump only for package @vue-toolkit/forms
