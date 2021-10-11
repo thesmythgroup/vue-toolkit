@@ -10,6 +10,8 @@
         'checkbox__input--touched': touched,
         'checkbox__input--untouched': untouched,
         'checkbox__input--valid': valid,
+        'checkbox__input--disabled': disabled,
+        'checkbox__input--checked': innerValue,
       }"
       v-bind="$attrs"
       :id="id"
@@ -40,6 +42,10 @@ export default defineComponent({
   props: {
     name: String,
     value: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const {

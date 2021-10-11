@@ -8,6 +8,7 @@
       'textarea--touched': touched,
       'textarea--untouched': untouched,
       'textarea--valid': valid,
+      'textarea--disabled': disabled,
     }"
     :id="id"
     :value="innerValue"
@@ -34,6 +35,10 @@ export default defineComponent({
   props: {
     name: String,
     value: String,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const {

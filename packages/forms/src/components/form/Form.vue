@@ -9,6 +9,7 @@
       'form--touched': touched,
       'form--untouched': !touched,
       'form--valid': valid,
+      'form--disabled': disabled,
     }"
   >
     <slot
@@ -39,6 +40,10 @@ export default defineComponent({
     },
     validationSchema: {
       type: Object,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props, { emit }) {
