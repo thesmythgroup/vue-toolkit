@@ -11,6 +11,7 @@
       'input--valid': valid,
       'input--disabled': disabled,
     }"
+    :disabled="disabled"
     :id="id"
     :value="innerValue"
     @input="handleInput"

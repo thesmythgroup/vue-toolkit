@@ -11,6 +11,7 @@
       'radio-group--disabled': disabled,
     }"
     role="radiogroup"
+    :disabled="disabled"
   >
     <slot />
   </div>

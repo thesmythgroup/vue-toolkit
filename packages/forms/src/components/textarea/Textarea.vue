@@ -10,6 +10,7 @@
       'textarea--valid': valid,
       'textarea--disabled': disabled,
     }"
+    :disabled="disabled"
     :id="id"
     :value="innerValue"
     @input="handleInput"

@@ -14,6 +14,7 @@
         'checkbox__input--checked': innerValue,
       }"
       v-bind="$attrs"
+      :disabled="disabled"
       :id="id"
       :checked="innerValue"
       @change="handleInput"

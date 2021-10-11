@@ -11,6 +11,7 @@
       'form--valid': valid,
       'form--disabled': disabled,
     }"
+    :disabled="disabled"
   >
     <slot
       v-bind="{

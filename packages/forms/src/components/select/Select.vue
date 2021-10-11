@@ -10,6 +10,7 @@
       'select--valid': valid,
       'select--disabled': disabled,
     }"
+    :disabled="disabled"
     :id="id"
     :value="innerValue"
     @blur="handleBlur"
