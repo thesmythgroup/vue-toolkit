@@ -3,6 +3,7 @@
   <section class="paginator">
     <!-- pages -->
     <select
+      aria-label="Items per page"
       class="paginator__page-size"
       v-if="!hidePageSize"
       v-model="currentSize"
