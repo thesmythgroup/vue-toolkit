@@ -59,6 +59,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
+    const modal = ref<HTMLElement>(null);
     const trap = ref<focusTrap.FocusTrap | null>(null);
 
     const dismiss = (reason: string) => {
@@ -82,13 +83,22 @@ export default defineComponent({
       dismiss('close');
     };
 
-    onMounted(() => window.addEventListener('keyup', handleKeyup));
+    onMounted(() => {
+      window.addEventListener('keyup', handleKeyup);
+      trap.value = focusTrap.createFocusTrap(modal.value, {
+        allowOutsideClick: true,
+        escapeDeactivates: props.keyboardDismiss,
+      });
+      trap.value.activate();
+    });
+
     onUnmounted(() => {
       window.removeEventListener('keyup', handleKeyup);
       trap.value?.deactivate();
     });
 
     return {
+      modal,
       trap,
       handleKeyup,
       handleClose,
