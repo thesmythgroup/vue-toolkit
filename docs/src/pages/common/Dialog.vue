@@ -31,7 +31,7 @@
       },
     ]"
     :events="[
-      { name: 'dismiss', description: 'Emitted when a chip is dismissed.' },
+      { name: 'dismiss', description: 'Emitted when a dialog is dismissed.' },
     ]"
   >
     <app-options>
