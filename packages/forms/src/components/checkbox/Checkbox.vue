@@ -20,6 +20,7 @@
       @change="handleInput"
       @blur="handleBlur"
     />
+    <span class="checkbox__indicator" />
     <slot />
   </label>
 </template>
