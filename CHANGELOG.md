@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.1.0...v1.2.0) (2021-10-12)
+
+
+### Bug Fixes
+
+* **dialog:** focus trap ([2242a2f](https://github.com/thesmythgroup/vue-toolkit/commit/2242a2f01dff0a8243a9e9c41110cfc3a2cccfad)), closes [#21](https://github.com/thesmythgroup/vue-toolkit/issues/21) [#22](https://github.com/thesmythgroup/vue-toolkit/issues/22)
+* **paginator:** missing aria label ([39e94c1](https://github.com/thesmythgroup/vue-toolkit/commit/39e94c18b947a82016f57c6a4191c5e9ebf2f143)), closes [#26](https://github.com/thesmythgroup/vue-toolkit/issues/26)
+
+
+### Features
+
+* **checkbox:** add indicator element ([e626881](https://github.com/thesmythgroup/vue-toolkit/commit/e626881246459c283cdc329971296d20c58d23f6))
+
+
+
+
+
 # [1.1.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0...v1.1.0) (2021-10-11)
 
 

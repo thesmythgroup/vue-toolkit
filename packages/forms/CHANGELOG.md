@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.1.0...v1.2.0) (2021-10-12)
+
+
+### Features
+
+* **checkbox:** add indicator element ([e626881](https://github.com/thesmythgroup/vue-toolkit/commit/e626881246459c283cdc329971296d20c58d23f6))
+
+
+
+
+
 # [1.1.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.0.0...v1.1.0) (2021-10-11)
 
 
