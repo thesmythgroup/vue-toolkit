@@ -2,7 +2,7 @@
   <div class="popover" ref="root">
     <slot name="trigger" v-bind="{ isOpen, toggle, open, close }" />
 
-    <div class="popover__content" v-if="isOpen">
+    <div class="popover__content" v-if="isOpen" id="popover">
       <slot v-bind="{ isOpen, toggle, open, close }" />
     </div>
   </div>
@@ -14,6 +14,7 @@ import {
   ref,
   onMounted,
   onUnmounted,
+  nextTick,
 } from '@vue/composition-api';
 
 export default defineComponent({
@@ -22,9 +23,37 @@ export default defineComponent({
     const isOpen = ref(false);
     const root = ref<HTMLElement | null>(null);
 
-    const toggle = () => (isOpen.value = !isOpen.value);
-    const open = () => (isOpen.value = true);
+    const toggle = () => (
+      (isOpen.value = !isOpen.value), nextTick(() => _handlePopoverPosition())
+    );
+    const open = () => (
+      (isOpen.value = true), nextTick(() => _handlePopoverPosition())
+    );
     const close = () => (isOpen.value = false);
+
+    const _handlePopoverPosition = () => {
+      if (!isOpen.value) {
+        return;
+      }
+      const popover = document.getElementById('popover');
+      const placeholderRect = root.value?.getBoundingClientRect();
+      const dropdownRect = popover?.getBoundingClientRect();
+
+      const dropdownRightX = dropdownRect.x + dropdownRect.width;
+      const placeholderRightX = placeholderRect.x + placeholderRect.width;
+
+      if (dropdownRect.x < 0) {
+        popover.style.left = '0';
+        popover.style.right = 'auto';
+        popover.style.transform = `translateX(${-placeholderRect.x}px)`;
+      } else if (dropdownRightX > window.innerWidth) {
+        popover.style.left = 'auto';
+        popover.style.right = '0';
+        popover.style.transform = `translateX(${
+          window.innerWidth - placeholderRightX
+        }px)`;
+      }
+    };
 
     const handleBodyClick = (event: Event) => {
       const { target } = event;
