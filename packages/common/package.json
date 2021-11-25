@@ -45,6 +45,7 @@
     "vue": "^2.6.0"
   },
   "dependencies": {
+    "@popperjs/core": "^2.10.2",
     "focus-trap": "^6.6.0"
   },
   "devDependencies": {

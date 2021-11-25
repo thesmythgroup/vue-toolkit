@@ -1,8 +1,10 @@
 <template>
   <div class="popover" ref="root">
-    <slot name="trigger" v-bind="{ isOpen, toggle, open, close }" />
+    <div ref="trigger">
+      <slot name="trigger" v-bind="{ isOpen, toggle, open, close }" />
+    </div>
 
-    <div class="popover__content" v-if="isOpen">
+    <div class="popover__content" v-show="isOpen" ref="content">
       <slot v-bind="{ isOpen, toggle, open, close }" />
     </div>
   </div>
@@ -15,15 +17,25 @@ import {
   onMounted,
   onUnmounted,
 } from '@vue/composition-api';
+import { createPopper } from '@popperjs/core';
 
 export default defineComponent({
   name: 'v-popover',
   setup() {
     const isOpen = ref(false);
     const root = ref<HTMLElement | null>(null);
+    let popoverRef = ref(null);
+    const trigger = ref<HTMLElement | null>(null);
+    const content = ref<HTMLElement | null>(null);
 
-    const toggle = () => (isOpen.value = !isOpen.value);
-    const open = () => (isOpen.value = true);
+    const toggle = () => {
+      isOpen.value = !isOpen.value;
+      popoverRef.update();
+    };
+    const open = () => {
+      isOpen.value = true;
+      popoverRef.update();
+    };
     const close = () => (isOpen.value = false);
 
     const handleBodyClick = (event: Event) => {
@@ -41,7 +53,13 @@ export default defineComponent({
       }
     };
 
-    onMounted(() => document.body.addEventListener('click', handleBodyClick));
+    onMounted(() => {
+      document.body.addEventListener('click', handleBodyClick);
+      popoverRef = createPopper(trigger.value, content.value, {
+        placement: 'bottom-start',
+      });
+    });
+
     onUnmounted(() =>
       document.body.removeEventListener('click', handleBodyClick)
     );
@@ -49,6 +67,8 @@ export default defineComponent({
     return {
       root,
       isOpen,
+      trigger,
+      content,
       toggle,
       open,
       close,
