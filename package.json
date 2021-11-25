@@ -27,8 +27,5 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.10.2"
   }
 }

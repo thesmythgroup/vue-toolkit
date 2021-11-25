@@ -1,10 +1,10 @@
 <template>
-  <div class="pop" ref="root">
+  <div class="popover" ref="root">
     <div ref="trigger">
       <slot name="trigger" v-bind="{ isOpen, toggle, open, close }" />
     </div>
 
-    <div class="pop__content" v-show="isOpen" ref="content">
+    <div class="popover__content" v-show="isOpen" ref="content">
       <slot v-bind="{ isOpen, toggle, open, close }" />
     </div>
   </div>
@@ -24,12 +24,18 @@ export default defineComponent({
   setup() {
     const isOpen = ref(false);
     const root = ref<HTMLElement | null>(null);
-    let _popover = ref(null);
+    let popoverRef = ref(null);
     const trigger = ref<HTMLElement | null>(null);
     const content = ref<HTMLElement | null>(null);
 
-    const toggle = () => ((isOpen.value = !isOpen.value), _popover.update());
-    const open = () => ((isOpen.value = true), _popover.update());
+    const toggle = () => {
+      isOpen.value = !isOpen.value;
+      popoverRef.update();
+    };
+    const open = () => {
+      isOpen.value = true;
+      popoverRef.update();
+    };
     const close = () => (isOpen.value = false);
 
     const handleBodyClick = (event: Event) => {
@@ -49,7 +55,7 @@ export default defineComponent({
 
     onMounted(() => {
       document.body.addEventListener('click', handleBodyClick);
-      _popover = createPopper(trigger.value, content.value, {
+      popoverRef = createPopper(trigger.value, content.value, {
         placement: 'bottom-start',
       });
     });
