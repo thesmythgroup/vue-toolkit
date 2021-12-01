@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.2.0...v1.3.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** improve popover positioning ([#29](https://github.com/thesmythgroup/vue-toolkit/issues/29)) ([34af91b](https://github.com/thesmythgroup/vue-toolkit/commit/34af91b624d40f8c4e5eca24a938c35723826bae))
+
+
+
+
+
 # [1.2.0](https://github.com/thesmythgroup/vue-toolkit/compare/v1.1.0...v1.2.0) (2021-10-12)
 
 
