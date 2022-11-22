@@ -43,6 +43,7 @@ export default defineComponent({
   },
   setup(props, { emit }) {
     const {
+      controls,
       dirty,
       errors,
       handleSubmit,
@@ -56,10 +57,13 @@ export default defineComponent({
 
     watch(
       () => props.initialValue,
-      (newValue) => setValue(newValue)
+      (newValue) => {
+        if (newValue) setValue(newValue);
+      }
     );
 
     return {
+      controls,
       dirty,
       errors,
       handleSubmit,

@@ -4,6 +4,7 @@ import {
   FormAddControlFn,
   FormControlRef,
   FormOptions,
+  FormRef,
   FormRemoveControlFn,
   FormSubmitEvent,
   ValidatorErrors,
@@ -108,7 +109,8 @@ export function useForm(
     setValue(opts.initialValue);
   }
 
-  return {
+  return <FormRef>{
+    controls,
     dirty,
     errors,
     handleSubmit,

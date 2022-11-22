@@ -1,4 +1,9 @@
-import { ComputedRef, Ref, DeepReadonly } from '@vue/composition-api';
+import {
+  ComputedRef,
+  Ref,
+  DeepReadonly,
+  UnwrapRef,
+} from '@vue/composition-api';
 
 export interface FormSubmitEvent<T = Record<string, any>> {
   dirty: boolean;
@@ -37,4 +42,17 @@ export type FieldSetIdFn = (id: string) => void;
 export interface FormOptions<T = Record<string, any>> {
   initialValue?: T;
   validationSchema?: Record<string, ValidatorFn[]>;
+}
+
+export interface FormRef<T = Record<string, any>> {
+  controls: Ref<Record<string, UnwrapRef<FormControlRef>>>;
+  dirty: ComputedRef<boolean>;
+  errors: ComputedRef<ValidatorErrors | null>;
+  handleSubmit: (e: Event) => void;
+  reset: () => void;
+  setValue: (value: Record<string, any>) => void;
+  submitted: Ref<boolean>;
+  touched: ComputedRef<boolean>;
+  valid: ComputedRef<boolean>;
+  value: ComputedRef<T>;
 }
